@@ -1,3 +1,25 @@
+#Summary of Individual Contributions
+Here
+#Value Proposition
+you
+#App Structure
+see
+
+#App Behavior
+stuff
+#Data Model
+--------------------------------------------------------------------------------
+#(API Reference)
+#Design Desicions
+#User Evaluation
+#Goals Archieved & Missed
+#Possibile Improvements
+#Peer Review
+
+
+
+
+
 # Contents of this repository
 
 This repository contains some starter code for your semester project:
