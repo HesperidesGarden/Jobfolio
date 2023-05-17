@@ -32,7 +32,10 @@ def get_lists():
 		complete = db_con.execute(sql_query).fetchone()['complete']
 		list['complete'] = complete
 		lists.append(list)
-	return render_template('lists.html', lists=lists)
+	if request.args.get('json') is not None:
+		return lists
+	else:
+		return render_template('lists.html', lists=lists)
 
 @app.route('/lists/<int:list_id>')
 def get_list_todos(list_id):
@@ -45,7 +48,6 @@ def get_list_todos(list_id):
 	db_con = db.get_db_con()
 	list = {}
 	list['name'] = db_con.execute(sql_query_1).fetchone()['name']
-	list['todos'] = db_con.execute(sql_query_2).fetchall()
 	list['todos'] = db_con.execute(sql_query_2).fetchall()
 	if request.args.get('json') is not None:
 		list['todos'] = [dict(todo) for todo in list['todos']]

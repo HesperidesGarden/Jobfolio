@@ -1,23 +1,13 @@
-{% extends 'base.html' %}
-{% block HEADER %}
-	<h2>{% block TITLE %}Lists{% endblock %}</h2>
-{% endblock %}
-{% block CONTENT %}
-<ul>
-{% for list in lists %}
-<li>
-	<input
-		type="checkbox"
-		disabled=disabled
-		data-id="{{ list.id }}"
-		id="{{ list.id }}"
-		{% if list.complete %} checked {%endif%}
-	>				
-	<label for={{ list.id }}>
-		<a href="{{ url_for('get_list_todos', list_id=list.id) }}">
-			{{ list.name }}</a>
-	</label>
-</li>
-{% endfor %}
-</ul>
-{% endblock %}
+<!doctype html>
+<title>{% block TITLE %}{% endblock %} - To-Do App</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+	<h1>To-Do App</h1>
+	<ul>
+		<li><a href="{{ url_for('get_lists') }}">Lists</a>
+	</ul>
+</nav>
+<section class="content">
+	<header>{% block HEADER %}{% endblock %}</header>
+	{% block CONTENT %}{% endblock %}
+</section>
