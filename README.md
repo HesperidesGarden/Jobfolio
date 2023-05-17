@@ -1,18 +1,21 @@
-# Summary of Individual Contributions 
+# Project JobFolio
 
-**Victoria:**
+
+## Victoria:
 + Documentation
 + My Projects (Front- and Backend)
 
-**Florian:**
+## Florian:
 + Database structure
 + Login, Registration and Account (Front- and Backend)
 + Portfolio (Backend)
 
-**Khanh Linh:** 
+## Khanh Linh:
 + Frontend Design
 + Homepage and Defaultpages (Front- and Backend)
 + Portfolio (Frontend)
+
+
 
 
 # Value Proposition
