@@ -11,9 +11,39 @@ app.config.from_mapping(
 app.cli.add_command(db.init_db)
 app.teardown_appcontext(db.close_db_con)
 
+# Home = Default
 @app.route('/')
 def index():
-	return redirect(url_for('get_lists'))
+	return redirect(url_for('get_home'))
+
+# Home Route
+@app.route('/home/')
+def get_home():
+	return render_template('home.html') 
+
+# Login Route
+@app.route('/login/')
+def get_login():
+	return render_template('login.html') 
+
+# FindJobs Route
+@app.route('/findjobs/')
+def get_findjobs():
+	return render_template('findjobs.html') 
+
+# SkillMatch Route
+@app.route('/skillmatch/')
+def get_skillmatch():
+	return render_template('skillmatch.html') 
+
+# MyPortfolio Route
+@app.route('/myportfolio/')
+def myportfolio():
+	return render_template('myportfolio.html') 
+
+
+
+
 
 @app.route('/lists/')
 def get_lists():
@@ -59,3 +89,4 @@ def get_list_todos(list_id):
 def run_insert_sample():
 	db.insert_sample()
 	return 'Database flushed and populated with some sample data.'
+
