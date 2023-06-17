@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JobFolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/528437729265188864/1110823981398884423/logo_transparent.png">
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Find Jobs</a></li>
+          <li><a href="#">Skill Match</a></li>
+          <li><a href="#">My Portfolio</a></li>
+          <li><a href="{{url_for('get_login') }}">Login</a>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="content">
+      <div class="content-box">
+        <h2 class="content-header">Your career starts here.</h2>
+        <p class="content-text">Welcome to JobFolio - the perfect platform for entry-level job seekers! We help simplify the job application process by providing a user-friendly web application to create your professional portfolio and apply to entry-level positions with ease. Start your career journey with us today!</p>
+      </div>
+      <img src="https://cdn.discordapp.com/attachments/528437729265188864/1110823981398884423/logo_transparent.png" alt="Image">
+    </div>
+  </div>
+
+</body>
+</html>
