@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template, redirect, url_for, request
-import db
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+from dao import UsersDAO, EducationDAO, LanguageDAO, ProjectDAO, SkillDAO
 
 app = Flask(__name__)
 
@@ -8,8 +10,13 @@ app.config.from_mapping(
 	SECRET_KEY='secret_key_just_for_dev_environment',
 	DATABASE=os.path.join(app.instance_path, 'todos.sqlite')
 )
-app.cli.add_command(db.init_db)
-app.teardown_appcontext(db.close_db_con)
+
+users_dao = UsersDAO()
+education_dao = EducationDAO
+language_dao = LanguageDAO
+project_dao = ProjectDAO
+skill_dao = SkillDAO
+
 
 # Home = Default
 @app.route('/')
@@ -21,10 +28,28 @@ def index():
 def get_home():
 	return render_template('home.html') 
 
-# Login Route
-@app.route('/login/')
-def get_login():
-	return render_template('login.html') 
+# Login Route # chatgpt-generated
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        user = users_dao.login(email, password)
+
+        if user:
+            return redirect(url_for('home'))  # Weiterleitung zur '/home/'-Route in app.py
+        else:
+            return 'Ungültige Anmeldedaten'
+
+    return render_template('login.html')
+
+
+@app.route('/logout')
+def logout():
+    users_dao.logout()
+    return redirect(url_for('/'))
+
 
 # FindJobs Route
 @app.route('/findjobs/')
