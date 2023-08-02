@@ -10,7 +10,7 @@ engine = create_engine(DATABASE_URL, echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-class SkillsDAO:
+class SkillDAO:
     @classmethod
     def get_skills_by_user_id(cls, user_id):
         return session.query(Skill).filter_by(users_id=user_id).all()

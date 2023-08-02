@@ -12,7 +12,7 @@ engine = create_engine(DATABASE_URL, echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-class ProjectsDAO:
+class ProjectDAO:
     @classmethod
     def get_projects_by_user_id(cls, user_id):
         return session.query(Project).filter_by(users_id=user_id).all()

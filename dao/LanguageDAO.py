@@ -12,7 +12,7 @@ engine = create_engine(DATABASE_URL, echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-class LanguagesDAO:
+class LanguageDAO:
     @classmethod
     def get_languages_by_user_id(cls, user_id):
         return session.query(Language).filter_by(users_id=user_id).all()

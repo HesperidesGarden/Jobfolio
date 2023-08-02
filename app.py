@@ -2,7 +2,14 @@ import os
 from flask import Flask, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from dao import UsersDAO, EducationDAO, LanguageDAO, ProjectDAO, SkillDAO
+from dao.usersDAO import UsersDAO
+from dao.educationDAO import EducationDAO
+from dao.languageDAO import LanguageDAO
+from dao.projectDAO import ProjectDAO
+from dao.skillDAO import SkillDAO
+
+
+
 
 app = Flask(__name__)
 
