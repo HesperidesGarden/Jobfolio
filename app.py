@@ -2,11 +2,11 @@ import os
 from flask import Flask, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from dao.usersDAO import UsersDAO
+from dao.UsersDAO import UsersDAO
 from dao.educationDAO import EducationDAO
-from dao.languageDAO import LanguageDAO
-from dao.projectDAO import ProjectDAO
-from dao.skillDAO import SkillDAO
+from dao.LanguageDAO import LanguageDAO
+from dao.ProjectDAO import ProjectDAO
+from dao.SkillDAO import SkillDAO
 
 
 
