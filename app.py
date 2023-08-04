@@ -19,10 +19,10 @@ app.config.from_mapping(
 )
 
 users_dao = UsersDAO()
-education_dao = EducationDAO
-language_dao = LanguageDAO
-project_dao = ProjectDAO
-skill_dao = SkillDAO
+education_dao = EducationDAO()
+language_dao = LanguageDAO()
+project_dao = ProjectDAO()
+skill_dao = SkillDAO()
 
 
 # Home = Default
