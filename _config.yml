@@ -15,21 +15,21 @@ callouts:
     color: yellow
 sidebar:
   - title: Value Proposition
-    url: /value-proposition/
+    url: /docs/value-proposition/
   - title: App Structure
-    url: /app-structure/
+    url: /docs/app-structure/
   - title: App Behavior
-    url: /app-behavior/
+    url: /docs/app-behavior/
   - title: Data Model
-    url: /data-model/
+    url: /docs/data-model/
   - title: Design Desicions
-    url: /design-desicions/
+    url: /docs/design-desicions/
   - title: User Evaluation
-    url: /user-evaluation/
+    url: /docs/user-evaluation/
   - title: Goals Archieved & Missed
-    url: /goals-archieved-missed/
+    url: /docs/goals-archieved-missed/
   - title: Possibile Improvements
-    url: /possibile-improvements/
+    url: /docs/possibile-improvements/
   - title: Peer Review
-    url: /peer-review/
+    url: /docs/peer-review/
 
