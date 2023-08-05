@@ -13,3 +13,23 @@ callouts:
   attention:
     title: ❕ Attention
     color: yellow
+sidebar:
+  - title: Value Proposition
+    url: /value-proposition/
+  - title: App Structure
+    url: /app-structure/
+  - title: App Behavior
+    url: /app-behavior/
+  - title: Data Model
+    url: /data-model/
+  - title: Design Desicions
+    url: /design-desicions/
+  - title: User Evaluation
+    url: /user-evaluation/
+  - title: Goals Archieved & Missed
+    url: /goals-archieved-missed/
+  - title: Possibile Improvements
+    url: /possibile-improvements/
+  - title: Peer Review
+    url: /peer-review/
+
