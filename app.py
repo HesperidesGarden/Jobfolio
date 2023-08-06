@@ -70,7 +70,17 @@ def get_skillmatch():
 # MyPortfolio Route
 @app.route('/portfolio/')
 def get_portfolio():
-	return render_template('portfolio.html') 
+    if 1==0: #replace pls
+        # User is logged in, show the project_form.html
+        return render_template('portfolio.html')
+    else:
+        # User is not logged in, redirect to portfolio_logged_out.html
+        return redirect(url_for('portfolio_logged_out'))
+
+@app.route('/portfolio_logged_out/')
+def portfolio_logged_out():
+    return render_template('portfolio_logged_out.html')
+
 
 # ProjectForms Route
 @app.route('/project_form/')

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JobFolio</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='portfolio_logged_out.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/528437729265188864/1110823981398884423/logo_transparent.png">
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="{{url_for('get_home') }}">Home</a></li>
+          <li><a href="#">Find Jobs</a></li>
+          <li><a href="#">Skill Match</a></li>
+          <li><a href="{{url_for('get_portfolio') }}">Portfolio</a></li>
+          <li><a href="{{url_for('login') }}">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="content">
+      <div class="content-box">
+        <h2 class="content-header">Create an account and get started with your Portfolio!</h2>
+        <p class="content-text">Welcome to JobFolio! With JobFolio, you can create a professional portfolio to showcase your skills and accomplishments to potential employers. Sign up today to get started on your portfolio and increase your chances of landing your dream job.</p>
+        <a href="{{url_for('login')}}" class="button">Get Started</a>
+      </div>
+    </div>
+
+    <div class="tutorial-section">
+      <h2 class="tutorial-header">Getting Started Guide</h2>
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <h3 class="step-title">Step 1: Sign Up</h3>
+          <p class="step-description">Create an account on JobFolio by clicking on the "Get Started" button above. Fill in your details and choose a strong password for your account.</p>
+        </div>
+        <div class="tutorial-step">
+          <h3 class="step-title">Step 2: Build Your Portfolio</h3>
+          <p class="step-description">Once you're logged in, you can start building your portfolio. Add your projects, experiences, skills, and more to showcase your expertise.</p>
+        </div>
+        <div class="tutorial-step">
+          <h3 class="step-title">Step 3: Customize</h3>
+          <p class="step-description">Personalize your portfolio with your preferred design, layout, and color scheme. Make it unique and eye-catching.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
