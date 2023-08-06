@@ -7,6 +7,7 @@ from dao.educationDAO import EducationDAO
 from dao.LanguageDAO import LanguageDAO
 from dao.ProjectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
+from project_form import project_form
 
 # .\venv\Scripts\activate.bat
 
@@ -85,7 +86,18 @@ def portfolio_logged_out():
 # ProjectForms Route
 @app.route('/project_form/', methods=["GET", "POST"])
 def get_project_form():
-	return render_template('project_form.html') 
+    return project_form()
+   
+
+   
+
+@app.route("/submit", methods=["POST"])
+def submit_project():
+    return redirect("/portfolio/")
+
+
+
+
 
 # TEST ROUTE FÜR HTML SHIT MUSS ENTFERNT WERDEN AM ENDE
 # ---
