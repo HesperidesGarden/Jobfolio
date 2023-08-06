@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login and Registration</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+  <title>Login</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
 </head>
 <body>
+  <!-- Menu Bar -->
   <header>
     <div class="container">
       <div class="logo">
         <img src="https://cdn.discordapp.com/attachments/528437729265188864/1110823981398884423/logo_transparent.png">
       </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Find Jobs</a></li>
+          <li><a href="#">Skill Match</a></li>
+          <li><a href="#">My Portfolio</a></li>
+          <li><a href="{{url_for('login') }}">Login</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
-  <div class="container">
-    <div class="form-container">
-      <h1>Login</h1>
-      <form id="login-form">
-        <input type="email" id="email", name="email" placeholder="Username">
-        <input type="password" id="password" name="password" required><br>
-        <button type="submit">Login</button>
-        <p class="switch-form">Don't have an account? <span id="switch-to-register">Register</span></p>
-      </form>
 
-      <h1>Register</h1>
-      <form id="register-form">
-        <input type="text" id="register-username" placeholder="Username">
-        <input type="password" id="register-password" placeholder="Password">
-        <button type="submit">Register</button>
-        <p class="switch-form">Already have an account? <span id="switch-to-login">Login</span></p>
-      </form>
+  <!-- Login Form -->
+  <div class="login-container">
+    <div class="container">
+      <div class="content">
+        <div class="content-box">
+          <header>
+            <h1 class="content-header">Login</h1>
+          </header>
+          <form action="#" method="post">
+            <div class="form-field">
+              <label for="email">Email:</label>
+              <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-field">
+              <label for="password">Password:</label>
+              <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <button>Login</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-
 </body>
 </html>
