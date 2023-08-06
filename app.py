@@ -83,7 +83,7 @@ def portfolio_logged_out():
 
 
 # ProjectForms Route
-@app.route('/project_form/')
+@app.route('/project_form/', methods=["GET", "POST"])
 def get_project_form():
 	return render_template('project_form.html') 
 
