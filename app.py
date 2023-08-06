@@ -87,3 +87,10 @@ def portfolio_logged_out():
 def get_project_form():
 	return render_template('project_form.html') 
 
+# TEST ROUTE FÜR HTML SHIT MUSS ENTFERNT WERDEN AM ENDE
+# ---
+# ---
+# ---
+@app.route('/test/')
+def test():
+	return render_template('portfolio.html') 
