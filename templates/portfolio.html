@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='portfolio.css') }}">
+</head>
+<body>
+  <!-- Menu Bar -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/528437729265188864/1110823981398884423/logo_transparent.png">
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Find Jobs</a></li>
+          <li><a href="#">Skill Match</a></li>
+          <li><a href="#">My Portfolio</a></li>
+          <li><a href="#" id="login">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Profile Introduction -->
+  <div class="profile-container">
+    <div class="profile-content">
+      <!-- Profile Picture (Placeholder) -->
+      <div class="profile-picture">
+        <img src="placeholder-profile-picture.png" alt="Profile Picture">
+      </div>
+      <!-- Title and Name -->
+      <h1 class="profile-name">[Your Name]</h1>
+      <!-- Description Box (Placeholder) -->
+      <div class="description-box">
+        <p>[Your profile introduction here. Maximum 500 characters]</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

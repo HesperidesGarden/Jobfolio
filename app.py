@@ -57,7 +57,6 @@ def logout():
     users_dao.logout()
     return redirect(url_for('/'))
 
-
 # FindJobs Route
 @app.route('/findjobs/')
 def get_findjobs():
@@ -69,6 +68,6 @@ def get_skillmatch():
 	return render_template('skillmatch.html') 
 
 # MyPortfolio Route
-@app.route('/myportfolio/')
-def myportfolio():
-	return render_template('myportfolio.html') 
+@app.route('/portfolio/')
+def get_portfolio():
+	return render_template('portfolio.html') 
