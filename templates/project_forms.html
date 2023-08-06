@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Projekt Formular</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='project-forms.css') }}">
+</head>
+
+<body>
+    <!-- Menu Bar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://cdn.discordapp.com/attachments/528437729265188864/1110823981398884423/logo_transparent.png">
+            </div>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Find Jobs</a></li>
+                    <li><a href="#">Skill Match</a></li>
+                    <li><a href="#">My Portfolio</a></li>
+                    <li><a href="{{url_for('login') }}">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Projekt Formular -->
+    <div class="project-forms-container">
+        <div class="container">
+            <div class="content">
+                <div class="content-box">
+                    <header>
+                        <h1 class="content-header">Projekt Formular</h1>
+                    </header>
+                    <form action="/submit" method="post" enctype="multipart/form-data">
+                        <div class="form-field">
+                            <label for="project_name">Projektname:</label>
+                            <input type="text" id="project_name" name="project_name" placeholder="Enter project name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="description">Beschreibung:</label>
+                            <textarea id="description" name="description" rows="4" placeholder="Enter project description" required></textarea>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="role">Rolle:</label>
+                            <input type="text" id="role" name="role" placeholder="Enter your role" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="url_project">Projekt-URL:</label>
+                            <input type="url" id="url_project" name="url_project" placeholder="Enter project URL" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="picture">Bild hochladen:</label>
+                            <input type="file" id="picture" name="picture" accept="image/*" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="duration">Dauer:</label>
+                            <input type="text" id="duration" name="duration" placeholder="Enter project duration" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="difficulty">Schwierigkeit:</label>
+                            <input type="text" id="difficulty" name="difficulty" placeholder="Enter project difficulty" required>
+                        </div>
+
+                        <button type="submit">Absenden</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
