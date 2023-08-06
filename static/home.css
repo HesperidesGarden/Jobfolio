@@ -20,16 +20,13 @@ header {
 
 .logo img {
     max-width: 200px;
-    /* Adjust the width as desired */
 }
 
 nav {
     text-align: center;
     margin-bottom: 20px;
     background-color: #f2f2f2;
-    /* Menu bar background color */
     padding: 10px 0;
-    /* Adjust padding as desired */
 }
 
 nav ul {
@@ -50,20 +47,6 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #333;
-    color: #fff;
-}
-
-#login {
-    text-decoration: none;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    float: right;
-}
-
-#login:hover {
     background-color: #333;
     color: #fff;
 }

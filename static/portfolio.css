@@ -51,23 +51,9 @@ nav ul li a:hover {
   color: #fff;
 }
 
-#login {
-  text-decoration: none;
-  color: #333;
-  padding: 10px 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-  float: right;
-}
-
-#login:hover {
-  background-color: #333;
-  color: #fff;
-}
-
 .profile-container {
   display: flex;
-  max-width: 960px; 
+  width: 960px; 
   margin: 0 auto; 
   justify-content: center;
   align-items: center;

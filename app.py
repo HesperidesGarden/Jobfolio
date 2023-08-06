@@ -88,8 +88,10 @@ def portfolio_logged_out():
 def get_project_form():
     return project_form()
    
-
-   
+# Signup Route
+@app.route('/signup/')
+def get_signup():
+	return render_template('signup.html') 
 
 @app.route("/submit", methods=["POST"])
 def submit_project():

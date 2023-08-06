@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+  <title>Sign-Up</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
 </head>
 <body>
-  <div class="login-container">
+  <div class="signup-container">
     <div class="container">
       <!-- Menu Bar -->
       <header>
@@ -23,13 +23,17 @@
         </nav>
       </header>
 
-      <!-- Login Form -->
+      <!-- Signup Form -->
       <div class="content">
         <div class="content-box">
           <header>
-            <h1 class="content-header">Login</h1>
+            <h1 class="content-header">Sign-Up</h1>
           </header>
           <form action="#" method="post">
+            <div class="form-field">
+              <label for="name">Name:</label>
+              <input type="text" id="name" placeholder="Enter your name">
+            </div>
             <div class="form-field">
               <label for="email">Email:</label>
               <input type="email" id="email" placeholder="Enter your email">
@@ -38,10 +42,14 @@
               <label for="password">Password:</label>
               <input type="password" id="password" placeholder="Enter your password">
             </div>
-            <button>Login</button>
+            <div class="form-field">
+              <label for="confirm_password">Confirm Password:</label>
+              <input type="password" id="confirm_password" placeholder="Confirm your password">
+            </div>
+            <button>Sign-up</button>
           </form>
           <div class="switch-form">
-            <p>Don't have an account yet? <a href="{{url_for('get_signup') }}">Sign up.</a></p>
+            <p>Already have an account?  <a href="{{url_for('get_signup') }}">Log in.</a></p>
           </div>
         </div>
       </div>
