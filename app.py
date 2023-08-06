@@ -99,5 +99,10 @@ def submit_project():
 
 
 
-
-
+# TEST ROUTE FÜR HTML SHIT MUSS ENTFERNT WERDEN AM ENDE
+# ---
+# ---
+# ---
+@app.route('/test/')
+def test():
+	return render_template('portfolio.html') 
