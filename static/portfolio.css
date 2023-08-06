@@ -13,107 +13,108 @@ header {
   text-align: center;
   margin-bottom: 40px;
 }
-  .logo {
-    margin-bottom: 20px;
+
+.logo {
+  margin-bottom: 20px;
 }
 
 .logo img {
-    max-width: 200px;
+  max-width: 200px;
 }
 
 nav {
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #f2f2f2;
-    padding: 10px 0;
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #f2f2f2;
+  padding: 10px 0;
 }
 
 nav ul {
-    list-style: none;
+  list-style: none;
 }
 
 nav ul li {
-    display: inline-block;
-    margin: 0 10px;
+  display: inline-block;
+  margin: 0 10px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #333;
-    color: #fff;
+  background-color: #333;
+  color: #fff;
 }
 
 #login {
-    text-decoration: none;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-    float: right;
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  float: right;
 }
 
 #login:hover {
-    background-color: #333;
-    color: #fff;
+  background-color: #333;
+  color: #fff;
 }
-  
-  .profile-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .profile-content {
-    background-color: #fff; /* Adjust background color for the profile content box */
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .profile-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px;
-  }
-  
-  .profile-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .profile-name {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  
-  .description-box {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  /* Style for the character limit warning */
-  .description-box p::after {
-    content: "";
-    display: block;
-    text-align: right;
-    font-size: 12px;
-    color: #999;
-  }
-  
-  /* Adjust the character limit warning color when close to the limit */
-  .description-box p[data-characters-left="0"]::after {
-    color: #ff0000;
-  }
-  
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 10px); /* Subtract the height of the menu bar */
+  margin-top: 10px; /* Add a top margin to create space between menu and profile */
+}
+
+.profile-content {
+  background-color: #fff; /* Adjust background color for the profile content box */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-name {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.description-box {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Style for the character limit warning */
+.description-box p::after {
+  content: "";
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: #999;
+}
+
+/* Adjust the character limit warning color when close to the limit */
+.description-box p[data-characters-left="0"]::after {
+  color: #ff0000;
+}

@@ -71,3 +71,9 @@ def get_skillmatch():
 @app.route('/portfolio/')
 def get_portfolio():
 	return render_template('portfolio.html') 
+
+# ProjectForms Route
+@app.route('/project_form/')
+def get_project_form():
+	return render_template('project_form.html') 
+
