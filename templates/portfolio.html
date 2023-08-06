@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='portfolio.css') }}">
 </head>
 <body>
-  <!-- Menu Bar -->
   <header>
     <div class="container">
       <div class="logo">
@@ -13,11 +12,11 @@
       </div>
       <nav>
         <ul id="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Find Jobs</a></li>
-          <li><a href="#">Skill Match</a></li>
-          <li><a href="#">My Portfolio</a></li>
-          <li><a href="#" id="login">Login</a></li>
+            <li><a href="{{url_for('get_home') }}">Home</a>
+            <li><a href="#">Find Jobs</a></li>
+            <li><a href="#">Skill Match</a></li>
+            <li><a href="{{url_for('get_portfolio') }}">Portfolio</a>
+            <li><a href="{{url_for('login') }}">Login</a>
         </ul>
       </nav>
     </div>

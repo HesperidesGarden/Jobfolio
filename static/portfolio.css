@@ -1,20 +1,31 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
 
-.logo {
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+  .logo {
     margin-bottom: 20px;
 }
 
 .logo img {
     max-width: 200px;
-    /* Adjust the width as desired */
 }
 
 nav {
     text-align: center;
     margin-bottom: 20px;
     background-color: #f2f2f2;
-    /* Menu bar background color */
     padding: 10px 0;
-    /* Adjust padding as desired */
 }
 
 nav ul {
@@ -52,18 +63,6 @@ nav ul li a:hover {
     background-color: #333;
     color: #fff;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    background-color: #f2f2f2; /* Adjust background color as desired */
-  }
-  
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-  }
   
   .profile-container {
     display: flex;
