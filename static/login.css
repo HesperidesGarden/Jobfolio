@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -24,7 +24,7 @@ header {
 
 nav {
   text-align: center;
-  width: 960px;
+  width: 1200px;
   margin-bottom: 20px;
   background-color: #f2f2f2;
   padding: 10px 0;
