@@ -76,7 +76,7 @@ def get_portfolio():
         return render_template('portfolio_logged_in.html')
     else:
         # User is not logged in
-        return redirect(url_for('portfolio_logged_out'))
+        return render_template('portfolio_logged_out.html')
 
 @app.route('/edit_portfolio/')
 def get_edit_portfolio():
