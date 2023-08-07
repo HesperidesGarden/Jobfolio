@@ -4,14 +4,13 @@ body {
 }
 
 .container {
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
 }
 
 .logo {
@@ -59,8 +58,10 @@ nav ul li a:hover {
 }
 
 .content-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    align-content: center;
+    opacity: 0.9;
 }
 
 .content-box {
@@ -74,6 +75,49 @@ nav ul li a:hover {
     margin-bottom: 10px;
 }
 
-.content-text {
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.tutorial-section {
+    margin-top: 40px;
+}
+
+.tutorial-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.tutorial-steps {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tutorial-step {
+    flex: 0 0 30%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.step-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.step-description {
     margin: 0;
+    text-align: justify;
 }
