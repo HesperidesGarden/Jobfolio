@@ -72,16 +72,15 @@ def get_skillmatch():
 @app.route('/portfolio/')
 def get_portfolio():
     if 1==0: #replace pls
-        # User is logged in, show the project_form.html
-        return render_template('portfolio.html')
+        # User is logged in
+        return render_template('portfolio_logged_in.html')
     else:
-        # User is not logged in, redirect to portfolio_logged_out.html
+        # User is not logged in
         return redirect(url_for('portfolio_logged_out'))
 
-@app.route('/portfolio_logged_out/')
-def portfolio_logged_out():
-    return render_template('portfolio_logged_out.html')
-
+@app.route('/edit_portfolio/')
+def get_edit_portfolio():
+	return render_template('edit_portfolio.html') 
 
 # ProjectForms Route
 @app.route('/project_form/', methods=["GET", "POST"])
@@ -107,4 +106,4 @@ def submit_project():
 # ---
 @app.route('/test/')
 def test():
-	return render_template('portfolio.html') 
+	return render_template('portfolio_logged_in.html') 

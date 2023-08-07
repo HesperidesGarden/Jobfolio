@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='portfolio_logged_in.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="https://cdn.discordapp.com/attachments/528437729265188864/1110823981398884423/logo_transparent.png">
+      </div>
+      <nav>
+        <ul id="menu">
+            <li><a href="{{url_for('get_home') }}">Home</a></li>
+            <li><a href="#">Find Jobs</a></li>
+            <li><a href="#">Skill Match</a></li>
+            <li><a href="{{url_for('get_portfolio') }}">Portfolio</a></li>
+            <li><a href="{{url_for('login') }}">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Profile -->
+  <div class="profile-container">
+    <div class="profile-picture">
+      <img src="https://st2.depositphotos.com/4624991/11343/i/450/depositphotos_113432276-Portrait-of-female-college-student-in-graduation-cap-and-gown-on.jpg" alt="Profile Picture">
+    </div>
+    <div class="profile-content">
+      <h1 class="profile-name">Jane Doe</h1>
+      <h3>Digital Artist</h3>
+      <div class="description-box">
+        <p>Recent art graduate with a passion for visual storytelling and creative expression. Equipped with a diverse skill set ranging from traditional techniques to digital media. My journey through art school has nurtured a keen eye for aesthetics and a hunger for pushing boundaries. From canvases to screens, I bring life to ideas and emotions, aiming to evoke thought and connection through every stroke. Ready to embark on a journey of artistic exploration and translate imagination into impactful visuals.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- My Projects -->
+  <div class="strip projects-container">
+    <h2 class="section-heading">My Projects</h2>
+    <div class="projects-content">
+      <!-- Use a container with horizontal scroll for projects -->
+      <div class="projects-container-inner">
+        <div class="project-card">
+          <img src="placeholder-project-image.png" alt="Project Image">
+          <h3>Project Title 1</h3>
+          <p>Project description goes here.</p>
+        </div>
+        <div class="project-card">
+          <img src="placeholder-project-image.png" alt="Project Image">
+          <h3>Project Title 2</h3>
+          <p>Project description goes here.</p>
+        </div>
+        <div class="project-card">
+          <img src="placeholder-project-image.png" alt="Project Image">
+          <h3>Project Title 3</h3>
+          <p>Project description goes here.</p>
+        </div>
+        <div class="project-card">
+          <img src="placeholder-project-image.png" alt="Project Image">
+          <h3>Project Title 4</h3>
+          <p>Project description goes here.</p>
+        </div>
+        <div class="project-card">
+          <img src="placeholder-project-image.png" alt="Project Image">
+          <h3>Project Title 5</h3>
+          <p>Project description goes here.</p>
+        </div>
+        <!-- Add more project cards here -->
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Languages and Skills -->
+  <div class="strip skills-container">
+    <h2 class="section-heading">Languages and Skills</h2>
+    <div class="skills-content">
+      <div class="skills-column">
+        <h3 class="column-heading">Skills</h3>
+        <div class="skill-card">
+          <h3>Skill 1</h3>
+          <p>Description of your proficiency in the skill.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Skill 2</h3>
+          <p>Description of your proficiency in the skill.</p>
+        </div>
+        <!-- Add more skill cards here -->
+      </div>
+      <div class="skills-column">
+        <h3 class="column-heading">Languages</h3>
+        <div class="skill-card">
+          <h3>Language 1</h3>
+          <p>Description of your proficiency in the language.</p>
+        </div>
+        <div class="skill-card">
+          <h3>Language 2</h3>
+          <p>Description of your proficiency in the language.</p>
+        </div>
+        <!-- Add more language cards here -->
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>
