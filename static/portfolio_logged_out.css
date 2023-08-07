@@ -20,16 +20,12 @@ header {
 
 .logo img {
     max-width: 200px;
-    /* Adjust the width as desired */
 }
 
 nav {
     text-align: center;
-    margin-bottom: 20px;
     background-color: #f2f2f2;
-    /* Menu bar background color */
     padding: 10px 0;
-    /* Adjust padding as desired */
 }
 
 nav ul {
@@ -94,8 +90,6 @@ nav ul li a:hover {
 .content-text {
     margin: 20px;
 }
-
-/* Your existing CSS styles... */
 
 .button {
     display: inline-block;
