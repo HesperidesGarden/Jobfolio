@@ -45,7 +45,7 @@ def get_login():
         if user:
             return redirect(url_for('home'))  # Weiterleitung zur '/home/'-Route in app.py
         else:
-            return 'Ungültige Anmeldedaten'
+            return 'Invalid login credentials'
     return render_template('login.html')
 
 # Account Route

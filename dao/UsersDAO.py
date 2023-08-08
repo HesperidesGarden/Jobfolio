@@ -21,7 +21,6 @@ class UsersDAO:
 
     @classmethod
     def logout(self):
-        # Löschen Sie die aktuelle Session
         session.close()
 
     @classmethod
