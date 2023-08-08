@@ -1,11 +1,11 @@
 import os
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from dao.UsersDAO import UsersDAO
 from dao.educationDAO import EducationDAO
-from dao.LanguageDAO import LanguageDAO
-from dao.ProjectDAO import ProjectDAO
+from dao.languageDAO import LanguageDAO
+from dao.projectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
 from project_form import project_form
 
@@ -40,10 +40,11 @@ def get_login():
         email = request.form['email']
         password = request.form['password']
 
-        user = users_dao.login(email, password)
+        user = users_dao.check_user_credentials(email, password)
 
         if user:
-            return redirect(url_for('home'))  # Weiterleitung zur '/home/'-Route in app.py
+            session['user_id'] = user.id
+            return redirect(url_for('get_portfolio')) 
         else:
             return 'Invalid login credentials'
     return render_template('login.html')
@@ -72,7 +73,7 @@ def get_findjobs():
 # MyPortfolio Route
 @app.route('/portfolio/')
 def get_portfolio():
-    if 1==0: #replace pls
+    if 'user_id' in session: #chatgpt generated
         # User is logged in
         return render_template('portfolio_logged_in.html')
     else:

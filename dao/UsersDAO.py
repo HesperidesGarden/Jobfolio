@@ -16,8 +16,12 @@ session = Session()
 class UsersDAO:
 
     @classmethod
-    def login(cls, user_id):
-        return session.query(User).filter_by(id=user_id).first()
+    def check_user_credentials(email, password):
+        user = session.query(User).filter_by(email=email).first()
+        if user and user.password == password:
+            return user 
+        else:
+            return None
 
     @classmethod
     def logout(self):
