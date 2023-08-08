@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JobFolio - Find Jobs</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='findjobs.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='logo_transparent.png') }}" alt="Logo">
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="{{url_for('get_home') }}">Home</a></li>
+          <li><a href="{{url_for('get_findjobs') }}">Find Jobs</a></li>
+          <li><a href="{{url_for('get_portfolio') }}">Portfolio</a></li>
+          <li><a href="{{url_for('get_account') }}">Account</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div id="content">
+      <div class="content-box">
+        <h2 class="content-header">Find Your Dream Job</h2>
+        <form class="job-search-form">
+          <input type="text" placeholder="Job Title" class="search-input">
+          <input type="text" placeholder="Location" class="search-input">
+          <button type="submit" class="search-button">Search</button>
+        </form>
+      </div>
+      <div class="job-listings">
+        <div class="job-listing">
+          <h3 class="job-title">Frontend Developer</h3>
+          <p class="job-location">Frankfurt am Main</p>
+          <p class="job-description">We are seeking a skilled Frontend Developer...</p>
+          <a href="#" class="job-apply-button">Apply Now</a>
+        </div>
+        <div class="job-listing">
+          <h3 class="job-title">UI/UX Designer</h3>
+          <p class="job-location">Munich</p>
+          <p class="job-description">Join our design team to create beautiful and user-friendly interfaces...</p>
+          <a href="#" class="job-apply-button">Apply Now</a>
+        </div>
+        <div class="job-listing">
+          <h3 class="job-title">Software Engineer</h3>
+          <p class="job-location">Munich</p>
+          <p class="job-description">Join our software engineering team to develop cutting-edge solutions...</p>
+          <a href="#" class="job-apply-button">Apply Now</a>
+        </div>
+        <div class="job-listing">
+          <h3 class="job-title">Data Analyst</h3>
+          <p class="job-location">Berlin</p>
+          <p class="job-description">We are looking for a data analyst to analyze and interpret complex data sets...</p>
+          <a href="#" class="job-apply-button">Apply Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="footer-container">
+      <p class="footer-message">
+        Created by Victoria-Kim Bui, Florian Eppe, and Khanh Linh Pham for Entwicklung von Web-Anwendungen SoSe-2023
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

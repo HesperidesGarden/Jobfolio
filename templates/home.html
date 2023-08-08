@@ -8,14 +8,14 @@
   <header>
     <div class="container">
       <div class="logo">
-        <img src="https://cdn.discordapp.com/attachments/528437729265188864/1110823981398884423/logo_transparent.png">
+        <img src="{{ url_for('static', filename='logo_transparent.png') }}" alt="Logo">
       </div>
       <nav>
         <ul id="menu">
-            <li><a href="{{url_for('get_home') }}">Home</a>
-            <li><a href="#">Find Jobs</a></li>
-            <li><a href="{{url_for('get_portfolio') }}">Portfolio</a>
-            <li><a href="{{url_for('get_account') }}">Account</a>
+          <li><a href="{{url_for('get_home') }}">Home</a>
+          <li><a href="{{url_for('get_findjobs') }}">Find Jobs</a></li>
+          <li><a href="{{url_for('get_portfolio') }}">Portfolio</a>
+          <li><a href="{{url_for('get_account') }}">Account</a>
         </ul>
       </nav>
     </div>
@@ -28,7 +28,7 @@
         <p class="content-text">Welcome to JobFolio - the perfect platform for entry-level job seekers! We help simplify the job application process by providing a user-friendly web application to create your professional portfolio and apply to entry-level positions with ease. Start your career journey with us today!</p>
         <a href="{{url_for('get_login')}}" class="button">Create an account</a>
       </div>
-      <img class ="content-image" src="https://www.resumecoach.com/wp-content/uploads/sites/2/2018/02/top-10-tips-job-interview-768x512.jpg" alt="Image">
+      <img class ="content-image" src="{{ url_for('static', filename='interview.jpg') }}" alt="Image">
       <div class="tutorial-section">
         <h2 class="tutorial-header">What we offer</h2>
         <div class="tutorial-steps">
@@ -48,6 +48,12 @@
       </div>
     </div>
   </div>
-
+  <footer>
+    <div class="footer-container">
+      <p class="footer-message">
+        Created by Victoria-Kim Bui, Florian Eppe, and Khanh Linh Pham for Entwicklung von Web-Anwendungen SoSe-2023
+      </p>
+    </div>
+  </footer>
 </body>
 </html>
