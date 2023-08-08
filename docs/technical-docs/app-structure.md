@@ -4,17 +4,25 @@ parent: Technical Docs
 nav_order: 1
 ---
 
-[Jane Dane]
-{: .label }
-
-# [App structure, incl. context]
-{: .no_toc }
+# App Structure
 
 <details open markdown="block">
   <summary>
     Table of contents
   </summary>
-  {: .text-delta }
-- TOC
-{:toc}
 </details>
+
+
+# Main Focus:
++ Login, Registration
++ Account
++ Homepage
++ MyPortfolio-Page
++ Edit MyPortfolio
++ Project Detail View
++ Job Search View 
+
+# Optional Pages (Considerations):
++ Company View and Login
++ Skill Match 
++ Job Postings (Functionality with API Connection)
