@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request
-from dao.projectDAO import ProjectDAO
+from dao.ProjectDAO import ProjectDAO
 
 project_dao = ProjectDAO
 def project_form():

@@ -21,88 +21,63 @@
     </div>
   </header>
 
-  <!-- Profile -->
-  <div class="profile-container">
-    <div class="profile-picture">
-      <img src="https://st2.depositphotos.com/4624991/11343/i/450/depositphotos_113432276-Portrait-of-female-college-student-in-graduation-cap-and-gown-on.jpg" alt="Profile Picture">
-    </div>
-    <div class="profile-content">
-      <h1 class="profile-name">Jane Doe</h1>
-      <h3>Digital Artist</h3>
-      <div class="description-box">
-        <p>Recent art graduate with a passion for visual storytelling and creative expression. Equipped with a diverse skill set ranging from traditional techniques to digital media. My journey through art school has nurtured a keen eye for aesthetics and a hunger for pushing boundaries. From canvases to screens, I bring life to ideas and emotions, aiming to evoke thought and connection through every stroke. Ready to embark on a journey of artistic exploration and translate imagination into impactful visuals.</p>
+    <!-- Profile -->
+    <div class="profile-container">
+      <div class="profile-picture">
+        <img src="{{ user_profile_picture }}" alt="Profile Picture">
+      </div>
+      <div class="profile-content">
+        <h1 class="profile-name">{{ user_name }}</h1>
+        <h3>{{ user_occupation }}</h3>
+        <div class="description-box">
+          <p>{{ user_description }}</p>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- My Projects -->
-  <div class="strip projects-container">
-    <h2 class="section-heading">My Projects</h2>
-    <div class="projects-content">
-      <!-- Use a container with horizontal scroll for projects -->
-      <div class="projects-container-inner">
-        <div class="project-card">
-          <img src="placeholder-project-image.png" alt="Project Image">
-          <h3>Project Title 1</h3>
-          <p>Project description goes here.</p>
+  
+    <!-- My Projects -->
+    <div class="strip projects-container">
+      <h2 class="section-heading">My Projects</h2>
+      <div class="projects-content">
+        <div class="projects-container-inner">
+          <!-- Loop through user projects and generate project cards -->
+          {% for project in user_projects %}
+          <div class="project-card">
+            <img src="{{ project.image_url }}" alt="Project Image">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+          </div>
+          {% endfor %}
         </div>
-        <div class="project-card">
-          <img src="placeholder-project-image.png" alt="Project Image">
-          <h3>Project Title 2</h3>
-          <p>Project description goes here.</p>
-        </div>
-        <div class="project-card">
-          <img src="placeholder-project-image.png" alt="Project Image">
-          <h3>Project Title 3</h3>
-          <p>Project description goes here.</p>
-        </div>
-        <div class="project-card">
-          <img src="placeholder-project-image.png" alt="Project Image">
-          <h3>Project Title 4</h3>
-          <p>Project description goes here.</p>
-        </div>
-        <div class="project-card">
-          <img src="placeholder-project-image.png" alt="Project Image">
-          <h3>Project Title 5</h3>
-          <p>Project description goes here.</p>
-        </div>
-        <!-- Add more project cards here -->
       </div>
     </div>
-  </div>
-
-
-
-  <!-- Languages and Skills -->
-  <div class="strip skills-container">
-    <h2 class="section-heading">Languages and Skills</h2>
-    <div class="skills-content">
-      <div class="skills-column">
-        <h3 class="column-heading">Skills</h3>
-        <div class="skill-card">
-          <h3>Skill 1</h3>
-          <p>Description of your proficiency in the skill.</p>
+  
+    <!-- Languages and Skills -->
+    <div class="strip skills-container">
+      <h2 class="section-heading">Languages and Skills</h2>
+      <div class="skills-content">
+        <div class="skills-column">
+          <h3 class="column-heading">Skills</h3>
+          <!-- Loop through user skills and generate skill cards -->
+          {% for skill in user_skills %}
+          <div class="skill-card">
+            <h3>{{ skill.name }}</h3>
+            <p>{{ skill.description }}</p>
+          </div>
+          {% endfor %}
         </div>
-        <div class="skill-card">
-          <h3>Skill 2</h3>
-          <p>Description of your proficiency in the skill.</p>
+        <div class="skills-column">
+          <h3 class="column-heading">Languages</h3>
+          <!-- Loop through user languages and generate language cards -->
+          {% for language in user_languages %}
+          <div class="skill-card">
+            <h3>{{ language.name }}</h3>
+            <p>{{ language.proficiency }} - {{ language.self_evaluation }}</p>
+          </div>
+          {% endfor %}
         </div>
-        <!-- Add more skill cards here -->
-      </div>
-      <div class="skills-column">
-        <h3 class="column-heading">Languages</h3>
-        <div class="skill-card">
-          <h3>Language 1</h3>
-          <p>Description of your proficiency in the language.</p>
-        </div>
-        <div class="skill-card">
-          <h3>Language 2</h3>
-          <p>Description of your proficiency in the language.</p>
-        </div>
-        <!-- Add more language cards here -->
       </div>
     </div>
-  </div>
   <footer>
     <div class="footer-container">
       <p class="footer-message">
