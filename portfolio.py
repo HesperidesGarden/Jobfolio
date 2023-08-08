@@ -8,10 +8,9 @@ from dao.LanguageDAO import LanguageDAO
 from dao.ProjectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
 from project_form import project_form
-app = Flask(__name__)
 
 def portfolio():
-    if 'user_id' in session: #chatgpt generated
+    if 'user_id' in session: 
         # still need portfolio DAO?
         user_profile_picture = "path/to/actual/profile_picture.jpg"
         user_name = "Jane Doe"
@@ -35,6 +34,3 @@ def portfolio():
         
     else:
         return render_template('portfolio_logged_out.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)

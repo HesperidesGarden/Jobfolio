@@ -9,6 +9,7 @@ from dao.ProjectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
 from project_form import project_form
 from portfolio import portfolio
+from account import account
 
 app = Flask(__name__)
 
@@ -53,12 +54,7 @@ def get_login():
 # Account Route
 @app.route('/account')
 def get_account():
-    if 1==0: #replace pls
-        # User is logged in
-        return render_template('account.html')
-    else:
-        # User is not logged in
-        return get_login() # not sure if return render_template or method?
+    return account()
     
 # Logout Route
 @app.route('/logout')
@@ -103,5 +99,5 @@ def submit_project():
 # ---
 # ---
 @app.route('/test/')
-def test():
+def portfolio_logged_in():
 	return render_template('portfolio_logged_in.html') 

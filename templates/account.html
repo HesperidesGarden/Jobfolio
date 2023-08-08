@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Overview</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='account.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='logo_transparent.png') }}" alt="Logo">
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="{{ url_for('get_home') }}">Home</a></li>
+          <li><a href="{{ url_for('get_findjobs') }}">Find Jobs</a></li>
+          <li><a href="{{ url_for('get_portfolio') }}">Portfolio</a></li>
+          <li><a href="{{ url_for('get_account') }}">Account</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Account Overview -->
+  <div class="strip">
+    <div class="container">
+      <h2 class="section-heading">Account Overview</h2>
+      <div class="account-info">
+        <p><strong>First Name:</strong> {{ user.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Phone Number:</strong> {{ user.phone_number }}</p>
+        <p><strong>Street:</strong> {{ user.street }}</p>
+        <p><strong>Zip Code:</strong> {{ user.zip_code }}</p>
+        <p><strong>City:</strong> {{ user.city }}</p>
+      </div>
+      <button class="logout-button">Logout</button> <!-- implement logout pls -->
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <p class="footer-message">
+        Created by Victoria-Kim Bui, Florian Eppe, and Khanh Linh Pham for Entwicklung von Web-Anwendungen SoSe-2023
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
