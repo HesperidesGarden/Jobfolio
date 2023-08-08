@@ -5,7 +5,6 @@ nav_order: 0
 
 # Project JobFolio
 JobFolio is a web platform that helps entry level job seekers build unique portfolios to showcase their talents, adapting to the trend of personalized career paths. The focus is on individual projects and skills rather than just work experience, offering an intuitive website for easy use. 
-![JobFolio Logo](../static/logo-transparent.png)
 
 ## Team members
 
