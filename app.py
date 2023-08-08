@@ -9,9 +9,6 @@ from dao.ProjectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
 from project_form import project_form
 
-# .\venv\Scripts\activate.bat
-
-
 app = Flask(__name__)
 
 app.config.from_mapping(
@@ -38,7 +35,7 @@ def get_home():
 
 # Login Route # chatgpt-generated
 @app.route('/login/', methods=['GET', 'POST'])
-def login():
+def get_login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
@@ -49,12 +46,21 @@ def login():
             return redirect(url_for('home'))  # Weiterleitung zur '/home/'-Route in app.py
         else:
             return 'Ungültige Anmeldedaten'
-
     return render_template('login.html')
 
-
+# Account Route
+@app.route('/account')
+def get_account():
+    if 1==0: #replace pls
+        # User is logged in
+        return render_template('account.html')
+    else:
+        # User is not logged in
+        return get_login() # not sure if return render_template or method?
+    
+# Logout Route
 @app.route('/logout')
-def logout():
+def get_logout():
     users_dao.logout()
     return redirect(url_for('/'))
 
@@ -62,11 +68,6 @@ def logout():
 @app.route('/findjobs/')
 def get_findjobs():
 	return render_template('findjobs.html') 
-
-# SkillMatch Route
-@app.route('/skillmatch/')
-def get_skillmatch():
-	return render_template('skillmatch.html') 
 
 # MyPortfolio Route
 @app.route('/portfolio/')
@@ -83,7 +84,7 @@ def get_edit_portfolio():
 	return render_template('edit_portfolio.html') 
 
 # ProjectForms Route
-@app.route('/project_form/', methods=["GET", "POST"])
+@app.route('/create_project/', methods=["GET", "POST"])
 def get_project_form():
     return project_form()
    

@@ -14,11 +14,10 @@
         </div>
         <nav>
           <ul id="menu">
-            <li><a href="{{url_for('get_home') }}">Home</a></li>
-            <li><a href="#">Find Jobs</a></li>
-            <li><a href="#">Skill Match</a></li>
-            <li><a href="{{url_for('get_portfolio') }}">Portfolio</a></li>
-            <li><a href="{{url_for('login') }}">Login</a></li>
+              <li><a href="{{url_for('get_home') }}">Home</a>
+              <li><a href="#">Find Jobs</a></li>
+              <li><a href="{{url_for('get_portfolio') }}">Portfolio</a>
+              <li><a href="{{url_for('get_account') }}">Account</a>
           </ul>
         </nav>
       </header>
@@ -76,7 +75,7 @@
             <button>Sign-up</button>
           </form>
           <div class="switch-form">
-            <p>Already have an account? <a href="{{url_for('login') }}">Log in.</a></p>
+            <p>Already have an account? <a href="{{url_for('get_login') }}">Log in.</a></p>
           </div>
         </div>
       </div>
