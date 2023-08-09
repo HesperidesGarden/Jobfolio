@@ -2,16 +2,15 @@ import os
 from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from dao.usersDAO import UsersDAO
+from dao.UsersDAO import UsersDAO
 from dao.educationDAO import EducationDAO
-from dao.languageDAO import LanguageDAO
-from dao.projectDAO import ProjectDAO
-from dao.skillDAO import SkillDAO
+from dao.LanguageDAO import LanguageDAO
+from dao.ProjectDAO import ProjectDAO
+from dao.SkillDAO import SkillDAO
 from project_form import project_form
 
 def portfolio():
     if 'user_id' in session: 
-        # still need portfolio DAO?
         user_profile_picture = "path/to/actual/profile_picture.jpg"
         user_name = "Jane Doe"
         user_occupation = "Digital Artist"

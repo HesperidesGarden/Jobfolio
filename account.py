@@ -1,5 +1,5 @@
 from flask import Flask, session, render_template, redirect, url_for, request
-from dao.usersDAO import UsersDAO
+from dao.UsersDAO import UsersDAO
 
 # momentan kommt man auf ne placeholder account seite
 # placeholder daten mit db daten ersetzen, bräuchte dafür ein get_user_data oder so

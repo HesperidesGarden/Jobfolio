@@ -2,11 +2,11 @@ import os
 from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from dao.usersDAO import UsersDAO
+from dao.UsersDAO import UsersDAO
 from dao.educationDAO import EducationDAO
-from dao.languageDAO import LanguageDAO
-from dao.projectDAO import ProjectDAO
-from dao.skillDAO import SkillDAO
+from dao.LanguageDAO import LanguageDAO
+from dao.ProjectDAO import ProjectDAO
+from dao.SkillDAO import SkillDAO
 from project_form import project_form
 from portfolio import portfolio
 from account import account
@@ -31,10 +31,6 @@ skill_dao = SkillDAO()
 def index():
 	return redirect(url_for('get_home'))
 
-# Home Route
-@app.route('/home/')
-def get_home():
-	return render_template('home.html') 
 
 # Login Route # chatgpt-generated
 @app.route('/login/', methods=['GET', 'POST'])
@@ -51,6 +47,17 @@ def get_login():
         else:
             return 'Invalid login credentials'
     return render_template('login.html')
+
+
+# Home Route
+@app.route('/home/')
+def get_home():
+    user_logged_in = 'user_id' in session
+    user_first_name = None
+    if user_logged_in:
+        user_id = session['user_id']
+        user_first_name = UsersDAO.get_user_first_name(user_id)
+    return render_template('home.html', user_logged_in=user_logged_in, user_first_name=user_first_name)
 
 # Account Route
 @app.route('/account')

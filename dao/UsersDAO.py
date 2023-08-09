@@ -44,3 +44,11 @@ class UsersDAO:
         session.add(new_user)
         session.commit()
         return new_user
+    
+    @classmethod
+    def get_user_first_name(cls, user_id):
+        user = session.query(User).filter_by(id=user_id).first()
+        if user:
+            return user.first_name
+        else:
+            return None
