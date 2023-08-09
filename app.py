@@ -80,9 +80,10 @@ def get_findjobs():
 def get_portfolio():
     return portfolio()
 
-@app.route('/edit_portfolio/')
-def get_edit_portfolio():
-	return render_template('edit_portfolio.html') 
+# MyPortfolio Route
+@app.route('/portfolio_edit/')
+def get_portfolio_edit():
+	return render_template('portfolio_edit_view.html') 
 
 # ProjectForms Route
 @app.route('/create_project/', methods=["GET", "POST"])

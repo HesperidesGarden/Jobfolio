@@ -54,6 +54,14 @@ class UsersDAO:
             return None
         
     @classmethod
+    def get_user_full_name(cls, user_id):
+        user = session.query(User).filter_by(id=user_id).first()
+        if user:
+            return user.first_name + " " + user.last_name
+        else:
+            return None    
+        
+    @classmethod
     def get_user_data(cls, user_id):
         user = session.query(User).filter_by(id=user_id).first()
         if user:
