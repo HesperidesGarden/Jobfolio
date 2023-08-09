@@ -4,6 +4,8 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from databasetables.users import User 
+import bcrypt
+
 
 # Verbindung zur SQLite-Datenbank herstellen
 DATABASE_URL = "sqlite:///jobfolio.db"
@@ -16,9 +18,9 @@ session = Session()
 class UsersDAO:
 
     @classmethod
-    def check_user_credentials(self, email, password):
+    def check_user_credentials(cls, email, password):
         user = session.query(User).filter_by(email=email).first()
-        if user and user.password == password:
+        if user and bcrypt.checkpw(password.encode('utf-8'), user.password_hash.encode('utf-8')):
             return user 
         else:
             return None
@@ -28,7 +30,9 @@ class UsersDAO:
         session.close()
 
     @classmethod
-    def create_user(first_name, last_name, email, phone_number, street, zipcode, city, password):
+    def create_user(cls, first_name, last_name, email, phone_number, street, zipcode, city, password):
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
         new_user = User(
             first_name=first_name,
             last_name=last_name,
@@ -37,7 +41,7 @@ class UsersDAO:
             street=street,
             zipcode=zipcode,
             city=city,
-            password=password
+            password=hashed_password.decode('utf-8')
         )
         session.add(new_user)
         session.commit()

@@ -14,11 +14,11 @@ session = Session()
 
 class ProjectDAO:
     @classmethod
-    def get_projects_by_user_id(user_id):
+    def get_projects_by_user_id(cls, user_id):
         return session.query(Project).filter_by(users_id=user_id).all()
 
     @classmethod
-    def create_project(user_id, title, description, role, url_project, url_picture, duration, difficulty):
+    def create_project(cls, user_id, title, description, role, url_project, url_picture, duration, difficulty):
         new_project = Project(
             users_id=user_id,
             title=title,
