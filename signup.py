@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request
-from dao.UsersDAO import UsersDAO
+from dao.usersDAO import UsersDAO
 
 def signup_user():
     if request.method == "POST":

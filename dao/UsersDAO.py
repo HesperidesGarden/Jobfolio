@@ -16,7 +16,7 @@ session = Session()
 class UsersDAO:
 
     @classmethod
-    def check_user_credentials(email, password):
+    def check_user_credentials(self, email, password):
         user = session.query(User).filter_by(email=email).first()
         if user and user.password == password:
             return user 
