@@ -20,14 +20,12 @@ class UsersDAO:
     @classmethod
     def check_user_credentials(cls, email, password):
         user = session.query(User).filter_by(email=email).first()
-        if user and bcrypt.checkpw(password.encode('utf-8'), user.password_hash.encode('utf-8')):
+        if user and bcrypt.checkpw(password.encode('utf-8'), user.password.encode('utf-8')):
             return user 
         else:
             return None
 
-    @classmethod
-    def logout(self):
-        session.close()
+
 
     @classmethod
     def create_user(cls, first_name, last_name, email, phone_number, street, zipcode, city, password):

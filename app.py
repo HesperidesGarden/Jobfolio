@@ -58,10 +58,10 @@ def get_account():
     return account()
     
 # Logout Route
-@app.route('/logout')
+@app.route('/logout', methods=['POST'])
 def get_logout():
-    users_dao.logout()
-    return redirect(url_for('/'))
+    session.pop('user_id', None)
+    return redirect(url_for('get_home'))
 
 # FindJobs Route
 @app.route('/findjobs/')

@@ -34,8 +34,9 @@
         <p><strong>Zip Code:</strong> {{ user.zip_code }}</p>
         <p><strong>City:</strong> {{ user.city }}</p>
       </div>
-      <button class="logout-button">Logout</button> <!-- implement logout pls -->
-    </div>
+      <form action="{{ url_for('get_logout') }}" method="post">
+        <button type="submit" class="logout-button">Logout</button>
+      </form>    </div>
   </div>
 
   <footer>
