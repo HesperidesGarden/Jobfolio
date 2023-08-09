@@ -7,21 +7,16 @@ from dao.UsersDAO import UsersDAO
 # später die if/else bedingung (auskommetiert unten) wieder rausnehmen damit man als uneingeloggter auf login weitergeleitet wird
 
 def account():
-   # if 'user_id' in session:
-    # Fetch user data from the database based on the session user_id
-    # user = users_dao.get_user_by_id(session['user_id'])
-        user = {
-            'first_name': 'Jane',
-            'last_name': 'Doe',
-            'email': 'johndoe@example.com',
-            'phone_number': '123-456-7890',
-            'street': 'Street2',
-            'zip_code': '12345',
-            'city': 'Town'
-        }
-        return render_template('account.html', user=user)    
-   # else:
-   #     return render_template('login.html')
+    if 'user_id' in session:
+        user_id = session['user_id']
+        user_data = UsersDAO.get_user_data(user_id)
+        
+        if user_data:
+            return render_template('account.html', user=user_data)
+        else:
+            return render_template('login.html')
+    else:
+        return render_template('login.html')
     
 
 
