@@ -28,7 +28,7 @@ class UsersDAO:
         session.close()
 
     @classmethod
-    def create_user(cls, first_name, last_name, email, phone_number, street, zipcode, city, password):
+    def create_user(first_name, last_name, email, phone_number, street, zipcode, city, password):
         new_user = User(
             first_name=first_name,
             last_name=last_name,
