@@ -10,6 +10,7 @@ from dao.SkillDAO import SkillDAO
 from project_form import project_form
 from portfolio import portfolio
 from account import account
+from signup import signup_user
 
 app = Flask(__name__)
 
@@ -82,9 +83,9 @@ def get_project_form():
     return project_form()
    
 # Signup Route
-@app.route('/signup/')
+@app.route('/signup/', methods=["GET", "POST"])
 def get_signup():
-	return render_template('signup.html') 
+	return signup_user() 
 
 @app.route("/submit", methods=["POST"])
 def submit_project():

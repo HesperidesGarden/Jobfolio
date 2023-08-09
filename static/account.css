@@ -51,15 +51,18 @@ nav ul li a:hover {
 }
 
 .strip {
-    width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     border-radius: 5px;
 }
 
 .strip .container {
-    display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .strip .section-heading {
@@ -70,7 +73,7 @@ nav ul li a:hover {
 .account-info {
     max-width: 400px;
     text-align: left;
-    padding: 10px;
+    padding: 15px;
     background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -83,9 +86,9 @@ nav ul li a:hover {
 }
 
 .logout-button {
-    display: inline-block;
-    margin-top: 20px;
     padding: 10px 20px;
+    display:block;
+    margin-top: 20px;
     background-color: #333;
     color: #fff;
     border: none;
