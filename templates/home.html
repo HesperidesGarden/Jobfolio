@@ -24,10 +24,18 @@
   <div class="container">
     <div id="content">
       <div class="content-box">
-        <h2 class="content-header">Your career starts here.</h2>
+        <!-- change btn if user is logged in -->
+        {% if user_logged_in %}
+        <h2 class="content-header">Welcome back, {{ user_first_name }}!</h2>
+        <p class="content-text">Great to see you again. Ready to work on your portfolio to achieve your dream job?</p>
+        <a href="{{url_for('get_portfolio')}}" class="button">View My Portfolio</a>
+          {% else %}
+          <h2 class="content-header">Your career starts here.</h2>
         <p class="content-text">Welcome to JobFolio - the perfect platform for entry-level job seekers! We help simplify the job application process by providing a user-friendly web application to create your professional portfolio and apply to entry-level positions with ease. Start your career journey with us today!</p>
-        <a href="{{url_for('get_login')}}" class="button">Create an account</a>
-      </div>
+          <a href="{{url_for('get_login')}}" class="button">Create an account</a>
+        {% endif %}
+
+    </div>
       <img class ="content-image" src="{{ url_for('static', filename='interview.jpg') }}" alt="Image">
       <div class="tutorial-section">
         <h2 class="tutorial-header">What we offer</h2>

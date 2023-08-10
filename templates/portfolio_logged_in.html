@@ -21,10 +21,17 @@
     </div>
   </header>
 
+  <!-- Mode buttons -->
+  <div class="button-container">
+    <a href="{{url_for('get_portfolio')}}" class="button active">View mode</a>
+    <a href="{{url_for('get_portfolio_edit')}}" class="button">Edit mode</a> 
+  </div>
+
     <!-- Profile -->
     <div class="profile-container">
       <div class="profile-picture">
-        <img src="{{ user_profile_picture }}" alt="Profile Picture">
+        <img src="{{ url_for('static', filename='default-pfp.jpg') }}" alt="profile-picture">
+       <!-- <img src="{{ user_profile_picture }}" alt="Profile Picture"> -->  
       </div>
       <div class="profile-content">
         <h1 class="profile-name">{{ user_name }}</h1>

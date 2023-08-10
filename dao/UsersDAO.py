@@ -44,3 +44,36 @@ class UsersDAO:
         session.add(new_user)
         session.commit()
         return new_user
+    
+    @classmethod
+    def get_user_first_name(cls, user_id):
+        user = session.query(User).filter_by(id=user_id).first()
+        if user:
+            return user.first_name
+        else:
+            return None
+        
+    @classmethod
+    def get_user_full_name(cls, user_id):
+        user = session.query(User).filter_by(id=user_id).first()
+        if user:
+            return user.first_name + " " + user.last_name
+        else:
+            return None    
+        
+    @classmethod
+    def get_user_data(cls, user_id):
+        user = session.query(User).filter_by(id=user_id).first()
+        if user:
+            user_data = {
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'email': user.email,
+                'phone_number': user.phone_number,
+                'street': user.street,
+                'zipcode': user.zipcode,
+                'city': user.city
+            }
+            return user_data
+        else:
+            return None

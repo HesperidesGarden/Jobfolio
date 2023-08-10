@@ -56,7 +56,29 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+  /* mode buttons */
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
   
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    text-decoration: none;
+    background-color: #f2f2f2;
+    color: #333;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button.active {
+    background-color: #15b7b9;
+    color: #fff;
+  }
+
   /* profile */
   .profile-container {
     display: flex;
@@ -192,4 +214,31 @@ body {
 
 .footer-message {
     font-size: 14px;
+}
+
+  /* extra buttons for edit view */
+.edit-button,
+.add-button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: #15b7b9;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover,
+.add-button:hover {
+  background-color: #0d9092;
+}
+
+.add-button {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.add-button:hover {
+  background-color: #ccc;
 }
