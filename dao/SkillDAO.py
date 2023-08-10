@@ -26,4 +26,3 @@ class SkillDAO:
         session.add(new_skill)
         session.commit()
         return new_skill
-

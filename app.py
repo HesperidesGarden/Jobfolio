@@ -100,10 +100,48 @@ def get_project_form():
 def get_signup():
 	return signup_user() 
 
+
+
+# addSkill Route
+@app.route('/edit_skill/', methods=["GET", "POST"])
+def add_skill():
+    user_id = session['user_id']
+    
+    if request.method == 'POST':
+        skill_name = request.form['skill_name']
+        skill_proficiency = request.form['skill_proficiency']
+        skill_description = request.form['skill_description']
+
+        SkillDAO.create_skill(user_id, skill_name, skill_proficiency, skill_description)
+
+        return redirect(url_for('get_portfolio')) 
+
+    return render_template('portfolio_edit_view.html') 
+
+
+# addLang Route
+@app.route('/edit_lang/', methods=["GET", "POST"])
+def add_lang():
+    user_id = session['user_id']
+    if request.method == 'POST':
+        language_name = request.form['language_name']
+        language_proficiency = request.form['language_proficiency']
+        language_description = request.form['language_description']
+
+        LanguageDAO.create_language(user_id, language_name, language_proficiency, language_description)
+
+        return redirect(url_for('get_portfolio'))  # Redirect to the user's profile page after updating
+
+    return render_template('portfolio_edit_view.html')  # Render the template for editing languages
+
+
+
+# SubmitProject Route
 @app.route("/submit", methods=["POST"])
 def submit_project():
     return redirect("/portfolio/")
 
+# CreateProfile Route
 @app.route('/create_profile', methods=['POST'])
 def create_user_profile_picture():
     picture = request.files['profile_picture']
@@ -113,7 +151,7 @@ def create_user_profile_picture():
     return redirect(url_for('get_home'))
 
 
-
+# UpdateProfile Route
 @app.route('/update_user_profile', methods=['POST'])
 def update_user_profile():
     
@@ -145,12 +183,3 @@ def update_user_profile():
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
-
-# TEST ROUTE FÜR HTML SHIT MUSS ENTFERNT WERDEN AM ENDE
-# ---
-# ---
-# ---
-@app.route('/test/')
-def portfolio_logged_in():
-	return render_template('portfolio_logged_in.html') 

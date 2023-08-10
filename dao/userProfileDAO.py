@@ -34,7 +34,6 @@ class UserProfileDAO:
         session.commit()
         return new_profile
     
-    # chatgpt generated
     def update_profile(self, user_id, picture_path, title, short_description):
         user_profile = session.query(UserProfile).filter_by(user_id=user_id).first()
         if user_profile:
@@ -45,8 +44,6 @@ class UserProfileDAO:
             session.commit() 
             return user_profile
         return None
-
-
 
     @classmethod
     def get_user_profile_by_user_id(cls, user_id):
