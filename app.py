@@ -4,11 +4,11 @@ from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from dao.UsersDAO import UsersDAO
-from dao.EducationDAO import EducationDAO
+from dao.educationDAO import EducationDAO
 from dao.LanguageDAO import LanguageDAO
-from dao.ProjectDAO import ProjectDAO
-from dao.SkillDAO import SkillDAO
-from dao.UserProfileDAO import UserProfileDAO
+from dao.projectDAO import ProjectDAO
+from dao.skillDAO import SkillDAO
+from dao.userProfileDAO import UserProfileDAO
 from project_form import project_form
 from portfolio import portfolio
 from account import account
@@ -114,27 +114,33 @@ def create_user_profile_picture():
 
 
 
-@app.route('/update_profile_picture', methods=['POST'])
-def update_profile_picture():
+@app.route('/update_user_profile', methods=['POST'])
+def update_user_profile():
     
-    user_id = session['user_id']  # Annahme: Der angemeldete Benutzer ist in der Session gespeichert
+    user_id = session['user_id']
     user_profile = userProfile_DAO.get_user_profile_by_user_id(user_id)
 
-    if 'picture' in request.files:
-        picture = request.files['picture']
-        if picture and picture.filename != '' and allowed_file(picture.filename):
-            filename = secure_filename(picture.filename)
-            picture_path = os.path.join(UPLOAD_FOLDER, filename)
-            picture.save(picture_path)
+    if 'profile_picture' in request.files:
+        profile_picture = request.files['profile_picture']
+
+        if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
+            filename = secure_filename(profile_picture.filename)
+            picture_path = os.path.join('userpictures', filename)
+            profile_picture.save(picture_path)
+
+            title = request.form.get('user_name')  
+            user_description = request.form.get('user_description')  
 
             if user_profile:
-                userProfile_DAO.update_profile_picture(user_id, picture_path)
+                userProfile_DAO.update_profile(user_id, picture_path, title, user_description)
             else:
-                userProfile_DAO.create_user_profile(user_id, "","", picture_path)
+                userProfile_DAO.create_user_profile(profile_picture, title, user_description, user_id)
 
             return redirect(url_for('get_portfolio')) 
 
-    return "Error updating profile picture"
+    return "Error updating profile"
+
+
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
