@@ -92,10 +92,34 @@
       </form>
     </div>
   </div>
+
+    <!-- lists -->
+    <div class="lists">
+      <div class="skills-list">
+        <h3>Existing Skills</h3>
+        <ul>
+          {% for skill in skills %}
+          <li>
+            <span>{{ skill }}</span>
+            <button class="delete-button">Delete</button>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="languages-list">
+        <h3>Existing Languages</h3>
+        <ul>
+          {% for language in languages %}
+          <li>
+            <span>{{ language }}</span>
+            <button class="delete-button">Delete</button>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
 </div>
-
-
-
 
 
   <footer>
