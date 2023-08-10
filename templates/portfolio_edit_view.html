@@ -35,10 +35,10 @@
         <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
         <br>
         <label for="user_occupation">Title:</label>
-        <input type="text" id="user_name" name="user_name" placeholder="Edit Name" value="{{ user_name }}">
+        <input type="text" id="user_name" name="user_name" placeholder="Current occupation / title" value="{{ user_name }}">
         <br>
-        <label for="user_description">Description (500 characters max):</label>
-        <textarea id="user_description" name="user_description" maxlength="500" placeholder="Edit Description">{{ user_description }}</textarea>
+        <label for="user_description">Description:</label>
+        <textarea id="user_description" name="user_description" maxlength="500" placeholder="Edit Description (500 characters max.)">{{ user_description }}</textarea>
         <br>
         <button type="submit" class="edit-button">Save</button>
       </form>
