@@ -7,11 +7,11 @@ from databasetables.users import User
 import bcrypt
 
 
-# Verbindung zur SQLite-Datenbank herstellen
+# connect to database
 DATABASE_URL = "sqlite:///jobfolio.db"
 engine = create_engine(DATABASE_URL, echo=True)
 
-# Session erstellen
+# start session
 Session = sessionmaker(bind=engine)
 session = Session()
 

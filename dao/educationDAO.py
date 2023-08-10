@@ -1,14 +1,12 @@
-# chatgpt generated
-
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from databasetables.education import Education
 
-# Verbindung zur SQLite-Datenbank herstellen
+# connect to database
 DATABASE_URL = "sqlite:///jobfolio.db"
 engine = create_engine(DATABASE_URL, echo=True)
 
-# Session erstellen
+# start session
 Session = sessionmaker(bind=engine)
 session = Session()
 
@@ -31,5 +29,3 @@ class EducationDAO:
         session.add(new_education)
         session.commit()
         return new_education
-
-    # Weitere Methoden für Aktualisierung, Löschung usw.
