@@ -11,11 +11,10 @@ class UserProfile(Base):
     id = Column(Integer, primary_key=True)
     picture = Column(String)
     title = Column(String)
-    short_description = Column(String)
+    short_description = Column(String(length=500))
     user_id = Column(Integer, ForeignKey('users.id'))
 
-    user = relationship("users", back_populates="user_profile")
+    user = relationship("User", back_populates="user_profile")
 
-    # chatgpt generated
     def get_picture_path(self):
-            return os.path.join('userpictures', self.picture) if self.picture else None
+        return os.path.join('userpictures', self.picture) if self.picture else None

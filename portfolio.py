@@ -7,16 +7,17 @@ from dao.EducationDAO import EducationDAO
 from dao.LanguageDAO import LanguageDAO
 from dao.ProjectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
+from dao.UserProfileDAO import UserProfileDAO
 from project_form import project_form
 
 def portfolio():
     if 'user_id' in session: 
         user_id = session['user_id']
         
-        user_profile_picture = "path/to/actual/profile_picture.jpg" # if user has use, if not use default
         user_name = UsersDAO.get_user_full_name(user_id)
-        user_occupation = "Digital Artist"
-        user_description = "Recent art graduate with a passion for visual storytelling..."
+        user_profile_picture = UserProfileDAO.get_user_profile_picture(user_id)
+        user_occupation = UserProfileDAO.get_user_occupation(user_id)
+        user_description = UserProfileDAO.get_user_description(user_id)
 
         # fetch db stuff
         #user_projects = ProjectDAO.get_projects_by_user_id(user_id)
@@ -35,3 +36,4 @@ def portfolio():
         
     else:
         return render_template('portfolio_logged_out.html')
+    

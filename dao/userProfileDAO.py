@@ -37,7 +37,7 @@ class UserProfileDAO:
     
     # chatgpt generated
     def update_profile_picture(self, user_id, picture_file):
-        user_profile = self.session.query(UserProfile).filter_by(user_id=user_id).first()
+        user_profile = session.query(UserProfile).filter_by(user_id=user_id).first()
         if user_profile:
             if picture_file:
                 filename = secure_filename(picture_file.filename)
@@ -45,10 +45,39 @@ class UserProfileDAO:
                 picture_file.save(picture_path)
 
                 user_profile.picture = picture_path
-                self.session.commit()
+                session.commit() 
                 return user_profile
         return None
 
 
-    def get_user_profile_by_user_id(self, user_id):
-        return session.query(UserProfile).filter_by(user_id=user_id).first()
+    @classmethod
+    def get_user_profile_by_user_id(cls, user_id):
+        user_profile = session.query(UserProfile).filter_by(user_id=user_id).first()
+        return user_profile
+
+    
+    # stuff for portfolio profile
+        
+    @classmethod
+    def get_user_profile_picture(cls, user_id):
+        user_profile = session.query(UserProfile).filter_by(user_id=user_id).first()
+        if user_profile and user_profile.picture:
+            return user_profile.picture
+        else:
+            return "{{ url_for('static', filename='default-pfp.jpg') }}"
+
+    @classmethod
+    def get_user_occupation(cls, user_id):
+        user_profile = session.query(UserProfile).filter_by(user_id=user_id).first()
+        if user_profile and user_profile.title:
+            return user_profile.title
+        else:
+            return "Title not specified"
+
+    @classmethod
+    def get_user_description(cls, user_id):
+        user_profile = session.query(UserProfile).filter_by(user_id=user_id).first()
+        if user_profile and user_profile.short_description:
+            return user_profile.short_description
+        else:
+            return "Description not available"

@@ -25,8 +25,6 @@ class UsersDAO:
         else:
             return None
 
-
-
     @classmethod
     def create_user(cls, first_name, last_name, email, phone_number, street, zipcode, city, password):
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
@@ -46,22 +44,6 @@ class UsersDAO:
         return new_user
     
     @classmethod
-    def get_user_first_name(cls, user_id):
-        user = session.query(User).filter_by(id=user_id).first()
-        if user:
-            return user.first_name
-        else:
-            return None
-        
-    @classmethod
-    def get_user_full_name(cls, user_id):
-        user = session.query(User).filter_by(id=user_id).first()
-        if user:
-            return user.first_name + " " + user.last_name
-        else:
-            return None    
-        
-    @classmethod
     def get_user_data(cls, user_id):
         user = session.query(User).filter_by(id=user_id).first()
         if user:
@@ -77,3 +59,23 @@ class UsersDAO:
             return user_data
         else:
             return None
+    
+    @classmethod
+    def get_user_first_name(cls, user_id):
+        user = session.query(User).filter_by(id=user_id).first()
+        if user:
+            return user.first_name
+        else:
+            return None
+        
+    @classmethod
+    def get_user_full_name(cls, user_id):
+        user = session.query(User).filter_by(id=user_id).first()
+        if user:
+            return user.first_name + " " + user.last_name
+        else:
+            return None    
+        
+    
+        
+
