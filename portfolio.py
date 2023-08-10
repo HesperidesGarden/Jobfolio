@@ -21,8 +21,8 @@ def portfolio():
 
         # fetch db stuff
         #user_projects = ProjectDAO.get_projects_by_user_id(user_id)
-        #user_skills = SkillDAO.get_skills_by_user_id(user_id)
-        #user_languages = LanguageDAO.get_languages_by_user_id(user_id)
+        user_skills = SkillDAO.get_skills_by_user_id(user_id)
+        user_languages = LanguageDAO.get_languages_by_user_id(user_id)
     
         return render_template('portfolio_logged_in.html',
                         user_profile_picture=user_profile_picture,
@@ -30,8 +30,8 @@ def portfolio():
                         user_occupation=user_occupation,
                         user_description=user_description,
                         #user_projects=user_projects,
-                        #user_skills=user_skills,
-                        #user_languages=user_languages
+                        user_skills=user_skills,
+                        user_languages=user_languages
                         )
         
     else:

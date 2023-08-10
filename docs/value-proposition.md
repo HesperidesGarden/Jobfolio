@@ -32,7 +32,7 @@ Our portfolio offers:
 * a short profile introduction
 * projects overview and detailed view
 * languages and skills
-* external social media links (eg. LinkedIn profile)
+
 
 ## Conclusion
   As students getting ready to dive into the job market soon, we noticed that building a great portfolio was pretty important. So, we thought, why not use our coding skills to make something we think is missing? We've been working hard to create a website that's practical and exciting – the kind of stuff we would want to see out there. Our goal has been to understand what fellow job seekers like us need and then create a platform that can actually make a positive impact.
