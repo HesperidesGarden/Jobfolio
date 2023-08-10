@@ -45,23 +45,30 @@
     </div>
   </div>
 
-   <!-- Edit Projects Section -->
-  <div class="strip">
-    <h2 class="section-heading">Edit Projects</h2>
-    <a href="#" class="add-button">Add New</a>
-    <div class="projects-container">
-      <div class="projects-content">
-        <!-- Loop through user projects and generate project cards -->
-        {% for project in user_projects %}
-        <div class="project-card">
-          <img src="{{ project.image_url }}" alt="Project Image">
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-        </div>
-        {% endfor %}
+<!-- Edit Projects Section -->
+<div class="strip">
+  <h2 class="section-heading">Edit Projects</h2>
+  <a href="#" class="add-button">Add New</a>
+  <div class="projects-container">
+    <div class="projects-content">
+      <!-- Loop through user projects and generate project titles -->
+      <!-- used a placeholder, , instead: for skill in user.skill or smth -->
+      {% for project in [
+        {"title": "Project 1"},
+        {"title": "Project 2"}, 
+        {"title": "Project 3"} 
+        ] %}
+      <div class="project-card">
+        <span>{{ project.title }}</span>
+        <button class="delete-button">Delete</button>
       </div>
+      {% endfor %}
     </div>
   </div>
+</div>
+
+
+
 
 <!-- Edit Skills and Languages Section -->
 <div class="strip">
@@ -92,10 +99,37 @@
       </form>
     </div>
   </div>
+
+    <!-- lists -->
+    <div class="lists">
+      <div class="skills-list">
+        <h3>Existing Skills</h3>
+        <ul>
+              <!-- replace placeholders -->
+          {% for skill in ["Skill 1", "Skill 2", "Skill 3"] %}
+          <li>
+            <span>{{ skill }}</span>
+            <button class="delete-button">Delete</button>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    
+      <!-- Existing Languages List -->
+      <div class="languages-list">
+        <h3>Existing Languages</h3>
+        <ul>
+          <!-- replace placeholders -->
+          {% for language in ["Language 1", "Language 2", "Language 3"] %}
+          <li>
+            <span>{{ language }}</span>
+            <button class="delete-button">Delete</button>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
 </div>
-
-
-
 
 
   <footer>

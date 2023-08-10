@@ -117,12 +117,46 @@ nav ul li a:hover {
 }
 
 .add-button {
-  margin-top: 10px;
-  background-color: #f2f2f2;
-  color: #333;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #15b7b9;
+  color: #fff;
+  cursor: pointer;
 }
 
-/* skills */
+.add-button:hover {
+  background-color: #0d9092;
+}
+
+/* project */
+.project-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.project-card span {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.project-card .delete-button {
+  background-color: #f2f2f2;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.project-card .delete-button:hover {
+  background-color: #e0e0e0;
+}
 
 
 /* skills */
@@ -130,7 +164,7 @@ nav ul li a:hover {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 20px; /* Add a gap between columns */
+  gap: 20px; 
 }
 
 .add-form {
@@ -172,6 +206,67 @@ nav ul li a:hover {
   background-color: #0d9092;
 }
 
+/* lists */
+.lists {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.skills-list,
+.languages-list {
+  flex: 1;
+}
+
+.skills-list h3,
+.languages-list h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.skills-list ul,
+.languages-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li,
+.languages-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.skills-list li:hover,
+.languages-list li:hover {
+  background-color: #f9f9f9;
+}
+
+.skills-list span,
+.languages-list span {
+  font-size: 16px;
+}
+
+.delete-button {
+  background-color: #f2f2f2;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* footer */
 
 footer {
   background-color: #333;
@@ -190,11 +285,3 @@ footer {
 }
 
 
-.add-button {
-  background-color: #f2f2f2;
-  color: #333;
-}
-
-.add-button:hover {
-  background-color: #ccc;
-}
