@@ -1,3 +1,6 @@
+import os
+from werkzeug.utils import secure_filename
+
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from databasetables.userProfile import UserProfile
@@ -11,19 +14,41 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 class UserProfileDAO:
-    def __init__(self, session: Session):
-        self.session = session
-
+    
     def create_user_profile(self, picture, title, short_description, user_id):
+        
+        # if-else chatgpt generated
+        if picture:
+            filename = secure_filename(picture.filename)
+            picture.save(os.path.join('userpictures', filename))
+        else:
+            filename = None
+
+    
         new_profile = UserProfile(
             picture=picture,
             title=title,
             short_description=short_description,
             user_id=user_id
         )
-        self.session.add(new_profile)
-        self.session.commit()
+        session.add(new_profile)
+        session.commit()
         return new_profile
+    
+    # chatgpt generated
+    def update_profile_picture(self, user_id, picture_file):
+        user_profile = self.session.query(UserProfile).filter_by(user_id=user_id).first()
+        if user_profile:
+            if picture_file:
+                filename = secure_filename(picture_file.filename)
+                picture_path = os.path.join('userpictures', filename)
+                picture_file.save(picture_path)
 
-    def get_user_profile(self, user_id):
-        return self.session.query(UserProfile).filter_by(user_id=user_id).first()
+                user_profile.picture = picture_path
+                self.session.commit()
+                return user_profile
+        return None
+
+
+    def get_user_profile_by_user_id(self, user_id):
+        return session.query(UserProfile).filter_by(user_id=user_id).first()

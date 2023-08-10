@@ -4,9 +4,9 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from dao.UsersDAO import UsersDAO
 from dao.educationDAO import EducationDAO
-from dao.LanguageDAO import LanguageDAO
-from dao.ProjectDAO import ProjectDAO
-from dao.SkillDAO import SkillDAO
+from dao.languageDAO import LanguageDAO
+from dao.projectDAO import ProjectDAO
+from dao.skillDAO import SkillDAO
 from project_form import project_form
 
 def portfolio():

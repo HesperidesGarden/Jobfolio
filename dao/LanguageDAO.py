@@ -1,7 +1,7 @@
 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from databasetables.languages import Language 
+from databasetables.language import Language 
 
 # connect to database
 DATABASE_URL = "sqlite:///jobfolio.db"

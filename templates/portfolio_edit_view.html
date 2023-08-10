@@ -42,6 +42,16 @@
       </div>
     </div>
   
+      <!-- Edit Profile Picture -->
+      <form action="{{ url_for('update_profile_picture') }}" method="post" enctype="multipart/form-data">
+        <div class="form-field">
+          <label for="profile_picture">Update Profile Picture:</label>
+          <input type="file" id="profile_picture" name="profile_picture">
+        </div>
+        <button type="submit" class="update-button">Update Picture</button>
+      </form>
+
+
 <!-- My Projects -->
 <div class="strip projects-container">
   <h2 class="section-heading">My Projects</h2>
