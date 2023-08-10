@@ -3,7 +3,7 @@
 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from databasetables.users import User 
+from databasetables.user import User 
 import bcrypt
 
 

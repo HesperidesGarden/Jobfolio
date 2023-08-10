@@ -17,8 +17,5 @@ class Language(Base):
     self_evaluation = Column(String)
     users_id = Column(Integer, ForeignKey('users.id'))
 
-    # Beziehung zur User-Klasse herstellen
-    user = relationship("users", back_populates="languages")
-
     def __repr__(self):
         return f"<Language(id={self.id}, language_name={self.language_name}, proficiency={self.proficiency})>"

@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from databasetables.userProfile import UserProfile
+from flask import url_for
 
 # connect to database
 DATABASE_URL = "sqlite:///jobfolio.db"
@@ -26,7 +27,7 @@ class UserProfileDAO:
 
     
         new_profile = UserProfile(
-            picture=picture,
+            picture=picture, 
             title=title,
             short_description=short_description,
             user_id=user_id
@@ -64,7 +65,7 @@ class UserProfileDAO:
         if user_profile and user_profile.picture:
             return user_profile.picture
         else:
-            return "{{ url_for('static', filename='default-pfp.jpg') }}"
+             return url_for('static', filename='default-pfp.jpg')
 
     @classmethod
     def get_user_occupation(cls, user_id):

@@ -21,8 +21,5 @@ class Project(Base):
     difficulty = Column(String)
     users_id = Column(Integer, ForeignKey('users.id'))
 
-    # Beziehung zur User-Klasse herstellen
-    user = relationship("users", back_populates="projects")
-
     def __repr__(self):
         return f"<Project(id={self.id}, title={self.title}, description={self.description})>"

@@ -16,8 +16,5 @@ class Skill(Base):
     description = Column(String, nullable=False)
     users_id = Column(Integer, ForeignKey('users.id'))
 
-    # Beziehung zur User-Klasse herstellen
-    user = relationship("users", back_populates="skills")
-
     def __repr__(self):
         return f"<Skill(id={self.id}, name={self.name}, proficiency={self.proficiency})>"
