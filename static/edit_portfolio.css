@@ -51,145 +51,108 @@ nav ul li a:hover {
 }
 
 .strip {
+  max-width: 1200px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.profile-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent; /* Remove the background color */
-}
-
-.profile-content {
+.button-container {
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.profile-picture {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 20px;
-}
-
-.profile-picture img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.profile-name {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.description-box {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.description-box p::after {
-  content: "";
-  display: block;
-  text-align: right;
-  font-size: 12px;
-  color: #999;
-}
-
-.description-box p[data-characters-left="0"]::after {
-  color: #ff0000;
-}
-
-.projects-container {
-  max-width: 960px;
-}
-
-.projects-content {
-  overflow-x: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center; /* Center the projects */
-  align-items: center;
-}
-
-.project-card {
-  width: 300px;
-  background-color: #f2f2f2;
-  margin: 10px;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.project-card img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
-
-.project-card h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.project-card p {
-  font-size: 14px;
-  color: #333;
-}
-
-.skills-container {
-  max-width: 960px;
-}
-
-.skills-content {
-  overflow-x: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: center; /* Center the skills */
-  align-items: center;
-}
-
-.skill-card {
-  width: 300px;
-  background-color: #f2f2f2;
-  margin: 10px;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.skill-card h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.skill-card p {
-  font-size: 14px;
-  color: #333;
-}
-
-.add-button {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.add-button a {
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
   text-decoration: none;
+  background-color: #f2f2f2;
   color: #333;
-  padding: 8px 16px;
-  border: 1px solid #333;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
 
-.add-button a:hover {
-  background-color: #333;
+.button.active {
+  background-color: #15b7b9;
   color: #fff;
+}
+
+.profile-container {
+  text-align: left;
+  padding: 20px;
+}
+
+.profile-container form {
+  text-align: left;
+}
+
+.profile-container form input[type="text"],
+.profile-container form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.profile-container form input[type="file"] {
+  margin-bottom: 20px;
+}
+
+.profile-container form button {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #15b7b9;
+  color: #fff;
+  cursor: pointer;
+}
+
+.profile-container form button:hover {
+  background-color: #0d9092;
+}
+
+.projects-container,
+.skills-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.projects-content,
+.skills-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.projects-content .add-button,
+.skills-content .add-button {
+  margin-top: 10px;
+}
+
+.project-card,
+.skill-card {
+  background-color: #f9f9f9;
+  width: calc(50% - 10px);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3,
+.skill-card h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.project-card p,
+.skill-card p {
+  font-size: 14px;
+  color: #555;
 }
 
 footer {
@@ -206,4 +169,30 @@ footer {
 
 .footer-message {
   font-size: 14px;
+}
+
+.edit-button,
+.add-button {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #15b7b9;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.add-button:hover {
+  background-color: #0d9092;
+}
+
+.add-button {
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+.add-button:hover {
+  background-color: #ccc;
 }

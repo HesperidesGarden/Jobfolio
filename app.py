@@ -50,8 +50,8 @@ def get_login():
             session['user_id'] = user.id
             return redirect(url_for('get_portfolio')) 
         else:
-            return 'Invalid login credentials'
-    return render_template('login.html')
+            error_message = 'Invalid login credentials'
+    return render_template('login.html', error_message=error_message)
 
 
 # Home Route

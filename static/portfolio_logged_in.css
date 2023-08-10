@@ -121,7 +121,7 @@ body {
   .projects-container {
     max-width: 960px;
     margin: 0 auto;
-    overflow-x: auto; /* Add horizontal scrolling */
+    overflow-x: auto; 
   }
   
   .projects-content {
@@ -140,7 +140,7 @@ body {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-right: 15px; /* Add some space between project cards */
+    margin-right: 15px; 
   }
   .project-card img {
     max-width: 100%;
@@ -242,3 +242,4 @@ body {
 .add-button:hover {
   background-color: #ccc;
 }
+
