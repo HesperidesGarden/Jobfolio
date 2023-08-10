@@ -26,3 +26,13 @@ class SkillDAO:
         session.add(new_skill)
         session.commit()
         return new_skill
+    
+    @classmethod
+    def deleteSkill(cls, id):
+        skill = session.query(Skill).get(id)
+        if skill:
+            session.delete(skill)
+            session.commit()
+            return True  
+        else:
+            return False

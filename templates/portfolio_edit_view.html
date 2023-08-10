@@ -68,8 +68,6 @@
 </div>
 
 
-
-
 <!-- Edit Skills and Languages Section -->
 <div class="strip">
   <h2 class="section-heading">Edit Skills and Languages</h2>
@@ -105,30 +103,32 @@
       <div class="skills-list">
         <h3>Existing Skills</h3>
         <ul>
-              <!-- replace placeholders -->
-          {% for skill in ["Skill 1", "Skill 2", "Skill 3"] %}
+          {% for skill in existing_skills %}
           <li>
-            <span>{{ skill }}</span>
-            <button class="delete-button">Delete</button>
+            <span>{{ skill.name }}</span>
+            <form action="{{ url_for('delete_skill', skill_id=skill.id) }}" method="post">
+              <button class="delete-button" type="submit">Delete</button>
+            </form>
           </li>
           {% endfor %}
         </ul>
       </div>
     
-      <!-- Existing Languages List -->
       <div class="languages-list">
         <h3>Existing Languages</h3>
         <ul>
-          <!-- replace placeholders -->
-          {% for language in ["Language 1", "Language 2", "Language 3"] %}
+          {% for language in existing_languages %}
           <li>
-            <span>{{ language }}</span>
-            <button class="delete-button">Delete</button>
+            <span>{{ language.name }}</span>
+            <form action="{{ url_for('delete_language', language_id=language.id) }}" method="post">
+              <button class="delete-button" type="submit">Delete</button>
+            </form>
           </li>
           {% endfor %}
         </ul>
       </div>
     </div>
+  
 </div>
 
 

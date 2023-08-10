@@ -27,4 +27,14 @@ class LanguageDAO:
         session.add(new_language)
         session.commit()
         return new_language
+    
+    @classmethod
+    def delete_language(cls, id):
+        language = session.query(Language).get(id)
+        if language:
+            session.delete(language)
+            session.commit()
+            return True  
+        else:
+            return False
 

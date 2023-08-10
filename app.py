@@ -130,11 +130,29 @@ def add_lang():
 
         LanguageDAO.create_language(user_id, language_name, language_proficiency, language_description)
 
-        return redirect(url_for('get_portfolio'))  # Redirect to the user's profile page after updating
+        return redirect(url_for('get_portfolio'))  
 
-    return render_template('portfolio_edit_view.html')  # Render the template for editing languages
+    return render_template('portfolio_edit_view.html')  
 
+# deleteLang
+@app.route('/delete_language/<int:language_id>', methods=['DELETE'])
+def delete_language(language_id):
 
+    if LanguageDAO.delete_language(language_id):
+        return redirect(url_for('get_portfolio'))  
+    else:
+         error_message = 'Error deleting.'
+    return render_template('portfolio_edit_view.html', error_message=error_message)
+
+# deleteSkill
+@app.route('/delete_skill/<int:skill_id>', methods=['DELETE'])
+def delete_skill(skill_id):
+
+    if SkillDAO.deleteSkill(skill_id):
+        return redirect(url_for('get_portfolio'))  
+    else:
+         error_message = 'Error deleting.'
+    return render_template('portfolio_edit_view.html', error_message=error_message)
 
 # SubmitProject Route
 @app.route("/submit", methods=["POST"])
