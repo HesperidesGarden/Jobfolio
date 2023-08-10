@@ -17,17 +17,15 @@ session = Session()
 class UserProfileDAO:
     
     def create_user_profile(self, picture, title, short_description, user_id):
-        
-        # if-else chatgpt generated
         if picture:
             filename = secure_filename(picture.filename)
-            picture.save(os.path.join('userpictures', filename))
+            picture_path = os.path.join('userpictures', filename)
+            picture.save(picture_path)
         else:
-            filename = None
+            picture_path = None
 
-    
         new_profile = UserProfile(
-            picture=picture, 
+            picture=picture_path,  # Use picture_path here
             title=title,
             short_description=short_description,
             user_id=user_id
@@ -37,18 +35,17 @@ class UserProfileDAO:
         return new_profile
     
     # chatgpt generated
-    def update_profile_picture(self, user_id, picture_file):
+    def update_profile(self, user_id, picture_path, title, short_description):
         user_profile = session.query(UserProfile).filter_by(user_id=user_id).first()
         if user_profile:
-            if picture_file:
-                filename = secure_filename(picture_file.filename)
-                picture_path = os.path.join('userpictures', filename)
-                picture_file.save(picture_path)
-
+            if picture_path:
                 user_profile.picture = picture_path
-                session.commit() 
-                return user_profile
+            user_profile.title = title
+            user_profile.short_description = short_description
+            session.commit() 
+            return user_profile
         return None
+
 
 
     @classmethod
