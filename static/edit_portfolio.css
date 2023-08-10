@@ -80,6 +80,7 @@ nav ul li a:hover {
   color: #fff;
 }
 
+/* profile */
 .profile-container {
   text-align: left;
   padding: 20px;
@@ -115,45 +116,62 @@ nav ul li a:hover {
   background-color: #0d9092;
 }
 
-.projects-container,
-.skills-container {
-  max-width: 960px;
-  margin: 0 auto;
+.add-button {
+  margin-top: 10px;
+  background-color: #f2f2f2;
+  color: #333;
 }
 
-.projects-content,
+/* skills */
+
+
+/* skills */
 .skills-content {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px; /* Add a gap between columns */
 }
 
-.projects-content .add-button,
-.skills-content .add-button {
+.add-form {
+  flex: 1;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.form-heading {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.add-form form label {
+  display: block;
   margin-top: 10px;
+  font-weight: bold;
 }
 
-.project-card,
-.skill-card {
-  background-color: #f9f9f9;
-  width: calc(50% - 10px);
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.add-form form input[type="text"],
+.add-form form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
 }
 
-.project-card h3,
-.skill-card h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
+.add-form form button {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #15b7b9;
+  color: #fff;
+  cursor: pointer;
 }
 
-.project-card p,
-.skill-card p {
-  font-size: 14px;
-  color: #555;
+.add-form form button:hover {
+  background-color: #0d9092;
 }
+
 
 footer {
   background-color: #333;
@@ -171,22 +189,6 @@ footer {
   font-size: 14px;
 }
 
-.edit-button,
-.add-button {
-  display: inline-block;
-  padding: 5px 10px;
-  background-color: #15b7b9;
-  color: #fff;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.edit-button:hover,
-.add-button:hover {
-  background-color: #0d9092;
-}
 
 .add-button {
   background-color: #f2f2f2;

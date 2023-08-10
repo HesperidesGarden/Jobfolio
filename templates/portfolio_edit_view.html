@@ -63,36 +63,40 @@
     </div>
   </div>
 
-  <!-- Edit Skills and Languages Section -->
-  <div class="strip">
-    <h2 class="section-heading">Edit Skills and Languages</h2>
-    <a href="#" class="add-button">Add Skill</a>
-    <a href="#" class="add-button">Add Language</a>
-    <div class="skills-container">
-      <div class="skills-content">
-        <div class="skills-column">
-          <h3 class="column-heading">Skills</h3>
-          <!-- Loop through user skills and generate skill cards -->
-          {% for skill in user_skills %}
-          <div class="skill-card">
-            <h3>{{ skill.name }}</h3>
-            <p>{{ skill.description }}</p>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="skills-column">
-          <h3 class="column-heading">Languages</h3>
-          <!-- Loop through user languages and generate language cards -->
-          {% for language in user_languages %}
-          <div class="skill-card">
-            <h3>{{ language.name }}</h3>
-            <p>{{ language.proficiency }} - {{ language.self_evaluation }}</p>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
+<!-- Edit Skills and Languages Section -->
+<div class="strip">
+  <h2 class="section-heading">Edit Skills and Languages</h2>
+  <div class="skills-content">
+    <div class="add-form">
+      <h3 class="form-heading">Add Skill</h3>
+      <form action="#">
+        <label for="skill_name">Name:</label>
+        <input type="text" id="skill_name" name="skill_name" required>
+        <label for="skill_proficiency">Proficiency:</label>
+        <input type="text" id="skill_proficiency" name="skill_proficiency" required>
+        <label for="skill_description">Description:</label>
+        <textarea id="skill_description" name="skill_description" maxlength="500" required></textarea>
+        <button type="submit" class="add-button">Add Skill</button>
+      </form>
+    </div>
+    <div class="add-form">
+      <h3 class="form-heading">Add Language</h3>
+      <form action="#">
+        <label for="language_name">Name:</label>
+        <input type="text" id="language_name" name="language_name" required>
+        <label for="language_proficiency">Proficiency:</label>
+        <input type="text" id="language_proficiency" name="language_proficiency" required>
+        <label for="language_description">Description:</label>
+        <textarea id="language_description" name="language_description" maxlength="500" required></textarea>
+        <button type="submit" class="add-button">Add Language</button>
+      </form>
     </div>
   </div>
+</div>
+
+
+
+
 
   <footer>
     <div class="footer-container">

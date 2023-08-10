@@ -57,33 +57,39 @@
         </div>
       </div>
     </div>
-  
-    <!-- Languages and Skills -->
-    <div class="strip skills-container">
-      <h2 class="section-heading">Languages and Skills</h2>
-      <div class="skills-content">
-        <div class="skills-column">
-          <h3 class="column-heading">Skills</h3>
-          <!-- Loop through user skills and generate skill cards -->
-          {% for skill in user_skills %}
-          <div class="skill-card">
-            <h3>{{ skill.name }}</h3>
-            <p>{{ skill.description }}</p>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="skills-column">
-          <h3 class="column-heading">Languages</h3>
-          <!-- Loop through user languages and generate language cards -->
-          {% for language in user_languages %}
-          <div class="skill-card">
-            <h3>{{ language.name }}</h3>
-            <p>{{ language.proficiency }} - {{ language.self_evaluation }}</p>
-          </div>
-          {% endfor %}
-        </div>
+    
+<!-- Languages and Skills -->
+<div class="strip skills-container">
+  <h2 class="section-heading">Languages and Skills</h2>
+  <div class="skills-content">
+    <div class="skills-column">
+      <h3 class="column-heading">Skills</h3>
+      <!-- Placeholder skill cards -->
+      <div class="skill-card">
+        <h3>Placeholder Skill 1</h3>
+        <p>This is a placeholder skill description.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Placeholder Skill 2</h3>
+        <p>This is another placeholder skill description.</p>
       </div>
     </div>
+    <div class="skills-column">
+      <h3 class="column-heading">Languages</h3>
+      <!-- Placeholder language cards -->
+      <div class="skill-card">
+        <h3>English</h3>
+        <p>Intermediate - Self-assessed</p>
+      </div>
+      <div class="skill-card">
+        <h3>French</h3>
+        <p>Beginner - Self-assessed</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
   <footer>
     <div class="footer-container">
       <p class="footer-message">
