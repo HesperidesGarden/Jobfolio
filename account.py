@@ -1,5 +1,5 @@
 from flask import Flask, session, render_template, redirect, url_for, request
-from dao.UsersDAO import UsersDAO
+from dao.usersDAO import UsersDAO
 
 def account():
     if 'user_id' in session:

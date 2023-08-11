@@ -1,32 +1,25 @@
 import os
 from werkzeug.utils import secure_filename
 from flask import Flask, session, render_template, redirect, url_for, request
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
-from dao.UsersDAO import UsersDAO
-from dao.EducationDAO import EducationDAO
-from dao.LanguageDAO import LanguageDAO
-from dao.ProjectDAO import ProjectDAO
-from dao.SkillDAO import SkillDAO
-from dao.UserProfileDAO import UserProfileDAO
 from project_form import project_form
 from portfolio import portfolio
 from account import account
 from signup import signup_user
+from flask_bootstrap import Bootstrap5
+
+
 
 app = Flask(__name__)
 
 app.config.from_mapping(
 	SECRET_KEY='secret_key_just_for_dev_environment',
-	DATABASE=os.path.join(app.instance_path, 'todos.sqlite')
+    BOOTSTRAP_BOOTSWATCH_THEME = 'pulse'
 )
 
-users_dao = UsersDAO()
-education_dao = EducationDAO()
-language_dao = LanguageDAO()
-project_dao = ProjectDAO()
-skill_dao = SkillDAO()
-userProfile_DAO = UserProfileDAO()
+from db import db, User, Education, Language, Project, Skill, UserProfile  # Import models from db.py
+
+bootstrap = Bootstrap5(app)
+
 
 UPLOAD_FOLDER = 'userpictures'  # Ordner für hochgeladene Bilder
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}  # Erlaubte Dateitypen
@@ -46,15 +39,14 @@ def get_login():
         email = request.form['email']
         password = request.form['password']
 
-        user = users_dao.check_user_credentials(email, password)
+        user = db.session.get(User, {'email': email})
 
-        if user:
+        if user and user.password == password:
             session['user_id'] = user.id
             return redirect(url_for('get_portfolio')) 
         else:
             error_message = 'Invalid login credentials'
     return render_template('login.html', error_message=error_message)
-
 
 # Home Route
 @app.route('/home/')
@@ -63,8 +55,9 @@ def get_home():
     user_first_name = None
     if user_logged_in:
         user_id = session['user_id']
-        user_first_name = UsersDAO.get_user_first_name(user_id)
+        user_first_name = db.session.get(User, user_id).first_name
     return render_template('home.html', user_logged_in=user_logged_in, user_first_name=user_first_name)
+
 
 # Account Route
 @app.route('/account')
@@ -114,7 +107,9 @@ def add_skill():
         skill_proficiency = request.form['skill_proficiency']
         skill_description = request.form['skill_description']
 
-        SkillDAO.create_skill(user_id, skill_name, skill_proficiency, skill_description)
+        new_skill = Skill(name=skill_name, proficiency=skill_proficiency, description=skill_description, user_id=user_id)
+        db.session.add(new_skill)
+        db.session.commit()
 
         return redirect(url_for('get_portfolio')) 
 
@@ -130,7 +125,9 @@ def add_lang():
         language_proficiency = request.form['language_proficiency']
         language_description = request.form['language_description']
 
-        LanguageDAO.create_language(user_id, language_name, language_proficiency, language_description)
+        new_language = Language(language_name=language_name, proficiency=language_proficiency, description=language_description, user_id=user_id)
+        db.session.add(new_language)
+        db.session.commit()
 
         return redirect(url_for('get_portfolio'))  
 
@@ -139,8 +136,11 @@ def add_lang():
 # deleteLang
 @app.route('/delete_language/<int:language_id>', methods=['DELETE'])
 def delete_language(language_id):
-
-    if LanguageDAO.delete_language(language_id):
+    language = db.session.get(Language, language_id)
+    
+    if language:
+        db.session.delete(language)
+        db.session.commit()
         return redirect(url_for('get_portfolio'))  
     else:
          error_message = 'Error deleting.'
@@ -149,8 +149,11 @@ def delete_language(language_id):
 # deleteSkill
 @app.route('/delete_skill/<int:skill_id>', methods=['DELETE'])
 def delete_skill(skill_id):
+    skill = db.session.get(Skill, skill_id)
 
-    if SkillDAO.deleteSkill(skill_id):
+    if skill:
+        db.session.delete(skill)
+        db.session.commit()
         return redirect(url_for('get_portfolio'))  
     else:
          error_message = 'Error deleting.'
@@ -167,16 +170,17 @@ def create_user_profile_picture():
     picture = request.files['profile_picture']
     user_id = session['user_id']
 
-    users_dao.create_user_profile(picture, user_id)
-    return redirect(url_for('get_home'))
+    new_user_profile = UserProfile(picture=picture, user_id=user_id)
+    db.session.add(new_user_profile)
+    db.session.commit()
 
+    return redirect(url_for('get_home'))
 
 # UpdateProfile Route
 @app.route('/update_user_profile', methods=['POST'])
 def update_user_profile():
-    
     user_id = session['user_id']
-    user_profile = userProfile_DAO.get_user_profile_by_user_id(user_id)
+    user_profile = db.session.get(UserProfile, {'user_id': user_id})
 
     if 'profile_picture' in request.files:
         profile_picture = request.files['profile_picture']
@@ -190,10 +194,14 @@ def update_user_profile():
             user_description = request.form.get('user_description')  
 
             if user_profile:
-                userProfile_DAO.update_profile(user_id, picture_path, title, user_description)
+                user_profile.picture = picture_path
+                user_profile.title = title
+                user_profile.short_description = user_description
             else:
-                userProfile_DAO.create_user_profile(profile_picture, title, user_description, user_id)
+                new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
+                db.session.add(new_user_profile)
 
+            db.session.commit()
             return redirect(url_for('get_portfolio')) 
 
     return "Error updating profile"

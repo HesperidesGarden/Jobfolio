@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request
-from dao.UsersDAO import UsersDAO
+from db import User
 
 def signup_user():
     if request.method == "POST":
@@ -12,14 +12,19 @@ def signup_user():
         city = request.form["city"]
         password = request.form["password"]
 
-        UsersDAO.create_user(first_name, 
-                             last_name, 
-                             email, 
-                             phone_number, 
-                             street,
-                             zipcode, 
-                             city, 
-                             password)
+        new_user = User(
+            first_name=first_name,
+            last_name=last_name,
+            email=email,
+            phone_number=phone_number,
+            street=street,
+            zipcode=zipcode,
+            city=city,
+            password=password
+        )
+
+        db.session.add(new_user)
+        db.session.commit()
 
         return redirect("/portfolio/")
 
