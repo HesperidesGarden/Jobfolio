@@ -40,6 +40,8 @@ def index():
 # Login Route # chatgpt-generated
 @app.route('/login/', methods=['GET', 'POST'])
 def get_login():
+    error_message = 'Invalid login credentials'
+
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']

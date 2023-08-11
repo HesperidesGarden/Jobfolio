@@ -1,6 +1,6 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from databasetables.project import Project  # Annahme: Die Project-Klasse ist bereits in projects.py definiert
+from model.project import Project  # Annahme: Die Project-Klasse ist bereits in projects.py definiert
 
 # connect to database
 DATABASE_URL = "sqlite:///jobfolio.db"

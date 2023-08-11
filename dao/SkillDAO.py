@@ -1,6 +1,6 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from databasetables.skill import Skill  
+from model.skill import Skill  
 
 # connect to database
 DATABASE_URL = "sqlite:///jobfolio.db"

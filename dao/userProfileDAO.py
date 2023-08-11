@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from databasetables.userProfile import UserProfile
+from model.userProfile import UserProfile
 from flask import url_for
 
 # connect to database
