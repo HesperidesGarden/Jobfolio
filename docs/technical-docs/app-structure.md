@@ -15,46 +15,38 @@ nav_order: 1
   </summary>
 </details>
 
-
-# Main Focus:
-+ Login, Registration
-+ Account
-+ Homepage
-+ MyPortfolio-Page
-+ Edit MyPortfolio
-+ Project Detail View
-+ Job Search View 
-
-# Optional Pages (Considerations):
-+ Company View and Login
-+ Skill Match 
-+ Job Postings (Functionality with API Connection)
-
-# App Structure
-
 The structure of our web application is based on Flask, Python, and SQLAlchemy to enable efficient backend processing and database interaction. In this section, we provide an overview of the folder structure, main components, and the technologies used.
 
 ## Folder Structure
 
 The folder structure of our application looks as follows:
 
+<details open markdown="block">
+<summary>- app/</summary>
 <pre>
- - app/
-    - dao/ ## props delete (depends)
-<details>
-<summary>- databasetables/</summary>
-  <pre>
+  - dao/
+  - databasetables/
+  - docs/
+  - static/
+  - templates/
+</pre>
+</details>
+
+<details open markdown="block">
+<summary>- app/databasetables/</summary>
+<pre>
     - education.py
     - language.py
     - project.py
     - skill.py
     - user.py
     - userProfile.py
-  </pre> 
-  </details>
-  <details>
-<summary>- docs/</summary>
-    <pre>
+</pre>
+</details>
+
+<details open markdown="block">
+<summary>- app/docs/</summary>
+<pre>
     - assets/
     - team-eval/
       - contributions.md
@@ -75,10 +67,12 @@ The folder structure of our application looks as follows:
     - README.md ## necessary?
     - ui-components.md ##to be deleted
     - value-proposition.md
-    </pre>
+</pre>
 </details>
-  <details>
-<summary>- static/</summary>
+
+<details open markdown="block">
+<summary>- app/static/</summary>
+<pre>
     - account.css
     - edit_portfolio.css
     - findjobs.css
@@ -91,10 +85,12 @@ The folder structure of our application looks as follows:
     - default-pfp.jpg ##own folder props
     - interview.jpg
     - logo-transperent.png
-    </pre>
+</pre>
 </details>
-  <details>
-<summary>- templates/</summary>
+
+<details open markdown="block">
+<summary>- app/templates/</summary>
+<pre>
     - account.html
     - findjobs.html
     - home.html
@@ -104,8 +100,9 @@ The folder structure of our application looks as follows:
     - project_forms.html
     - signup.html
     - base.html
-    </pre>
+</pre>
 </details>
+
 - routes/
   - account.py
   - portfolio.py
@@ -117,6 +114,7 @@ The folder structure of our application looks as follows:
 - LICENSE
 - requirements.txt
 
+</details>
 
 ## Main Components
 
