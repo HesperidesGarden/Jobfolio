@@ -84,3 +84,6 @@ class UserProfile(db.Model):
 
 
 
+def create_tables():
+    with db.app.app_context():
+        db.create_all()

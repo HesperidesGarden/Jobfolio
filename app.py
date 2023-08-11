@@ -21,9 +21,8 @@ app.config.from_mapping(
 
 )
 
-db = SQLAlchemy(app)
 db.init_app(app)
-from db import db, User, Education, Language, Project, Skill, UserProfile 
+from db import db, User, Education, Language, Project, Skill, UserProfile, create_tables
 
 bootstrap = Bootstrap(app)
 
@@ -46,7 +45,7 @@ def get_login():
         email = request.form['email']
         password = request.form['password']
 
-        user = db.session.get(User, {'email': email})
+        user = db.session.query(User).filter_by(email=email).first()
 
         if user and user.password == password:
             session['user_id'] = user.id
@@ -218,3 +217,8 @@ def update_user_profile():
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+    
+if __name__ == "__main__":
+    with app.app_context():
+        create_tables() 
+    app.run(debug=True)
