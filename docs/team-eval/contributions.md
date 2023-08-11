@@ -16,22 +16,25 @@ nav_order: 4
 {:toc}
 </details>
 
-## [Victoria-Kim Bui]
-
-Contributions
-: Documentation
-: My Projects (Front- and Backend)
-
 ## [Khanh Linh Pham]
 
 Contributions
-:  Frontend Design
+: Frontend Design
 : Homepage and Defaultpages (Front- and Backend)
 : Portfolio (Frontend)
+: Documentation*
 
 ## [Florian Eppe]
 Contributions
 : Database structure
 : Login, Registration and Account (Front- and Backend)
 : Portfolio (Backend)
+: Documentation*
+
+## [Victoria-Kim Bui]
+Contributions
+: Documentation*
+: My Projects (Front- and Backend)
+
+**Note**: The asterisk (*) next to "Documentation" signifies that the team member has made contributions to the documentation content or structure in various areas. Additionally, you will find tags associated with each contributor's name. These tags are used throughout the documentation to indicate sections that have been created or edited by specific team members.
 

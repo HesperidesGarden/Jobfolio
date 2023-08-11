@@ -102,19 +102,21 @@ The folder structure of our application looks as follows:
     - base.html
 </pre>
 </details>
-
-- routes/
-  - account.py
-  - portfolio.py
-  - project-forms.py
-  - signup.py
+<details open markdown="block">
+<summary>- app/routes/</summary>
+<pre>
+    - account.py
+    - portfolio.py
+    - project-forms.py
+    - signup.py
+</pre>
+</details>
 - app.py
 - db.py
 - jobfolio.db
 - LICENSE
 - requirements.txt
 
-</details>
 
 ## Main Components
 
