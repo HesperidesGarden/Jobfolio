@@ -14,12 +14,12 @@ session = Session()
 class LanguageDAO:
     @classmethod
     def get_languages_by_user_id(cls, user_id):
-        return session.query(Language).filter_by(users_id=user_id).all()
+        return session.query(Language).filter_by(user_id=user_id).all()
 
     @classmethod
     def create_language(cls, user_id, language_name, proficiency, self_evaluation):
         new_language = Language(
-            users_id=user_id,
+            user_id=user_id,
             language_name=language_name,
             proficiency=proficiency,
             self_evaluation=self_evaluation

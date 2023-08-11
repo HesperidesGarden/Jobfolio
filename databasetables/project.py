@@ -5,6 +5,8 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 
+user = relationship("User", back_populates="Project")
+
 # Basis-Klasse für die Deklaration der Datenbanktabellen
 Base = declarative_base()
 
@@ -19,7 +21,7 @@ class Project(Base):
     url_picture = Column(String)
     duration = Column(String)
     difficulty = Column(String)
-    users_id = Column(Integer, ForeignKey('users.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
 
     def __repr__(self):
         return f"<Project(id={self.id}, title={self.title}, description={self.description})>"

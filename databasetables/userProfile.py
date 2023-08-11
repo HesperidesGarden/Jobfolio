@@ -6,6 +6,9 @@ from databasetables.user import User
 
 Base = declarative_base()
 
+user = relationship("User", back_populates="UserProfile")
+
+
 class UserProfile(Base):
     __tablename__ = 'user_profile'
 
@@ -13,9 +16,8 @@ class UserProfile(Base):
     picture = Column(String)
     title = Column(String)
     short_description = Column(String(length=500))
-    user_id = Column(Integer, ForeignKey('users.id'))
+    user_id = Column(Integer, ForeignKey('user.id'))
     
-    #user = relationship("User", back_populates="user_profile")  # Use "User" instead of "users"
 
 
 def get_picture_path(self):

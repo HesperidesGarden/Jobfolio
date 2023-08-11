@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, request
-from dao.UsersDAO import UsersDAO
+from dao.userDAO import UserDAO
 
 def signup_user():
+    user_dao = UserDAO()
+
     if request.method == "POST":
         first_name = request.form["first_name"]
         last_name = request.form["last_name"]
@@ -12,7 +14,7 @@ def signup_user():
         city = request.form["city"]
         password = request.form["password"]
 
-        UsersDAO.create_user(first_name, 
+        user_dao.create_user(first_name, 
                              last_name, 
                              email, 
                              phone_number, 

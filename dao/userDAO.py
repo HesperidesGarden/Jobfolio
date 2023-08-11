@@ -15,7 +15,7 @@ engine = create_engine(DATABASE_URL, echo=True)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-class UsersDAO:
+class UserDAO:
 
     @classmethod
     def check_user_credentials(cls, email, password):

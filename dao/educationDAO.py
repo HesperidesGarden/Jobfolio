@@ -13,12 +13,12 @@ session = Session()
 class EducationDAO:
     @classmethod
     def get_education_by_user_id(cls, user_id):
-        return session.query(Education).filter_by(users_id=user_id).all()
+        return session.query(Education).filter_by(user_id=user_id).all()
 
     @classmethod
     def create_education(cls, user_id, institution, degree, field_of_study, start_date, end_date, description):
         new_education = Education(
-            users_id=user_id,
+            user_id=user_id,
             institution=institution,
             degree=degree,
             field_of_study=field_of_study,

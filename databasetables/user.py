@@ -8,7 +8,7 @@ from sqlalchemy.orm import relationship
 Base = declarative_base()
 
 class User(Base):
-    __tablename__ = 'users'
+    __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True)
     first_name = Column(String, nullable=False)
@@ -20,5 +20,6 @@ class User(Base):
     city = Column(String)
     password = Column(String)
     
-    def __repr__(self):
-        return f"<User(id={self.id}, first_name={self.first_name}, last_name={self.last_name}, email={self.email})>"
+    
+def __repr__(self):
+    return f"<User(id={self.id}, first_name={self.first_name}, last_name={self.last_name}, email={self.email})>"
