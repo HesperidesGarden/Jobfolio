@@ -7,7 +7,6 @@ from sqlalchemy.ext.declarative import declarative_base
 # Basis-Klasse für die Deklaration der Datenbanktabellen
 Base = declarative_base()
 
-user = relationship("User", back_populates="Skill")  
 
 
 class Skill(Base):
@@ -18,6 +17,9 @@ class Skill(Base):
     proficiency = Column(String, nullable=False)
     description = Column(String, nullable=False)
     user_id = Column(Integer, ForeignKey('user.id'))
+    
+    user = relationship("User", back_populates="skill")  
+
 
     def __repr__(self):
         return f"<Skill(id={self.id}, name={self.name}, proficiency={self.proficiency})>"

@@ -5,7 +5,6 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
-user = relationship("User", back_populates="Language")
 
 
 # Basis-Klasse für die Deklaration der Datenbanktabellen
@@ -19,6 +18,9 @@ class Language(Base):
     proficiency = Column(String, nullable=False)
     self_evaluation = Column(String)
     user_id = Column(Integer, ForeignKey('user.id'))
+    
+    user = relationship("User", back_populates="Language")
+
 
     def __repr__(self):
         return f"<Language(id={self.id}, language_name={self.language_name}, proficiency={self.proficiency})>"

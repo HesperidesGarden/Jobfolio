@@ -7,7 +7,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-user = relationship("User", back_populates="Education")
 
 
 class Education(Base):
@@ -21,6 +20,9 @@ class Education(Base):
     end_date = Column(Date)
     description = Column(String)
     user_id = Column(Integer, ForeignKey('user.id'))
+    
+    user = relationship("User", back_populates="Education")
+
 
     def __repr__(self):
         return f"<Education(id={self.id}, institution={self.institution}, degree={self.degree}, start_date={self.start_date}, end_date={self.end_date})>"
