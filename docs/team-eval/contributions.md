@@ -4,9 +4,6 @@ parent: Team Evaluation
 nav_order: 4
 ---
 
-[Jane Dane]
-{: .label }
-
 # [Summary of individual contributions]
 {: .no_toc }
 
@@ -19,16 +16,22 @@ nav_order: 4
 {:toc}
 </details>
 
-## [Jane Dane]
+## [Victoria-Kim Bui]
 
 Contributions
-: Jane's first contribution
-: Jane's second contribution
-: ...
+: Documentation
+: My Projects (Front- and Backend)
 
-## [Joe Doe]
+## [Khanh Linh Pham]
 
 Contributions
-: Joe's first contribution
-: Joe's second contribution
-: ...
+:  Frontend Design
+: Homepage and Defaultpages (Front- and Backend)
+: Portfolio (Frontend)
+
+## [Florian Eppe]
+Contributions
+: Database structure
+: Login, Registration and Account (Front- and Backend)
+: Portfolio (Backend)
+

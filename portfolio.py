@@ -3,11 +3,11 @@ from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from dao.UsersDAO import UsersDAO
-from dao.EducationDAO import EducationDAO
+from dao.educationDAO import EducationDAO
 from dao.LanguageDAO import LanguageDAO
 from dao.ProjectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
-from dao.UserProfileDAO import UserProfileDAO
+from dao.userProfileDAO import UserProfileDAO
 from project_form import project_form
 
 def portfolio():

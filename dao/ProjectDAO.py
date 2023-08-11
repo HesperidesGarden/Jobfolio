@@ -30,4 +30,13 @@ class ProjectDAO:
         session.add(new_project)
         session.commit()
         return new_project
-
+    
+    @classmethod
+    def deleteProject(cls, id):
+        project = session.query(Project).get(id)
+        if project:
+            session.delete(project)
+            session.commit()
+            return True  
+        else:
+            return False
