@@ -4,7 +4,7 @@ parent: Technical Docs
 nav_order: 2
 ---
 
-[Jane Dane]
+[Victoria-Kim Bui]
 {: .label }
 
 # [App behavior]

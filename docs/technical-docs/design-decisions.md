@@ -4,6 +4,9 @@ parent: Technical Docs
 nav_order: 5
 ---
 
+[Khanh Linh Pham]
+{: .label }
+
 # [Design decisions]
 
 <details open markdown="block">

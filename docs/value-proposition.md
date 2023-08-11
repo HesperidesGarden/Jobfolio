@@ -3,6 +3,9 @@ title: Value Proposition
 nav_order: 1
 ---
 
+[Khanh Linh Pham]
+{: .label }
+
 # Value proposition
 
 <details open markdown="block">

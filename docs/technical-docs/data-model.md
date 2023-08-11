@@ -4,7 +4,7 @@ parent: Technical Docs
 nav_order: 3
 ---
 
-[Jane Dane]
+[Florian Eppe]
 {: .label }
 
 # [Data model]

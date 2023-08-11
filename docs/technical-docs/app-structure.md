@@ -4,6 +4,9 @@ parent: Technical Docs
 nav_order: 1
 ---
 
+[Victoria-Kim Bui]
+{: .label }
+
 # App Structure
 
 <details open markdown="block">
@@ -37,7 +40,7 @@ The folder structure of our application looks as follows:
 
 <pre>
  - app/
-  - dao/ ## props delete (depends)
+    - dao/ ## props delete (depends)
 <details>
 <summary>- databasetables/</summary>
   <pre>
@@ -74,7 +77,7 @@ The folder structure of our application looks as follows:
     - value-proposition.md
     </pre>
 </details>
-   <details>
+  <details>
 <summary>- static/</summary>
     - account.css
     - edit_portfolio.css
@@ -90,7 +93,7 @@ The folder structure of our application looks as follows:
     - logo-transperent.png
     </pre>
 </details>
-   <details>
+  <details>
 <summary>- templates/</summary>
     - account.html
     - findjobs.html

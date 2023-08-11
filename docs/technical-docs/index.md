@@ -4,7 +4,7 @@ has_children: true
 nav_order: 2
 ---
 
-[Jane Dane]
+[Khanh Linh Pham, Florian Eppe, Victoria-Kim Bui]
 {: .label }
 
 # [Technical documentation]
