@@ -9,10 +9,10 @@ from dao.LanguageDAO import LanguageDAO
 from dao.ProjectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
 from dao.userProfileDAO import UserProfileDAO
-from route_methods.project_form import project_form
-from route_methods.portfolio import portfolio
-from route_methods.account import account
-from route_methods.signup import signup_user
+from project_form import project_form
+from portfolio import portfolio
+from account import account
+from signup import signup_user
 
 app = Flask(__name__)
 

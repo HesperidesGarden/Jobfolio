@@ -16,23 +16,22 @@ nav_order: 4
 {:toc}
 </details>
 
+## [Victoria-Kim Bui]
+
+Contributions
+: Documentation
+: My Projects (Front- and Backend)
+
 ## [Khanh Linh Pham]
 
 Contributions
-: Frontend Design
+:  Frontend Design
 : Homepage and Defaultpages (Front- and Backend)
 : Portfolio (Frontend)
-: Documentation (Design Decisions, Value Proposition)
 
 ## [Florian Eppe]
 Contributions
 : Database structure
 : Login, Registration and Account (Front- and Backend)
 : Portfolio (Backend)
-: Documentation (Data Model, API Reference)
-
-## [Victoria-Kim Bui]
-Contributions
-: Documentation (App Behavior, App Structure, team-eval/Index, technical-docs/Index, Contributions, Goals, Improvement, Peer-review)
-: My Projects (Front- and Backend)
 
