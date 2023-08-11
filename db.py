@@ -1,11 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import orm
-from app import app
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///jobfolio.db'
 
 db = SQLAlchemy()
-db.init_app(app)
+
 
 class User(db.Model):
     __tablename__ = 'user'
@@ -86,5 +83,4 @@ class UserProfile(db.Model):
     user = db.relationship("User", back_populates="user_profile", foreign_keys=[user_id])
 
 
-with app.app_context():
-    db.create_all()
+

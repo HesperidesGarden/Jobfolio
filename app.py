@@ -5,7 +5,10 @@ from project_form import project_form
 from portfolio import portfolio
 from account import account
 from signup import signup_user
-from flask_bootstrap import Bootstrap5
+from flask_bootstrap import Bootstrap
+from db import db
+from flask_sqlalchemy import SQLAlchemy
+
 
 
 
@@ -13,12 +16,16 @@ app = Flask(__name__)
 
 app.config.from_mapping(
 	SECRET_KEY='secret_key_just_for_dev_environment',
-    BOOTSTRAP_BOOTSWATCH_THEME = 'pulse'
+    BOOTSTRAP_BOOTSWATCH_THEME = 'pulse',
+    SQLALCHEMY_DATABASE_URI='sqlite:///jobfolio.db' 
+
 )
 
+db = SQLAlchemy(app)
+db.init_app(app)
 from db import db, User, Education, Language, Project, Skill, UserProfile 
 
-bootstrap = Bootstrap5(app)
+bootstrap = Bootstrap(app)
 
 
 UPLOAD_FOLDER = 'userpictures'  # Ordner für hochgeladene Bilder
