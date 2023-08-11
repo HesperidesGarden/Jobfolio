@@ -15,7 +15,7 @@ class UserProfile(Base):
     short_description = Column(String(length=500))
     user_id = Column(Integer, ForeignKey('users.id'))
     
-    #user = relationship("User", back_populates="user_profile")  # Use "User" instead of "users"
+   # user = relationship("User", back_populates="userprofile")
 
 
 def get_picture_path(self):
