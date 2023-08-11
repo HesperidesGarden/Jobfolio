@@ -3,31 +3,27 @@ from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
+from db import db, User, Education, Language, Project, Skill, UserProfile 
+
 
 def portfolio():
-    if 'user_id' in session: 
+    if 'user_id' in session:
         user_id = session['user_id']
-        
-        user_name = UsersDAO.get_user_full_name(user_id)
-        user_profile_picture = UserProfileDAO.get_user_profile_picture(user_id)
-        user_occupation = UserProfileDAO.get_user_occupation(user_id)
-        user_description = UserProfileDAO.get_user_description(user_id)
 
-        # fetch db stuff
-        #user_projects = ProjectDAO.get_projects_by_user_id(user_id)
-        user_skills = SkillDAO.get_skills_by_user_id(user_id)
-        user_languages = LanguageDAO.get_languages_by_user_id(user_id)
-    
+        user = db.session.get(User, user_id)
+        user_profile = db.session.get(UserProfile, user_id)
+        user_skills = db.session.query(Skill).filter_by(user_id=user_id).all()
+        user_languages = db.session.query(Language).filter_by(user_id=user_id).all()
+
+
         return render_template('portfolio_logged_in.html',
-                        user_profile_picture=user_profile_picture,
-                        user_name=user_name,
-                        user_occupation=user_occupation,
-                        user_description=user_description,
-                        #user_projects=user_projects,
-                        user_skills=user_skills,
-                        user_languages=user_languages
-                        )
-        
-    else:
-        return render_template('portfolio_logged_out.html')
-    
+                                user_profile_picture=user_profile.picture,
+                                user_name=user.first_name+user.last_name,
+                                user_occupation=user_profile.title,
+                                user_description=user_profile.short_description,
+                                user_skills=user_skills,
+                                user_languages=user_languages
+                                )
+
+    return render_template('portfolio_logged_out.html')
+

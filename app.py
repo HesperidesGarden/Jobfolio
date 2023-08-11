@@ -16,7 +16,7 @@ app.config.from_mapping(
     BOOTSTRAP_BOOTSWATCH_THEME = 'pulse'
 )
 
-from db import db, User, Education, Language, Project, Skill, UserProfile  # Import models from db.py
+from db import db, User, Education, Language, Project, Skill, UserProfile 
 
 bootstrap = Bootstrap5(app)
 
