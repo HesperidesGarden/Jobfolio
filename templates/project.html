@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='logo_transparent.png') }}" alt="Logo">
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="{{url_for('get_home') }}">Home</a>
+          <li><a href="{{url_for('get_findjobs') }}">Find Jobs</a></li>
+          <li><a href="{{url_for('get_portfolio') }}">Portfolio</a></li>
+          <li><a href="{{url_for('get_account') }}">Account</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Project Details -->
+  <div class="project-details-container">
+    <h1 class="project-title">{{ project.title }}</h1>
+    <div class="project-info">
+      <div class="info-block">
+        <p class="info-label"><b>Role:</b> {{ project.role }}</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label"><b>Duration:</b> {{ project.duration }}</p>
+      </div>
+      <div class="info-block">
+        <p class="info-label"><b>Difficulty:</b> {{ project.difficulty }}</p>
+      </div>
+    </div>
+    <div class="project-url">
+      <a href="{{ project.url_project }}" class="project-link">Project URL</a>
+    </div>
+    <div class="project-description">
+      <h2>Project Description</h2>
+      <p>{{ project.description }}</p>
+    </div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <footer>
+    <div class="footer-container">
+      <p class="footer-message">
+        Created by Victoria-Kim Bui, Florian Eppe, and Khanh Linh Pham for Entwicklung von Web-Anwendungen SoSe-2023
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
