@@ -6,29 +6,42 @@ from portfolio import portfolio
 from account import account
 from signup import signup_user
 from flask_bootstrap import Bootstrap
-from db import db
 from flask_sqlalchemy import SQLAlchemy
+from db import db
+from models import *
 
 
+def create_tables(app):
+    with app.app_context():
+        db.create_all()
+        
+def create_app():
+    app = Flask(__name__)
 
+    app.config.from_mapping(
+        SECRET_KEY='secret_key_just_for_dev_environment',
+        BOOTSTRAP_BOOTSWATCH_THEME = 'pulse',
+        SQLALCHEMY_DATABASE_URI= 'sqlite:///jobfolio.db'
+    )
 
-app = Flask(__name__)
+    db.init_app(app)
+    create_tables(app)
+    # from db import db, User, Education, Language, Project, Skill, UserProfile, create_tables
 
-app.config.from_mapping(
-	SECRET_KEY='secret_key_just_for_dev_environment',
-    BOOTSTRAP_BOOTSWATCH_THEME = 'pulse',
-    SQLALCHEMY_DATABASE_URI='sqlite:///jobfolio.db' 
+    bootstrap = Bootstrap(app)
+    return app
 
-)
-
-db.init_app(app)
-from db import db, User, Education, Language, Project, Skill, UserProfile, create_tables
-
-bootstrap = Bootstrap(app)
+app=create_app()
 
 
 UPLOAD_FOLDER = 'userpictures'  # Ordner für hochgeladene Bilder
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}  # Erlaubte Dateitypen
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+
 
 # Home = Default
 @app.route('/')
@@ -186,7 +199,7 @@ def create_user_profile_picture():
 @app.route('/update_user_profile', methods=['POST'])
 def update_user_profile():
     user_id = session['user_id']
-    user_profile = db.session.get(UserProfile, {'user_id': user_id})
+    user_profile = app.session.get(UserProfile, {'user_id': user_id})
 
     if 'profile_picture' in request.files:
         profile_picture = request.files['profile_picture']
@@ -199,7 +212,8 @@ def update_user_profile():
             title = request.form.get('user_name')  
             user_description = request.form.get('user_description')  
 
-            if user_profile:
+            if user_profile and not (user_profile is None):
+                
                 user_profile.picture = picture_path
                 user_profile.title = title
                 user_profile.short_description = user_description
@@ -214,11 +228,9 @@ def update_user_profile():
 
 
 
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
     
 if __name__ == "__main__":
-    with app.app_context():
-        create_tables() 
+    # with app.app_context():
+        # create_tables() 
     app.run(debug=True)

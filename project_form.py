@@ -1,5 +1,6 @@
-from flask import Flask, render_template, redirect, request
-from db import Project
+from flask import Flask, render_template, redirect, request, session
+from models import Project
+from db import db
 
 def project_form():
     if request.method == "POST":

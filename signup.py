@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request
-from db import User
+from models import User
+from db import db
 
 def signup_user():
     if request.method == "POST":

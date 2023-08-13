@@ -3,7 +3,8 @@ from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 
-from db import db, User, Education, Language, Project, Skill, UserProfile 
+from models import User, Education, Language, Project, Skill, UserProfile 
+from db import db
 
 
 def portfolio():

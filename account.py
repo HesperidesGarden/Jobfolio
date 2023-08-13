@@ -1,5 +1,6 @@
 from flask import Flask, session, render_template, redirect, url_for, request
-from db import db, User
+from models import User, Education, Language, Project, Skill, UserProfile 
+from db import db
 
 def account():
     if 'user_id' in session:
