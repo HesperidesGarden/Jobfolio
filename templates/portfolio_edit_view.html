@@ -51,7 +51,7 @@
 <!-- Edit Projects Section -->
 <div class="strip">
   <h2 class="section-heading">Edit Projects</h2>
-  <a href="#" class="add-button">Add New</a>
+  <a href="{{url_for('get_project_form')}}" class="add-button">Add New</a>
   <div class="projects-container">
     <div class="projects-content">
       {% if user_projects %}
@@ -59,7 +59,7 @@
         {% for project in user_projects %}
         <li class="project-card">
           <span>{{ project.title }}</span>
-          <form action="{{ url_for('delete_project', project_id=project.id) }}" method="post">
+          <form action="{{ url_for('get_delete_project', project_id=project.id) }}" method="post">
             <button class="delete-button" type="submit">Delete</button>
           </form>
         </li>
