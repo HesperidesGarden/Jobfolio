@@ -4,7 +4,7 @@ from flask import Flask, session, render_template, redirect, url_for, request
 from db import db, create_tables
 from models import *
 
-UPLOAD_FOLDER = 'userpictures'  # Ordner für hochgeladene Bilder
+UPLOAD_FOLDER = 'static/userpictures'  # Ordner für hochgeladene Bilder
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}  # Erlaubte Dateitypen
 
 def allowed_file(filename):
@@ -69,7 +69,7 @@ def delete_skill(skill_id):
 
 
 # UpdateProfile Route
-def update_user_profile():
+def update_user_profile(profile_picture):
     user_id = session['user_id']
     user_profile = UserProfile.query.filter_by(user_id=user_id).first()
 
@@ -78,7 +78,8 @@ def update_user_profile():
     user_description = request.form.get('user_description') 
     
     if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
-        picture_path = "/static/userpictures/" + profile_picture.filename
+        picture_path = os.path.join(UPLOAD_FOLDER, profile_picture.filename)
+        profile_picture.save(picture_path)
     else:
         picture_path = "/static/default-pfp.jpg"
         

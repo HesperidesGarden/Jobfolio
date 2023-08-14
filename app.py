@@ -124,7 +124,7 @@ def get_delete_skill(skill_id):
 # UpdateProfile Route
 @app.route('/update_user_profile', methods=['POST'])
 def get_update_user_profile():
-   return update_user_profile()
+   return update_user_profile(request.files['profile_picture'])
 
 # SubmitProject / AddProject Route
 @app.route("/submit", methods=["GET", "POST"])
