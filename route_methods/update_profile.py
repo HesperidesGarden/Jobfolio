@@ -77,30 +77,23 @@ def update_user_profile():
     title = request.form.get('user_occupation')  
     user_description = request.form.get('user_description') 
     
-    user_profile.title = title
-    user_profile.short_description = user_description
-
+    picture_path = None
     if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
         picture_path = os.path.join('userpictures', profile_picture.filename)
         profile_picture.save(picture_path)
 
- 
-
-        if user_profile and not (user_profile is None):
-            
+    if user_profile:
+        user_profile.title = title
+        user_profile.short_description = user_description
+        if picture_path:
             user_profile.picture = picture_path
+    else:
+        new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
+        db.session.add(new_user_profile)
 
-            
-        else:
-            
-            new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
-            db.session.add(new_user_profile)
-            db.session.commit()
+    db.session.commit()
+    return redirect(url_for('get_portfolio'))
 
-
-        return redirect(url_for('get_portfolio')) 
-
-    return "Error updating profile"
 
 
 
