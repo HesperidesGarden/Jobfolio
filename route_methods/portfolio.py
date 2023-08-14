@@ -8,7 +8,7 @@ from dao.LanguageDAO import LanguageDAO
 from dao.ProjectDAO import ProjectDAO
 from dao.SkillDAO import SkillDAO
 from dao.userProfileDAO import UserProfileDAO
-from project_form import project_form
+from route_methods.project_form import project_form
 
 def portfolio():
     if 'user_id' in session: 
