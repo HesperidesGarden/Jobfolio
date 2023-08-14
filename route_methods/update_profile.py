@@ -77,11 +77,11 @@ def update_user_profile():
     title = request.form.get('user_occupation')  
     user_description = request.form.get('user_description') 
     
-    picture_path = "/static/default-pfp.jpg"
     if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
-        picture_path = os.path.join('userpictures', profile_picture.filename)
-        profile_picture.save(picture_path)
-
+        picture_path = "/static/userpictures/" + profile_picture.filename
+    else:
+        picture_path = "/static/default-pfp.jpg"
+        
     if user_profile:
         user_profile.title = title
         user_profile.short_description = user_description
