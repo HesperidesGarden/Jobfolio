@@ -1,13 +1,14 @@
 from flask import Flask, session, render_template, redirect, url_for, request
-from dao.UsersDAO import UsersDAO
+from models import User, Language, Project, Skill, UserProfile 
+from db import db
 
 def account():
     if 'user_id' in session:
         user_id = session['user_id']
-        user_data = UsersDAO.get_user_data(user_id)
+        user = db.session.get(User, user_id)
         
-        if user_data:
-            return render_template('account.html', user=user_data)
+        if user:
+            return render_template('account.html', user=user)
         else:
             return render_template('login.html')
     else:

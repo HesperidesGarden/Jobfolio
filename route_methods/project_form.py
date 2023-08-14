@@ -1,7 +1,7 @@
-from flask import Flask, render_template, redirect, request
-from dao.ProjectDAO import ProjectDAO
+from flask import Flask, render_template, redirect, request, session
+from models import Project
+from db import db
 
-project_dao = ProjectDAO
 def project_form():
     if request.method == "POST":
         project_name = request.form["project_name"]
@@ -12,14 +12,19 @@ def project_form():
         duration = request.form["duration"]
         difficulty = request.form["difficulty"]
 
-        project_dao.create_project(project_name=project_name,
-                       description=description,
-                       role=role,
-                       url_project=url_project,
-                       picture=picture,
-                       duration=duration,
-                       difficulty=difficulty)
+        new_project = Project(
+            title=project_name,
+            description=description,
+            role=role,
+            url_project=url_project,
+            url_picture=picture,
+            duration=duration,
+            difficulty=difficulty,
+            user_id=session['user_id']
+        )
 
+        db.session.add(new_project)
+        db.session.commit()
         return redirect("/portfolio/")
 
     return render_template("project_form.html")

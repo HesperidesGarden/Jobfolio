@@ -2,38 +2,40 @@ import os
 from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from dao.UsersDAO import UsersDAO
-from dao.educationDAO import EducationDAO
-from dao.LanguageDAO import LanguageDAO
-from dao.ProjectDAO import ProjectDAO
-from dao.SkillDAO import SkillDAO
-from dao.userProfileDAO import UserProfileDAO
-from route_methods.project_form import project_form
+
+from models import User, Language, Project, Skill, UserProfile 
+from db import db
+
 
 def portfolio():
-    if 'user_id' in session: 
+    if 'user_id' in session:
         user_id = session['user_id']
-        
-        user_name = UsersDAO.get_user_full_name(user_id)
-        user_profile_picture = UserProfileDAO.get_user_profile_picture(user_id)
-        user_occupation = UserProfileDAO.get_user_occupation(user_id)
-        user_description = UserProfileDAO.get_user_description(user_id)
 
-        # fetch db stuff
-        #user_projects = ProjectDAO.get_projects_by_user_id(user_id)
-        user_skills = SkillDAO.get_skills_by_user_id(user_id)
-        user_languages = LanguageDAO.get_languages_by_user_id(user_id)
-    
-        return render_template('portfolio_logged_in.html',
-                        user_profile_picture=user_profile_picture,
-                        user_name=user_name,
-                        user_occupation=user_occupation,
-                        user_description=user_description,
-                        #user_projects=user_projects,
-                        user_skills=user_skills,
-                        user_languages=user_languages
-                        )
+        user = db.session.get(User, user_id)
+        user_profile = db.session.get(UserProfile, user_id)
+        user_skills = db.session.query(Skill).filter_by(user_id=user_id).all()
+        user_languages = db.session.query(Language).filter_by(user_id=user_id).all()
         
-    else:
-        return render_template('portfolio_logged_out.html')
-    
+        if user_profile:
+            return render_template('portfolio_logged_in.html',
+                                user_profile_picture=user_profile.picture,
+                                user_name=user.first_name+user.last_name,
+                                user_occupation=user_profile.title,
+                                user_description=user_profile.short_description,
+                                user_skills=user_skills,
+                                user_languages=user_languages
+                                )
+        else :  
+            return render_template('portfolio_logged_in.html',
+                                user_profile_picture="/static/default-pfp.jpg",
+                                user_name=user.first_name+user.last_name,
+                                user_occupation="",
+                                user_description="",
+                                user_skills=user_skills,
+                                user_languages=user_languages
+                                )
+            
+        
+    return render_template('portfolio_logged_out.html')
+
+
