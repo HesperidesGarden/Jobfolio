@@ -46,7 +46,7 @@
       <h2 class="section-heading">My Projects</h2>
       <div class="projects-content">
         <div class="projects-container-inner">
-          <!-- Loop through user projects and generate project cards -->
+          {% if user_projects %}
           {% for project in user_projects %}
           <div class="project-card">
             <img src="{{ project.image_url }}" alt="Project Image">
@@ -54,6 +54,9 @@
             <p>{{ project.description }}</p>
           </div>
           {% endfor %}
+          {% else %}
+          <p>No projects added.</p>
+          {% endif %}
         </div>
       </div>
     </div>
@@ -64,7 +67,7 @@
       <div class="skills-content">
         <div class="skills-column">
           <h3 class="column-heading">Skills</h3>
-          <!-- Loop through user skills and generate skill cards -->
+          {% if user_skills %}
           {% for skill in user_skills %}
           <div class="skill-card">
             <h3>{{ skill.name }}</h3>
@@ -72,10 +75,13 @@
             <p>{{ skill.description }}</p>
           </div>
           {% endfor %}
+          {% else %}
+          <p>No skills added.</p>
+          {% endif %}
         </div>
         <div class="skills-column">
           <h3 class="column-heading">Languages</h3>
-          <!-- Loop through user languages and generate language cards -->
+          {% if user_languages %}
           {% for language in user_languages %}
           <div class="skill-card">
             <h3>{{ language.language_name }}</h3>
@@ -83,6 +89,9 @@
             <p>{{ language.self_evaluation }}</p>
           </div>
           {% endfor %}
+          {% else %}
+          <p>No languages added.</p>
+          {% endif %}
         </div>
       </div>
     </div>

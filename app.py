@@ -5,6 +5,7 @@ from route_methods.project_form import project_form
 from route_methods.portfolio import portfolio
 from route_methods.account import account
 from route_methods.signup import signup_user
+from route_methods.portfolio_edit import portfolio_edit_view
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from db import db, create_tables
@@ -88,10 +89,10 @@ def get_findjobs():
 def get_portfolio():
     return portfolio()
 
-# MyPortfolio Route
+# PortfolioEdit Route
 @app.route('/portfolio_edit/')
 def get_portfolio_edit():
-	return render_template('portfolio_edit_view.html') 
+	return portfolio_edit_view()
 
 # ProjectForms Route
 @app.route('/create_project/', methods=["GET", "POST"])
@@ -179,7 +180,7 @@ def update_user_profile():
     user_profile = UserProfile.query.filter_by(user_id=user_id).first()
 
     profile_picture = request.files['profile_picture']
-    title = request.form.get('user_name')  
+    title = request.form.get('user_occupation')  
     user_description = request.form.get('user_description') 
     
     user_profile.title = title

@@ -27,23 +27,26 @@
   </div>
 
   <!-- Edit Profile Section -->
-  <div class="strip">
-    <h2 class="section-heading">Edit Profile</h2>
-    <div class="profile-container">
-      <form action="{{ url_for('update_user_profile') }}" method="post" enctype="multipart/form-data">
-        <label for="profile_picture">Profile Picture:</label>
-        <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
-        <br>
-        <label for="user_occupation">Title:</label>
-        <input type="text" id="user_name" name="user_name" placeholder="Current occupation / title" value="{{ user_name }}">
-        <br>
-        <label for="user_description">Description:</label>
-        <textarea id="user_description" name="user_description" maxlength="500" placeholder="Edit Description (500 characters max.)">{{ user_description }}</textarea>
-        <br>
-        <button type="submit" class="edit-button">Save</button>
-      </form>
-    </div>
+<!-- Edit Profile Section -->
+<div class="strip">
+  <h2 class="section-heading">Edit Profile</h2>
+  <div class="profile-container">
+    <form action="{{ url_for('update_user_profile') }}" method="post" enctype="multipart/form-data">
+      <label for="profile_picture">Profile Picture:</label>
+      <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
+      <br>
+      <label for="user_occupation">Title:</label>
+      <input type="text" id="user_occupation" name="user_occupation" placeholder="Current occupation / title" value="{{ user_occupation }}">
+      <br>
+      <label for="user_description">Description:</label>
+      <textarea id="user_description" name="user_description" maxlength="500" placeholder="Edit Description (500 characters max.)">{{ user_description }}</textarea>
+      <br>
+      <button type="submit" class="edit-button">Save</button>
+    </form>
   </div>
+</div>
+
+  
 
 <!-- Edit Projects Section -->
 <div class="strip">
@@ -51,18 +54,20 @@
   <a href="#" class="add-button">Add New</a>
   <div class="projects-container">
     <div class="projects-content">
-      <!-- Loop through user projects and generate project titles -->
-      <!-- used a placeholder, , instead: for skill in user.skill or smth -->
-      {% for project in [
-        {"title": "Project 1"},
-        {"title": "Project 2"}, 
-        {"title": "Project 3"} 
-        ] %}
-      <div class="project-card">
-        <span>{{ project.title }}</span>
-        <button class="delete-button">Delete</button>
-      </div>
-      {% endfor %}
+      {% if user_projects %}
+      <ul class="project-list">
+        {% for project in user_projects %}
+        <li class="project-card">
+          <span>{{ project.title }}</span>
+          <form action="{{ url_for('delete_project', project_id=project.id) }}" method="post">
+            <button class="delete-button" type="submit">Delete</button>
+          </form>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No projects added yet.</p>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -102,8 +107,9 @@
     <div class="lists">
       <div class="skills-list">
         <h3>Existing Skills</h3>
+        {% if user_skills %}
         <ul>
-          {% for skill in existing_skills %}
+          {% for skill in user_skills %}
           <li>
             <span>{{ skill.name }}</span>
             <form action="{{ url_for('delete_skill', skill_id=skill.id) }}" method="post">
@@ -112,22 +118,30 @@
           </li>
           {% endfor %}
         </ul>
+        {% else %}
+        <p>No skills added yet.</p>
+        {% endif %}
       </div>
     
       <div class="languages-list">
         <h3>Existing Languages</h3>
+        {% if user_languages %}
         <ul>
-          {% for language in existing_languages %}
+          {% for language in user_languages %}
           <li>
-            <span>{{ language.name }}</span>
+            <span>{{ language.language_name }}</span>
             <form action="{{ url_for('delete_language', language_id=language.id) }}" method="post">
               <button class="delete-button" type="submit">Delete</button>
             </form>
           </li>
           {% endfor %}
         </ul>
+        {% else %}
+        <p>No languages added yet.</p>
+        {% endif %}
       </div>
     </div>
+    
   
 </div>
 

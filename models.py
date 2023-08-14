@@ -64,5 +64,5 @@ class UserProfile(db.Model):
     title = db.Column(db.String)
     short_description = db.Column(db.String(length=500))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    user = db.relationship("User", back_populates="user_profile", foreign_keys=[user_id])
+    user = db.relationship("User", back_populates="user_profile")
 

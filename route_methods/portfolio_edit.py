@@ -1,10 +1,10 @@
 from flask import session, render_template
 from sqlalchemy import create_engine
-from models import User, Language, Skill, UserProfile, Project
+from models import User, Language, Project, Skill, UserProfile
 from db import db
 
 
-def portfolio():
+def portfolio_edit_view():
     if 'user_id' in session:
         user_id = session['user_id']
 
@@ -13,29 +13,24 @@ def portfolio():
         user_projects = db.session.get(Project, user_id)
         user_skills = db.session.query(Skill).filter_by(user_id=user_id).all()
         user_languages = db.session.query(Language).filter_by(user_id=user_id).all()
-        
-        if user_profile:
-            return render_template('portfolio_logged_in.html',
-                                user_profile_picture=user_profile.picture,
-                                user_name=user.first_name+" "+user.last_name,
+
+    if user_profile:
+        return render_template('portfolio_edit_view.html',
                                 user_occupation=user_profile.title,
                                 user_description=user_profile.short_description,
                                 user_projects=user_projects,
                                 user_skills=user_skills,
                                 user_languages=user_languages
                                 )
-        else :  
-            return render_template('portfolio_logged_in.html',
-                                user_profile_picture="/static/default-pfp.jpg",
-                                user_name=user.first_name+" "+user.last_name,
-                                user_occupation="Occupation not set.",
-                                user_description="No user description provided.",
+
+    else :  
+        return render_template('portfolio_edit_view.html',
+                                user_occupation=None,
+                                user_description=None,
                                 user_projects=user_projects,
                                 user_skills=user_skills,
                                 user_languages=user_languages
                                 )
-            
-        
-    return render_template('portfolio_logged_out.html')
+
 
 
