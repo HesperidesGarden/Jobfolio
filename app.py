@@ -138,8 +138,7 @@ def get_delete_skill(skill_id):
 # UpdateProfile Route
 @app.route('/update_user_profile', methods=['POST'])
 def get_update_user_profile():
-    update_user_profile()
-    return redirect(url_for('get_portfolio')) 
+    return update_user_profile()
 
 
 
