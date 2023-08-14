@@ -74,6 +74,6 @@ In the Web Application, users can manage their skills, languages, and education 
 
 5. **Server Response:** The server processes the interactions with the DAOs, ensuring data integrity and successful execution of user actions. Upon success, the Web Application redirects users back to the `/portfolio_edit/` route.
 
-![Portfolio Management Sequence Diagram (Skill, Language, and Education)](../assets/images/portfolio_skills_language_edu_sequence.png)
+![Portfolio Management Sequence Diagram (Skill, Language, and Education)](../assets/images/portfolio_skill_languages_sequence.png)
 
 The Web Application's behavior in managing portfolios, projects, skills, languages, and education is streamlined and user-friendly. It enables users to efficiently add and delete various components of their profile while maintaining the integrity of their data.
