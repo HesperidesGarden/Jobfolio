@@ -54,7 +54,7 @@ def get_login():
             session['user_id'] = user.id
             return redirect(url_for('get_portfolio')) 
         else:
-            error_message = 'Invalid login credentials'
+            error_message
     return render_template('login.html', error_message=error_message)
 
 # Home Route
@@ -134,7 +134,7 @@ def add_lang():
         language_proficiency = request.form['language_proficiency']
         language_description = request.form['language_description']
 
-        new_language = Language(language_name=language_name, proficiency=language_proficiency, description=language_description, user_id=user_id)
+        new_language = Language(language_name=language_name, proficiency=language_proficiency, self_evaluation=language_description, user_id=user_id)
         db.session.add(new_language)
         db.session.commit()
 
@@ -143,30 +143,28 @@ def add_lang():
     return render_template('portfolio_edit_view.html')  
 
 # deleteLang
-@app.route('/delete_language/<int:language_id>', methods=['DELETE'])
+@app.route('/delete_language/<int:language_id>', methods=['POST'])
 def delete_language(language_id):
     language = db.session.get(Language, language_id)
     
     if language:
         db.session.delete(language)
         db.session.commit()
-        return redirect(url_for('get_portfolio'))  
     else:
-         error_message = 'Error deleting.'
-    return render_template('portfolio_edit_view.html', error_message=error_message)
+        error_message = 'Error deleting.'
+    return redirect(url_for('get_portfolio'))
 
 # deleteSkill
-@app.route('/delete_skill/<int:skill_id>', methods=['DELETE'])
+@app.route('/delete_skill/<int:skill_id>', methods=['POST'])
 def delete_skill(skill_id):
     skill = db.session.get(Skill, skill_id)
 
     if skill:
         db.session.delete(skill)
         db.session.commit()
-        return redirect(url_for('get_portfolio'))  
     else:
-         error_message = 'Error deleting.'
-    return render_template('portfolio_edit_view.html', error_message=error_message)
+        error_message = 'Error deleting.'
+    return redirect(url_for('get_portfolio'))
 
 # SubmitProject Route
 @app.route("/submit", methods=["POST"])
