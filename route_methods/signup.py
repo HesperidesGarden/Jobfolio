@@ -18,16 +18,16 @@ def signup_user():
         
         # execute password checks - chatgpt generated 
         if len(password) < 8:
-            flash("Das Passwort muss mindestens 8 Zeichen lang sein.", "error")
-            return render_template("signup.html")
+            error_message = 'Password Insufficient'
+            return render_template("signup.html", error_message=error_message)
 
         if not any(char.isdigit() for char in password):
-            flash("Das Passwort muss mindestens eine Zahl enthalten.", "error")
-            return render_template("signup.html")
+            error_message = 'Password Insufficient'
+            return render_template("signup.html", error_message=error_message)
 
         if not any(char.isalpha() for char in password):
-            flash("Das Passwort muss mindestens einen Buchstaben enthalten.", "error")
-            return render_template("signup.html")
+            error_message = 'Password Insufficient'
+            return render_template("signup.html", error_message=error_message)
         
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
