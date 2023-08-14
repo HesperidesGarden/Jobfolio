@@ -44,6 +44,7 @@ def add_lang():
 
     return render_template('portfolio_edit_view.html')  
 
+
 # deleteLang
 def delete_language(language_id):
     language = db.session.get(Language, language_id)

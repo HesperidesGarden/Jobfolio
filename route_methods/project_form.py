@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request, session
+from flask import Flask, render_template, redirect, request, session,url_for
 from models import Project
 from db import db
 
@@ -29,7 +29,13 @@ def project_form():
 
     return render_template("project_form.html")
 
+#deleteProject
+def delete_project(project_id):
+    project = db.session.get(Project, project_id)
 
-
-
-
+    if project:
+        db.session.delete(project)
+        db.session.commit()
+    else:
+        error_message = 'Error deleting.'
+    return redirect(url_for('get_portfolio'))

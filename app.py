@@ -1,7 +1,7 @@
 import os
 from werkzeug.utils import secure_filename
 from flask import Flask, session, render_template, redirect, url_for, request
-from route_methods.project_form import project_form
+from route_methods.project_form import *
 from route_methods.portfolio import portfolio
 from route_methods.account import account
 from route_methods.signup import signup_user
@@ -99,11 +99,6 @@ def get_project_form():
 def get_signup():
 	return signup_user() 
 
-# SubmitProject Route
-@app.route("/submit", methods=["POST"])
-def submit_project():
-    return redirect("/portfolio/")
-
 
 # addSkill Route
 @app.route('/edit_skill/', methods=["GET", "POST"])
@@ -130,9 +125,16 @@ def get_delete_skill(skill_id):
 def get_update_user_profile():
    return update_user_profile()
 
+# SubmitProject / AddProject Route
+@app.route("/submit", methods=["GET", "POST"])
+def submit_project():
+    return project_form()
 
+# deleteProject
+@app.route('/delete_project/<int:project_id>', methods=['POST'])
+def get_delete_project(project_id):
+    return delete_project(project_id)
 
-    
 if __name__ == "__main__":
     # with app.app_context():
         # create_tables() 
