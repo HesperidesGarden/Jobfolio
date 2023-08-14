@@ -143,7 +143,7 @@ Our web application utilizes various technologies and dependencies:
 Our application uses the following main dependencies (excerpt):
 
 - **Flask:** v2.2.3
-- **SQLAlchemy:** v2.0.19
+- **Flask-SQLAlchemy** v3.0.5
 - **bcrypt:** v4.0.1
 - **Flask-Bootstrap:** v3.3.7.1
 

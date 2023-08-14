@@ -27,7 +27,7 @@ Understanding the behavior of our web application is essential for creating a se
 
 To provide a comprehensive overview of our application's behavior, we've created an app flow diagram. This diagram visually illustrates the various screens and interactions users will encounter while navigating the app. It maps out the user journey, from login and registration to accessing the portfolio and projects.
 
-![App Flow Diagram](path/to/your/app-flow-diagram.png)
+![App Flow Diagram](../assets/images/app-flow-diagram.png)
 
 ### Sequence Diagrams
 
@@ -35,7 +35,7 @@ To provide a comprehensive overview of our application's behavior, we've created
 
 A sequence diagram offers an in-depth view of the interactions between different components during specific processes. The sequence diagram for login, registration, and account management showcases the steps involved in user authentication, registration, and managing account details.
 
-![Login, Registration, and Account Sequence Diagram](../assets/images/account_sequence.png)
+![Login, Registration, and Account Sequence Diagram](../assets/images/account-sequence.png)
 
 
 #### Portfolio Management
