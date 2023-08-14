@@ -1,7 +1,7 @@
 import os
 from werkzeug.utils import secure_filename
 from flask import Flask, session, render_template, redirect, url_for, request
-from route_methods.project_form import project_form
+from route_methods.project_form import *
 from route_methods.portfolio import portfolio
 from route_methods.account import account
 from route_methods.signup import signup_user
@@ -12,7 +12,6 @@ from flask_sqlalchemy import SQLAlchemy
 from db import db, create_tables
 from models import *
 import bcrypt
-
 
 
 app = Flask(__name__)
@@ -28,12 +27,6 @@ create_tables(app)
 # from db import db, User, Education, Language, Project, Skill, UserProfile, create_tables
 
 bootstrap = Bootstrap(app)
-
-UPLOAD_FOLDER = 'userpictures'  # Ordner für hochgeladene Bilder
-ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}  # Erlaubte Dateitypen
-
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 # Home = Default
@@ -57,7 +50,7 @@ def get_login():
             session['user_id'] = user.id
             return redirect(url_for('get_portfolio')) 
         else:
-            error_message = 'Invalid login credentials'
+            error_message
     return render_template('login.html', error_message=error_message)
 
 # Home Route
@@ -108,16 +101,10 @@ def get_signup():
 	return signup_user() 
 
 
-# SubmitProject Route
-@app.route("/submit", methods=["POST"])
-def submit_project():
-    return redirect("/portfolio/")
-
 # addSkill Route
 @app.route('/edit_skill/', methods=["GET", "POST"])
 def get_add_skill():
     return add_skill()
-
 
 # addLang Route
 @app.route('/edit_lang/', methods=["GET", "POST"])
@@ -127,24 +114,28 @@ def get_add_lang():
 # deleteLang
 @app.route('/delete_language/<int:language_id>', methods=['POST'])
 def get_delete_language(language_id):
-    return delete_language()
+    return delete_language(language_id)
 
 # deleteSkill
 @app.route('/delete_skill/<int:skill_id>', methods=['POST'])
 def get_delete_skill(skill_id):
-    return delete_skill()
-
+    return delete_skill(skill_id)
 
 # UpdateProfile Route
 @app.route('/update_user_profile', methods=['POST'])
 def get_update_user_profile():
-    return update_user_profile()
+   return update_user_profile()
 
+# SubmitProject / AddProject Route
+@app.route("/submit", methods=["GET", "POST"])
+def submit_project():
+    return project_form()
 
+# deleteProject
+@app.route('/delete_project/<int:project_id>', methods=['POST'])
+def get_delete_project(project_id):
+    return delete_project(project_id)
 
-
-
-    
 if __name__ == "__main__":
     # with app.app_context():
         # create_tables() 
