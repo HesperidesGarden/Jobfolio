@@ -27,9 +27,9 @@ def portfolio():
         else :  
             return render_template('portfolio_logged_in.html',
                                 user_profile_picture="/static/default-pfp.jpg",
-                                user_name=user.first_name+user.last_name,
-                                user_occupation="",
-                                user_description="",
+                                user_name=user.first_name+" "+user.last_name,
+                                user_occupation="Occupation not set.",
+                                user_description="No user description provided.",
                                 user_skills=user_skills,
                                 user_languages=user_languages
                                 )

@@ -68,6 +68,7 @@
           {% for skill in user_skills %}
           <div class="skill-card">
             <h3>{{ skill.name }}</h3>
+            <p><strong>{{ skill.proficiency }}</strong></p>
             <p>{{ skill.description }}</p>
           </div>
           {% endfor %}
@@ -77,8 +78,9 @@
           <!-- Loop through user languages and generate language cards -->
           {% for language in user_languages %}
           <div class="skill-card">
-            <h3>{{ language.name }}</h3>
-            <p>{{ language.proficiency }} - {{ language.self_evaluation }}</p>
+            <h3>{{ language.language_name }}</h3>
+            <p><strong>{{ language.proficiency }}</strong></p>
+            <p>{{ language.self_evaluation }}</p>
           </div>
           {% endfor %}
         </div>
