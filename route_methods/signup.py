@@ -15,7 +15,7 @@ def signup_user():
         zipcode = request.form["zipcode"]
         city = request.form["city"]
         password = request.form["password"]
-        password_confirm = request.form["password_confirm"]
+        password_confirm = request.form["confirm_password"]
         
         # execute password checks - chatgpt generated 
         if password_confirm == password:
