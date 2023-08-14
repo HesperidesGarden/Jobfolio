@@ -92,7 +92,6 @@ def update_user_profile():
 
     db.session.commit()
 
-    return redirect(url_for('get_portfolio')) 
 
 
 
