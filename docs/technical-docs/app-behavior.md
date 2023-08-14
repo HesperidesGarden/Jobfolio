@@ -27,7 +27,7 @@ Understanding the behavior of our web application is essential for creating a se
 
 To provide a comprehensive overview of our application's behavior, we've created an app flow diagram. This diagram visually illustrates the various screens and interactions users will encounter while navigating the app. It maps out the user journey, from login and registration to accessing the portfolio and projects.
 
-![App Flow Diagram](path/to/your/app-flow-diagram.png)
+![App Flow Diagram](../assets/images/app-flow-diagram.png)
 
 ### Sequence Diagrams
 
@@ -35,7 +35,7 @@ To provide a comprehensive overview of our application's behavior, we've created
 
 A sequence diagram offers an in-depth view of the interactions between different components during specific processes. The sequence diagram for login, registration, and account management showcases the steps involved in user authentication, registration, and managing account details.
 
-![Login, Registration, and Account Sequence Diagram](../assets/images/account_sequence.png)
+![Login, Registration, and Account Sequence Diagram](../assets/images/account-sequence.png)
 
 
 #### Portfolio Management
@@ -74,6 +74,6 @@ In the Web Application, users can manage their skills, languages, and education 
 
 5. **Server Response:** The server processes the interactions with the DAOs, ensuring data integrity and successful execution of user actions. Upon success, the Web Application redirects users back to the `/portfolio_edit/` route.
 
-![Portfolio Management Sequence Diagram (Skill, Language, and Education)](../assets/images/portfolio_skills_language_edu_sequence.png)
+![Portfolio Management Sequence Diagram (Skill, Language, and Education)](../assets/images/portfolio_skill_languages_sequence.png)
 
 The Web Application's behavior in managing portfolios, projects, skills, languages, and education is streamlined and user-friendly. It enables users to efficiently add and delete various components of their profile while maintaining the integrity of their data.
