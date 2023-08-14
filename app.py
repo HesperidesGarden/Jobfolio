@@ -10,6 +10,8 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from db import db, create_tables
 from models import *
+import bcrypt
+
 
 
 app = Flask(__name__)
@@ -50,11 +52,11 @@ def get_login():
 
         user = db.session.query(User).filter_by(email=email).first()
 
-        if user and user.password == password:
+        if user and bcrypt.checkpw(password.encode('utf-8'), user.password):
             session['user_id'] = user.id
             return redirect(url_for('get_portfolio')) 
         else:
-            error_message
+            error_message = 'Invalid login credentials'
     return render_template('login.html', error_message=error_message)
 
 # Home Route
@@ -181,30 +183,23 @@ def update_user_profile():
     title = request.form.get('user_occupation')  
     user_description = request.form.get('user_description') 
     
-    user_profile.title = title
-    user_profile.short_description = user_description
-
+    picture_path = None
     if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
         picture_path = os.path.join('userpictures', profile_picture.filename)
         profile_picture.save(picture_path)
 
- 
-
-        if user_profile and not (user_profile is None):
-            
+    if user_profile:
+        user_profile.title = title
+        user_profile.short_description = user_description
+        if picture_path:
             user_profile.picture = picture_path
+    else:
+        new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
+        db.session.add(new_user_profile)
 
-            
-        else:
-            
-            new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
-            db.session.add(new_user_profile)
-            db.session.commit()
+    db.session.commit()
 
-
-        return redirect(url_for('get_portfolio')) 
-
-    return "Error updating profile"
+    return redirect(url_for('get_portfolio')) 
 
 
 
