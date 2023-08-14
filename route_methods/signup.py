@@ -15,19 +15,25 @@ def signup_user():
         zipcode = request.form["zipcode"]
         city = request.form["city"]
         password = request.form["password"]
+        password_confirm = request.form["password_confirm"]
         
         # execute password checks - chatgpt generated 
-        if len(password) < 8:
-            error_message = 'Password Insufficient'
+        if password_confirm == password:
+            if len(password) < 8:
+                error_message = 'Password Insufficient'
+                return render_template("signup.html", error_message=error_message)
+
+            if not any(char.isdigit() for char in password):
+                error_message = 'Password Insufficient'
+                return render_template("signup.html", error_message=error_message)
+
+            if not any(char.isalpha() for char in password):
+                error_message = 'Password Insufficient'
+                return render_template("signup.html", error_message=error_message)
+        else:
+            error_message = 'Passwords do not match.'
             return render_template("signup.html", error_message=error_message)
 
-        if not any(char.isdigit() for char in password):
-            error_message = 'Password Insufficient'
-            return render_template("signup.html", error_message=error_message)
-
-        if not any(char.isalpha() for char in password):
-            error_message = 'Password Insufficient'
-            return render_template("signup.html", error_message=error_message)
         
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 

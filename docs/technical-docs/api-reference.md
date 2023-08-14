@@ -19,62 +19,193 @@ nav_order: 4
 {:toc}
 </details>
 
-## [Section / module]
 
-### `function_definition()`
+## Login & Registration
 
-**Route:** `/route/`
+### `get_login()`
 
-**Methods:** `POST` `GET` `PATCH` `PUT` `DELETE`
+**Route:** `/login/`
 
-**Purpose:** [Short explanation of what the function does and why]
+**Methods:** `POST` `GET` 
+
+**Purpose:** Takes email and password from Userinput, gets User from database with corresponding email and checks validity of password. If Invalid login credentials, error is shown. If successfull forward to Portfolio
 
 **Sample output:**
 
-[Show an image, string output, or similar illustration -- or write NONE if function generates no output]
+![Alt text](image.png)
 
 ---
 
-## [Example, delete this section] Show to-do lists
+### `get_signup()`
 
-### `get_lists()`
+**Route:** `/signup/`
 
-**Route:** `/lists/`
+**Methods:** `POST` `GET` 
 
-**Methods:** `GET`
-
-**Purpose:** Show all to-do lists.
+**Purpose:** Registry of User. User provides first_name, last_name, email, phone_number, street, zipcode, city and password. If password is length <8, has min. 1 letter, has min. 1 number and given passwords match, than password gets hashed and User is saved in database
 
 **Sample output:**
-
-![get_lists() sample](../assets/images/fswd-intro_00.png)
+![Alt text](image-1.png)
 
 ---
 
-### `get_list_todos(list_id)`
 
-**Route:** `/lists/<int:list_id>`
+## Home
+
+### `get_home()`
+
+**Route:** `/home/`
 
 **Methods:** `GET`
 
-**Purpose:** Retrieve all to-do items of to-do list with ID `list_id` from database and present to user.
+**Purpose:** Show Home-Page
 
 **Sample output:**
 
-![get_list_todos() sample](../assets/images/fswd-intro_02.png)
+![Alt text](image-7.png)
 
 ---
 
-## [Example, delete this section] Insert sample data
+## Account
 
-### `run_insert_sample()`
+### `get_account()`
 
-**Route:** `/insert/sample`
+**Route:** `/account/`
 
 **Methods:** `GET`
 
-**Purpose:** Flush the database and insert sample data set
+**Purpose:** show button for Logout from Account and show User-Data: first_name, last_name, email, phone_number, street, zipcode, city 
 
 **Sample output:**
 
-Browser shows: `Database flushed and populated with some sample data.`
+![Alt text](image-3.png)
+
+
+### `get_logout()`
+
+**Route:** `/logout`
+
+**Methods:** `POST`
+
+**Purpose:** Logout User
+
+**Sample output:**
+![Alt text](image-3.png)
+
+
+## Find Jobs
+
+### `get_findjobs()`
+
+**Route:** `/findjobs/`
+
+**Methods:** `POST`
+
+**Purpose:** show static html page (without functionality) for Finding Your Dream Job
+
+**Sample output:**
+![Alt text](image-4.png)
+
+## Portfolio
+
+### `get_portfolio()`
+
+**Route:** `/portfolio/`
+
+**Methods:** `POST`
+
+**Purpose:** Show saved User-Profile-Data, Projects, Languages and Skill of User from database
+
+**Sample output:**
+![Alt text](image-6.png)
+
+
+### `get_portfolio_edit()`
+
+**Route:** `/portfolio_edit/`
+
+**Methods:** `POST`
+
+**Purpose:** Show edit mode of Portfolio. User-Profile, Projects, Languages and Skills can be edited here
+
+**Sample output:**
+![Alt text](image-9.png)
+
+### `get_project_form()`
+
+**Route:** `/create_project/`
+
+**Methods:** `POST`
+
+**Purpose:** Adds project to database and forwards to Portolio-View with new project on display
+
+**Sample output:**
+![Alt text](image-10.png)
+
+### `get_add_skill()`
+
+**Route:** `/edit_skill/`
+
+**Methods:** `POST`
+
+**Purpose:** Adds skill to database and forwards to Portolio-View with new skill on display
+
+**Sample output:**
+![Alt text](image-8.png)
+
+### `get_add_lang()`
+
+**Route:** `/edit_lang/`
+
+**Methods:** `POST`
+
+**Purpose:** Adds language to database and forwards to Portfolio-View with new language on display
+
+**Sample output:**
+![Alt text](image-12.png)
+
+### `get_delete_language(language_id)`
+
+**Route:** `/delete_language/<int:language_id>`
+
+**Methods:** `POST`
+
+**Purpose:** Deletes a language from database and forwards to Portfolio-View without deleted language on display
+
+### `get_delete_language(language_id)`
+
+**Route:** `/delete_skill/<int:skill_id>`
+
+**Methods:** `POST`
+
+**Purpose:** Deletes skill from database and forwards to Portfolio-View without deleted skill on display
+
+### `get_update_user_profile()`
+
+**Route:** `/update_user_profile/`
+
+**Methods:** `POST`
+
+**Purpose:** Updates existing User-Profile or creates one in database and forwards to Portfolio-View wit new User-Profile-Data on display
+
+**Sample output:**
+![Alt text](image-13.png)
+
+### `submit_project()`
+
+**Route:** `/submit/`
+
+**Methods:** `POST`
+
+**Purpose:** Adds project to database and forwards to Portfolio-View with new project on display
+
+**Sample output:**
+![Alt text](image-14.png)
+
+### `get_delete_project(project_id)`
+
+**Route:** `/delete_project/<int:project_id>`
+
+**Methods:** `POST`
+
+**Purpose:** Deletes project from database and forwards to Portfolio-View without deleted project on display

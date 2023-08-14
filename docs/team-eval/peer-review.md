@@ -38,7 +38,7 @@ In future projects, I suggest that Khanh Linh continues sharing her insights dur
 
 ### My Observation:
 
-Throughout the project, I closely observed Khanh Linh Pham's role, particularly during the frontend design phase. Her adeptness in leading the team and collaborating effectively stood out, shaping a visually appealing user interface.
+During the project, I followed Khanh Linh Pham's contributions, particularly in the frontend design phase. Her strong leadership and effective collaboration skills were evident, resulting in the creation of an attractive user interface.
 
 ### Effect on me 
 
