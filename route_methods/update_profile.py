@@ -3,9 +3,11 @@ from werkzeug.utils import secure_filename
 from flask import Flask, session, render_template, redirect, url_for, request
 from db import db, create_tables
 from models import *
+import posixpath
 
-UPLOAD_FOLDER = 'static/userpictures'  # Ordner für hochgeladene Bilder
-ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}  # Erlaubte Dateitypen
+
+UPLOAD_FOLDER = 'static/userpictures'  
+ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'} 
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -77,8 +79,10 @@ def update_user_profile(profile_picture):
     title = request.form.get('user_occupation')  
     user_description = request.form.get('user_description') 
     
+
     if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
-        picture_path = os.path.join(UPLOAD_FOLDER, profile_picture.filename)
+        picture_filename = secure_filename(profile_picture.filename)
+        picture_path = posixpath.join(UPLOAD_FOLDER, picture_filename)
         profile_picture.save(picture_path)
     else:
         picture_path = "/static/default-pfp.jpg"
@@ -87,9 +91,9 @@ def update_user_profile(profile_picture):
         user_profile.title = title
         user_profile.short_description = user_description
         if picture_path:
-            user_profile.picture = picture_path
+            user_profile.picture = "/"+picture_path
     else:
-        new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
+        new_user_profile = UserProfile(picture="/"+picture_path, title=title, short_description=user_description, user_id=user_id)
         db.session.add(new_user_profile)
 
     db.session.commit()
