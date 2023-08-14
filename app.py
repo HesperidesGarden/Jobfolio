@@ -7,32 +7,25 @@ from account import account
 from signup import signup_user
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-from db import db
+from db import db, create_tables
 from models import *
 
 
-def create_tables(app):
-    with app.app_context():
-        db.create_all()
+
         
-def create_app():
-    app = Flask(__name__)
+app = Flask(__name__)
 
-    app.config.from_mapping(
-        SECRET_KEY='secret_key_just_for_dev_environment',
-        BOOTSTRAP_BOOTSWATCH_THEME = 'pulse',
-        SQLALCHEMY_DATABASE_URI= 'sqlite:///jobfolio.db'
-    )
+app.config.from_mapping(
+    SECRET_KEY='secret_key_just_for_dev_environment',
+    BOOTSTRAP_BOOTSWATCH_THEME = 'pulse',
+    SQLALCHEMY_DATABASE_URI= 'sqlite:///jobfolio.sqlite'
+)
 
-    db.init_app(app)
-    create_tables(app)
-    # from db import db, User, Education, Language, Project, Skill, UserProfile, create_tables
+db.init_app(app)
+create_tables(app)
+# from db import db, User, Education, Language, Project, Skill, UserProfile, create_tables
 
-    bootstrap = Bootstrap(app)
-    return app
-
-app=create_app()
-
+bootstrap = Bootstrap(app)
 
 UPLOAD_FOLDER = 'userpictures'  # Ordner für hochgeladene Bilder
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}  # Erlaubte Dateitypen
@@ -183,46 +176,38 @@ def delete_skill(skill_id):
 def submit_project():
     return redirect("/portfolio/")
 
-# CreateProfile Route
-@app.route('/create_profile', methods=['POST'])
-def create_user_profile_picture():
-    picture = request.files['profile_picture']
-    user_id = session['user_id']
-
-    new_user_profile = UserProfile(picture=picture, user_id=user_id)
-    db.session.add(new_user_profile)
-    db.session.commit()
-
-    return redirect(url_for('get_home'))
-
 # UpdateProfile Route
 @app.route('/update_user_profile', methods=['POST'])
 def update_user_profile():
     user_id = session['user_id']
-    user_profile = app.session.get(UserProfile, {'user_id': user_id})
+    user_profile = UserProfile.query.filter_by(user_id=user_id).first()
 
-    if 'profile_picture' in request.files:
-        profile_picture = request.files['profile_picture']
+    profile_picture = request.files['profile_picture']
+    title = request.form.get('user_name')  
+    user_description = request.form.get('user_description') 
+    
+    user_profile.title = title
+    user_profile.short_description = user_description
 
-        if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
-            filename = secure_filename(profile_picture.filename)
-            picture_path = os.path.join('userpictures', filename)
-            profile_picture.save(picture_path)
+    if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
+        picture_path = os.path.join('userpictures', profile_picture.filename)
+        profile_picture.save(picture_path)
 
-            title = request.form.get('user_name')  
-            user_description = request.form.get('user_description')  
+ 
 
-            if user_profile and not (user_profile is None):
-                
-                user_profile.picture = picture_path
-                user_profile.title = title
-                user_profile.short_description = user_description
-            else:
-                new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
-                db.session.add(new_user_profile)
+        if user_profile and not (user_profile is None):
+            
+            user_profile.picture = picture_path
 
+            
+        else:
+            
+            new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
+            db.session.add(new_user_profile)
             db.session.commit()
-            return redirect(url_for('get_portfolio')) 
+
+
+        return redirect(url_for('get_portfolio')) 
 
     return "Error updating profile"
 

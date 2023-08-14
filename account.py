@@ -1,5 +1,5 @@
 from flask import Flask, session, render_template, redirect, url_for, request
-from models import User, Education, Language, Project, Skill, UserProfile 
+from models import User, Language, Project, Skill, UserProfile 
 from db import db
 
 def account():

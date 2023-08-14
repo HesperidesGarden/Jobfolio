@@ -6,6 +6,6 @@ from sqlalchemy import orm
 
 db = SQLAlchemy()
 
-def create_tables():
-    with db.app.app_context():
+def create_tables(app):
+    with app.app_context():
         db.create_all()

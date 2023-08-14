@@ -15,25 +15,11 @@ class User(db.Model):
     city = db.Column(db.String)
     password = db.Column(db.String)
     
-    educations = db.relationship("Education", back_populates="user")
     languages = db.relationship("Language", back_populates="user")
     projects = db.relationship("Project", back_populates="user")
     skills = db.relationship("Skill", back_populates="user")
     user_profile = db.relationship("UserProfile", back_populates="user")
 
-
-class Education(db.Model):
-    __tablename__ = 'education'
-
-    id = db.Column(db.Integer, primary_key=True)
-    institution = db.Column(db.String, nullable=False)
-    degree = db.Column(db.String, nullable=False)
-    field_of_study = db.Column(db.String)
-    start_date = db.Column(db.Date, nullable=False)
-    end_date = db.Column(db.Date)
-    description = db.Column(db.String)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    user = db.relationship("User", back_populates="educations")
 
 class Language(db.Model):
     __tablename__ = 'language'
