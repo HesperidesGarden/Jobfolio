@@ -31,7 +31,7 @@
 <div class="strip">
   <h2 class="section-heading">Edit Profile</h2>
   <div class="profile-container">
-    <form action="{{ url_for('update_user_profile') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url_for('get_update_user_profile') }}" method="post" enctype="multipart/form-data">
       <label for="profile_picture">Profile Picture:</label>
       <input type="file" id="profile_picture" name="profile_picture" accept="image/*">
       <br>
@@ -79,7 +79,7 @@
   <div class="skills-content">
     <div class="add-form">
       <h3 class="form-heading">Add Skill</h3>
-      <form action="{{ url_for('add_skill') }}" method="post">
+      <form action="{{ url_for('get_add_skill') }}" method="post">
         <label for="skill_name">Name:</label>
         <input type="text" id="skill_name" name="skill_name" required>
         <label for="skill_proficiency">Proficiency:</label>
@@ -91,7 +91,7 @@
     </div>
     <div class="add-form">
       <h3 class="form-heading">Add Language</h3>
-      <form action="{{ url_for('add_lang') }}" method="post">
+      <form action="{{ url_for('get_add_lang') }}" method="post">
         <label for="language_name">Name:</label>
         <input type="text" id="language_name" name="language_name" required>
         <label for="language_proficiency">Proficiency:</label>
@@ -112,7 +112,8 @@
           {% for skill in user_skills %}
           <li>
             <span>{{ skill.name }}</span>
-            <form action="{{ url_for('delete_skill', skill_id=skill.id) }}" method="post">
+            <form action="{{ url_for('get_delete_skill', skill_id=skill.id) }}" method="post" class="delete-skill-form">
+              <input type="hidden" name="_method" value="DELETE">
               <button class="delete-button" type="submit">Delete</button>
             </form>
           </li>
@@ -130,7 +131,8 @@
           {% for language in user_languages %}
           <li>
             <span>{{ language.language_name }}</span>
-            <form action="{{ url_for('delete_language', language_id=language.id) }}" method="post">
+            <form action="{{ url_for('get_delete_language', language_id=language.id) }}" method="post" class="delete-language-form">
+              <input type="hidden" name="_method" value="DELETE">
               <button class="delete-button" type="submit">Delete</button>
             </form>
           </li>
@@ -140,7 +142,7 @@
         <p>No languages added yet.</p>
         {% endif %}
       </div>
-    </div>
+      
     
   
 </div>
