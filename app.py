@@ -11,8 +11,6 @@ from db import db, create_tables
 from models import *
 
 
-
-        
 app = Flask(__name__)
 
 app.config.from_mapping(
@@ -32,8 +30,6 @@ ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png', 'gif'}  # Erlaubte Dateitypen
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
-
 
 
 # Home = Default
