@@ -2,7 +2,6 @@ import os
 from flask import Flask, session, render_template, redirect, url_for, request
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-
 from models import User, Language, Project, Skill, UserProfile 
 from db import db
 

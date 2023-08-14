@@ -1,10 +1,10 @@
 import os
 from werkzeug.utils import secure_filename
 from flask import Flask, session, render_template, redirect, url_for, request
-from project_form import project_form
-from portfolio import portfolio
-from account import account
-from signup import signup_user
+from route_methods.project_form import project_form
+from route_methods.portfolio import portfolio
+from route_methods.account import account
+from route_methods.signup import signup_user
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from db import db, create_tables
