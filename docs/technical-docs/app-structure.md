@@ -166,4 +166,4 @@ Exact versions can be found in the `requirements.txt` file.
 
 ## Local Development
 
-To develop the application locally, ensure that you have the dependencies installed by running `pip install -r requirements.txt`. Then use `tbd !!!!` to start the development server.
+To develop the application locally, ensure that you have the dependencies installed by running `pip install -r requirements.txt`. Then use `flask run` to start the development server.
