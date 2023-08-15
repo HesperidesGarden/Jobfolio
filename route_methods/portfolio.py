@@ -6,7 +6,6 @@ from flask import session, render_template, request, jsonify
 import json
 
 
-
 def portfolio(json_response=False):
     if 'user_id' in session:
         user_id = session['user_id']
@@ -27,13 +26,14 @@ def portfolio(json_response=False):
             "user_languages": []
         }
 
+        # adding profile picture to folder chatgpt generated
         if user_projects and user_projects != "No projects added.":
             for project in user_projects:
                 portfolio_data["user_projects"].append({
             "image_url": project.url_picture,
             "title": project.title,
             "description": project.description,
-            "id": project.id  # Hier das Projekt-ID-Attribut hinzufügen
+            "id": project.id  
         })
 
         else:

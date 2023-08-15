@@ -50,9 +50,9 @@ Given the confusing web of files and functionalities that were emerging, managin
 ### Main decision and regarded options
 [by Khanh Linh]
 
-To tackle this situation, I made the decision: simplify the portfolio edit mode by retaining only the delete and add functionalities. While this was undoubtedly a tough choice, it was driven by the necessity to streamline the project's development process and maintain a feasible scope within the limitations of the course.
+To tackle this situation, I made the decision: simplify the portfolio edit mode by retaining only the delete and add functionalities for **Projects, Skills and Languages** and implementing the edit option only for the **Profile**. While this was undoubtedly a tough choice, it was driven by the necessity to streamline the project's development process and maintain a feasible scope within the limitations of the course.
 
-By opting for this solution, we aimed to reduce the number of forms and forwarding pages, mitigating the mounting complexity of the system. Although this meant sacrificing some of the more conventional and expected edit options, it was a pragmatic move given the circumstances. This decision also aligned with the initial understanding that the platform wouldn't be fully functional due to the project's scope constraints.
+By opting for this solution, we aimed to reduce the number of forms and forwarding pages, mitigating the mounting complexity of the system. Although this meant sacrificing some of the more conventional and expected edit options, it was a pragmatic move given the circumstances. This decision also aligned with the initial understanding that the platform wouldn't be fully functional due to the project's scope constraints. By keeping the edit option for **Profile**, we showcase that we are capable of implementing it nonetheless.
 
 However, it's important to highlight that the decision to simplify the portfolio edit mode opens up opportunities for future development. While the immediate implementation might not encompass all the desired features, it creates a foundation upon which additional functionalities can be built. This forward-looking approach acknowledges that the project is an evolving entity, and the deliberate simplification was made with the future in mind.
 
