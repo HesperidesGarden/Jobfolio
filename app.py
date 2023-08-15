@@ -1,6 +1,6 @@
 import os
 from werkzeug.utils import secure_filename
-from flask import Flask, session, render_template, redirect, url_for, request
+from flask import Flask, session, render_template, redirect, url_for, request, jsonify
 from route_methods.project_form import *
 from route_methods.portfolio import portfolio
 from route_methods.account import account
@@ -81,9 +81,13 @@ def get_findjobs():
 	return render_template('findjobs.html') 
 
 # MyPortfolio Route
-@app.route('/portfolio/')
+@app.route('/portfolio/', methods=['GET'])
 def get_portfolio():
-    return portfolio()
+    json_response = request.args.get('json') 
+    if json_response:
+        return portfolio(json_response=True)  
+    else:
+        return portfolio()  
 
 # PortfolioEdit Route
 @app.route('/portfolio_edit/')
