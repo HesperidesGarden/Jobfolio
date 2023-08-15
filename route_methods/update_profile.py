@@ -75,25 +75,29 @@ def update_user_profile(profile_picture):
     user_id = session['user_id']
     user_profile = UserProfile.query.filter_by(user_id=user_id).first()
 
-    profile_picture = request.files['profile_picture']
     title = request.form.get('user_occupation')  
     user_description = request.form.get('user_description') 
+    uploaded_picture = request.files['profile_picture']
     
-
-    if profile_picture and profile_picture.filename != '' and allowed_file(profile_picture.filename):
-        picture_filename = secure_filename(profile_picture.filename)
-        picture_path = posixpath.join(UPLOAD_FOLDER, picture_filename)
-        profile_picture.save(picture_path)
+    if uploaded_picture:  
+        if allowed_file(uploaded_picture.filename):
+            picture_filename = secure_filename(uploaded_picture.filename)
+            picture_path = posixpath.join(UPLOAD_FOLDER, picture_filename)
+            uploaded_picture.save(picture_path)
+            picture_path = "/" + picture_path
+        else:
+            picture_path = "/static/default-pfp.jpg"
     else:
-        picture_path = "/static/default-pfp.jpg"
-        
+        picture_path = user_profile.picture
+    
+    # change or create new
     if user_profile:
         user_profile.title = title
         user_profile.short_description = user_description
         if picture_path:
-            user_profile.picture = "/"+picture_path
+            user_profile.picture = picture_path
     else:
-        new_user_profile = UserProfile(picture="/"+picture_path, title=title, short_description=user_description, user_id=user_id)
+        new_user_profile = UserProfile(picture=picture_path, title=title, short_description=user_description, user_id=user_id)
         db.session.add(new_user_profile)
 
     db.session.commit()
