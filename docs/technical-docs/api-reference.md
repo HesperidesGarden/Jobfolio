@@ -209,3 +209,11 @@ nav_order: 4
 **Methods:** `POST`
 
 **Purpose:** Deletes project from database and forwards to Portfolio-View without deleted project on display
+
+### `jsonify`
+
+**Route:** `/portfolio/?json=true`
+
+**Methods:** `GET`
+
+**Purpose:** Outputs JSON data for UserProfile, Projects, Skills and Languages

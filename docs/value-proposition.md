@@ -31,7 +31,7 @@ A well-crafted portfolio serves as a visual representation of one's skills, proj
 
 The creation of an appealing portfolio can be both time consuming and difficult to master. JobFolio aims to simplify this process to make sure that even those with limited technical expertise can effortlessly create an impressive portfolio by filling out simple forms. We include text fields for every skill and project for the user's self evaluation. This ensures that the employer has an exact image of the skill level and gives the portfolio owner the opportunity to list necessary details.
 
-Our portfolio offers:
+Currently our website offers:
 * a short profile introduction
 * projects overview and detailed view
 * languages and skills

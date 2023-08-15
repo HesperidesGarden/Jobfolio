@@ -28,13 +28,12 @@ The following is a breakdown of the column names, data types, and constraints (i
 	"street"	         TEXT,
 	"zipcode"	         TEXT,
 	"city"	           TEXT,
-	"password"	       TEXT 
-  # 
+	"password"	       TEXT  
 </pre>
 </details>
 
 
-# Tabelle für Userprofil
+# Table for UserProfile
 
 <details open markdown="block">
 <summary>- User_Profile/</summary>
@@ -49,7 +48,7 @@ The following is a breakdown of the column names, data types, and constraints (i
 </pre>
 </details>
 
-# Tabellen für Portfolio
+# Table for Portfolio
 
 <details open markdown="block">
 <summary>- Education/</summary>

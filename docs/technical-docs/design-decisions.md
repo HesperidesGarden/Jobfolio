@@ -35,9 +35,7 @@ Our implementation has two roles: *Job Seeker* and *Guest*. We decided against i
 
 The *Guest* role is only able to see default sites, which all suggest them to 'create an account'. We chose the easiest option, as implementing the *Guest* didn't require more than making a few changes to .html files. Pages such as 'Home', 'Portfolio' and 'Account' are automatically changed and display personalized messages such as *Welcome back, [name]*. Due to us not having a dedicated bar showing the user whether they are logged in or not, those personalized pages help guide the user. This was especially helpful by keeping the page style simple.
 
-By focusing on the *job seeker*, we were also able to narrow down our navigation to just four main pages. The Portfolio editing requires a lot of functionality and routes, so we wanted to focus on that instead of creating more unnecessary introduction pages filled with just text. The content that we did include, however, portray the most important features of JobFolio.
-
----
+By focusing on the *job seeker*, we were also able to narrow down our navigation to just four main pages. The Portfolio editing requires a lot of functionality and routes, so we wanted to focus on that instead of creating more unnecessary introduction pages filled with just text. The content that we did include, however, portray the most important features of JobFolio. The **Find Jobs** tab is also just a model tab without backend functionality. As mentioned before, the Portfolio was our main focus. 
 
 ## Portfolio Edit Mode
 
