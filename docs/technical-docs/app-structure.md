@@ -8,11 +8,15 @@ nav_order: 1
 {: .label }
 
 # App Structure
+{: .no_toc }
 
 <details open markdown="block">
   <summary>
     Table of contents
   </summary>
+  {: .text-delta }
+- TOC
+{:toc}
 </details>
 
 The structure of our web application is based on Flask, Python, and SQLAlchemy to enable efficient backend processing and database interaction. In this section, we provide an overview of the folder structure, main components, and the technologies used.
@@ -47,7 +51,9 @@ The folder structure of our application looks as follows:
 <details open markdown="block">
 <summary>- app/docs/</summary>
 <pre>
-    - assets/
+    - assets/images
+      - account-sequence.png
+      - ...
     - team-eval/
       - contributions.md
       - goals.md
@@ -61,11 +67,12 @@ The folder structure of our application looks as follows:
       - data-model.md
       - design-decisions.md
       - index.md
+      - image-1.png
+      - ...
     - user-eval/
       - user-eval.md
     - _config.yml
-    - README.md ## necessary?
-    - ui-components.md ##to be deleted
+    - README.md 
     - value-proposition.md
 </pre>
 </details>
@@ -73,6 +80,8 @@ The folder structure of our application looks as follows:
 <details open markdown="block">
 <summary>- app/static/</summary>
 <pre>
+    - project_pictures (folder)
+    - userpictures (folder)
     - account.css
     - edit_portfolio.css
     - findjobs.css
@@ -81,8 +90,9 @@ The folder structure of our application looks as follows:
     - portfolio_logged_in.css
     - portfolio_logged_out.css
     - project_forms.css
+    - project.css
     - signup.css
-    - default-pfp.jpg ##own folder props
+    - default-pfp.jpg 
     - interview.jpg
     - logo-transperent.png
 </pre>
@@ -95,11 +105,12 @@ The folder structure of our application looks as follows:
     - findjobs.html
     - home.html
     - login.html
+    - portfolio_edit_view.html
     - portfolio_logged_in.html
     - portfolio_logged_out.html
     - project_forms.html
+    - project.html
     - signup.html
-    - base.html
 </pre>
 </details>
 <details open markdown="block">
@@ -107,22 +118,26 @@ The folder structure of our application looks as follows:
 <pre>
     - account.py
     - portfolio.py
+    - portfolio_edit.py
     - project-forms.py
     - signup.py
+    - update_profile.py
 </pre>
 </details>
 - app.py
 - db.py
-- jobfolio.db
+- models.py
+- index.md
 - LICENSE
 - requirements.txt
-
+- _config.yml
+- _init_.py
 
 ## Main Components
 
 Our web application is divided into various main components to ensure clear structure and reusability:
 
-1. **Databasetables/ DAO:** The models are organized into separate modules and define the structure of the database tables. We use SQLAlchemy to abstract the database interaction.
+1. **Databasetables:** The models define the structure of the database tables. We use SQLAlchemy to abstract the database interaction.
 
 2. **Routes Methods:** The routes methods define the used methods for the endpoints of the application and handle logic behind the HTTP requests. They are organized into separate modules to enhance maintainability.
 
