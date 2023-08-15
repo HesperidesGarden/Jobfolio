@@ -50,7 +50,7 @@
         {% for project in user_projects %}
         <div class="project-card">
           <img src="{{ project.image_url }}" alt="Project Image">
-          <h3>{{ project.title }}</h3>
+          <h3>{{ project.title }}</h3> <!-- click -> detail view of project-->
           <p>{{ project.description }}</p>
         </div>
         {% endfor %}

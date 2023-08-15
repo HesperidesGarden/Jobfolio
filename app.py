@@ -94,10 +94,6 @@ def get_portfolio():
 def get_portfolio_edit():
 	return portfolio_edit_view()
 
-# ProjectForms Route
-@app.route('/create_project/', methods=["GET", "POST"])
-def get_project_form():
-    return project_form()
    
 # Signup Route
 @app.route('/signup/', methods=["GET", "POST"])
@@ -131,8 +127,8 @@ def get_update_user_profile():
    return update_user_profile(request.files['profile_picture'])
 
 # SubmitProject / AddProject Route
-@app.route("/submit", methods=["GET", "POST"])
-def submit_project():
+@app.route('/create_project/', methods=["GET", "POST"])
+def get_project_form():
     return project_form()
 
 # deleteProject

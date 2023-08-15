@@ -28,7 +28,7 @@
                     <header>
                         <h1 id="content-header">Project Form</h1>
                     </header>
-                    <form action="/submit" method="post" enctype="multipart/form-data">
+                    <form action="{{ url_for('get_project_form') }}" method="post" enctype="multipart/form-data">
                         <div class="form-field">
                             <label for="project_name">Project name:</label>
                             <input type="text" id="project_name" name="project_name" placeholder="Enter project name" required>
