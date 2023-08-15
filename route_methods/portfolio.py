@@ -13,7 +13,7 @@ def portfolio(json_response=False):
 
         user = db.session.get(User, user_id)
         user_profile = db.session.get(UserProfile, user_id)
-        user_projects = db.session.get(Project, user_id)
+        user_projects = db.session.query(Project).filter_by(user_id=user_id).all()
         user_skills = db.session.query(Skill).filter_by(user_id=user_id).all()
         user_languages = db.session.query(Language).filter_by(user_id=user_id).all()
 
@@ -27,15 +27,18 @@ def portfolio(json_response=False):
             "user_languages": []
         }
 
-        if user_projects:
+        if user_projects and user_projects != "No projects added.":
             for project in user_projects:
                 portfolio_data["user_projects"].append({
-                    "image_url": project.image_url,
-                    "title": project.title,
-                    "description": project.description
-                })
+            "image_url": project.url_picture,
+            "title": project.title,
+            "description": project.description,
+            "id": project.id  # Hier das Projekt-ID-Attribut hinzufügen
+        })
+
         else:
             portfolio_data["user_projects"] = "No projects added."
+
 
         if user_skills:
             for skill in user_skills:

@@ -41,25 +41,27 @@
       </div>
     </div>
   
-  <!-- My Projects -->
-  <div class="strip projects-container">
-    <h2 class="section-heading">My Projects</h2>
-    <div class="projects-content">
-      <div class="projects-container-inner">
-        {% if user_projects and user_projects != "No projects added." %}
-        {% for project in user_projects %}
-        <div class="project-card">
-          <img src="{{ project.image_url }}" alt="Project Image">
-          <h3>{{ project.title }}</h3> <!-- click -> detail view of project-->
-          <p>{{ project.description }}</p>
-        </div>
-        {% endfor %}
-        {% else %}
-        <p>No projects added.</p>
-        {% endif %}
+  
+
+<!-- My Projects -->
+<div class="strip projects-container">
+  <h2 class="section-heading">My Projects</h2>
+  <div class="projects-content">
+    <div class="projects-container-inner">
+      {% if user_projects and user_projects != "No projects added." %}
+      {% for project in user_projects %}
+      <div class="project-card">
+        <img src="{{ project.image_url }}" alt="Project Image">
+        <h3><a href="{{ url_for('project_detail', project_id=project.id) }}">{{ project.title }}</a></h3>
+        <p>{{ project.description }}</p>
       </div>
+      {% endfor %}
+      {% else %}
+      <p>No projects added.</p>
+      {% endif %}
     </div>
   </div>
+</div>
   
 
   <!-- Languages and Skills -->

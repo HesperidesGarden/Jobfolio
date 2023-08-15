@@ -80,42 +80,20 @@ body {
     color: #fff;
   }
 
-  /* profile */
-  .profile-container {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    padding: 20px;
+  .project-image {
+    margin-bottom: 10px; /* Abstand zwischen Bild und Titel */
   }
   
-  .profile-picture {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 20px;
+  .project-image img {
+    max-width: 100%; /* Bildgröße auf 100% der Containerbreite begrenzen */
+    height: auto; /* Erhält das Seitenverhältnis des Bildes */
+    display: block; /* Entfernt unerwünschte Lücken unter dem Bild */
+    margin: 0 auto; /* Zentriert das Bild horizontal */
   }
   
-  .profile-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .profile-content {
-    flex: 1;
-  }
-  
-  .profile-name {
-    font-size: 28px;
-    margin-top: 0;
-  }
-  
-  .description-box {
-    margin-top: 10px;
-    max-width: 630px;
-    text-align: center;
+  .project-title {
+    font-size: 24px; /* Größe des Projekt-Titels */
+    margin: 10px 0; /* Abstand oben und unten */
   }
   
   

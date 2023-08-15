@@ -10,7 +10,7 @@ def portfolio_edit_view():
 
         user = db.session.get(User, user_id)
         user_profile = db.session.get(UserProfile, user_id)
-        user_projects = db.session.get(Project, user_id)
+        user_projects = db.session.query(Project).filter_by(user_id=user_id).all()
         user_skills = db.session.query(Skill).filter_by(user_id=user_id).all()
         user_languages = db.session.query(Language).filter_by(user_id=user_id).all()
 

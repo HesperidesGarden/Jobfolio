@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Project Details</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='project.css') }}">
 </head>
 <body>
   <header>
@@ -22,6 +22,10 @@
   </header>
 
   <!-- Project Details -->
+  <div class="project-details-container">
+    <div class="project-image">
+      <img src="{{ project.url_picture }}" alt="Project Image">
+    </div>
   <div class="project-details-container">
     <h1 class="project-title">{{ project.title }}</h1>
     <div class="project-info">

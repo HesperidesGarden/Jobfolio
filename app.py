@@ -136,6 +136,15 @@ def get_project_form():
 def get_delete_project(project_id):
     return delete_project(project_id)
 
+@app.route('/project_detail/<int:project_id>')
+def project_detail(project_id):
+    project = db.session.query(Project).get(project_id)    
+    if project:
+        return render_template('project.html', project=project)
+    else:
+        return "Project not found", 404
+
+
 if __name__ == "__main__":
     # with app.app_context():
         # create_tables() 
