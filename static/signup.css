@@ -86,14 +86,12 @@ button {
   justify-content: space-between;
 }
 
-/* New style for form columns */
 .form-column {
   flex: 1;
   padding: 0 10px;
   max-width: 50%;
 }
 
-/* Add margin between columns */
 .form-column + .form-column {
   margin-left: 20px;
 }
