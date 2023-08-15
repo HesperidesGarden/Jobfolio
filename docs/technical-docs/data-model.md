@@ -51,20 +51,6 @@ The following is a breakdown of the column names, data types, and constraints (i
 # Table for Portfolio
 
 <details open markdown="block">
-<summary>- Education/</summary>
-<pre>
-  id                INTEGER PRIMARY KEY,
-  institution       TEXT NOT NULL,
-  degree            TEXT NOT NULL,
-  field_of_study    TEXT,
-  start_date        DATE NOT NULL,
-  end_date          DATE,
-  description       TEXT,
-  users_id          INTEGER,
-  FOREIGN KEY (users_id) REFERENCES users (id)
-</pre>
-</details>
-<details open markdown="block">
 <summary>- Language/</summary>
 <pre>
   id I              NTEGER PRIMARY KEY,

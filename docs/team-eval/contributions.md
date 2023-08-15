@@ -21,14 +21,17 @@ nav_order: 4
 Contributions
 : Frontend Design
 : Homepage and Defaultpages (Front- and Backend)
+: Login, Registration and Account (Frontend)
 : Portfolio (Frontend)
-: Documentation (Design Decisions, Value Proposition)*
+: Portfolio Edit (Frontend- and Backend)
+: Documentation (Design Decisions, Value Proposition, Sources)*
 
 ## [Florian Eppe]
 Contributions
 : Database structure
-: Login, Registration and Account (Front- and Backend)
+: Login, Registration and Account (Backend)
 : Portfolio (Backend)
+: Portfolio Edit (Backend)
 : Documentation (Data Model, API Reference)*
 
 ## [Victoria-Kim Bui]
