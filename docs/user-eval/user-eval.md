@@ -18,21 +18,11 @@ nav_order: 4
 {:toc}
 </details>
 
-## 01: [Title]
-
-### Meta
-
-Status
-: **Work in progress** - Done - Obsolete
-
-Updated
-: DD-MMM-YYYY
-
-### Goal
+## Goal
 
 The goal of this user evaluation is to understand the user experience and efficiency of interactions with the portfolio, projects, skills, and languages features within the web application. Specifically, we aim to assess the time it takes for users to manage their portfolio content and identify any pain points or areas for improvement.
 
-### Methodology
+## Methodology
 
 To achieve our evaluation goal, we  preliminary tests with our fellow students for time related reasons. Nevertheless we recognize the importance of reliable and diverse data for informed insights and would therefore conducted a user study involving a broader and more diverse group of participants before any further decisions regarding future versions of the web application.
 
@@ -46,7 +36,7 @@ This prelimary user study encompasses the same interactions as described previou
 
 5. **Deleting Projects:** Participants are requested to delete a project entry from their portfolio.
 
-### Results
+## Results
 
 Based on the user evaluation, we gathered the following key results:
 
@@ -58,7 +48,7 @@ Based on the user evaluation, we gathered the following key results:
 
 - **Deleting Project:** Users took less than a minute to delete a project entry. The deletion mechanism was found to be quick and effective.
 
-### Implications
+## Implications
 
 The results of this user evaluation provide valuable insights for improving the user experience of the portfolio, project, skills, and languages interactions within the web application. Based on the findings:
 
