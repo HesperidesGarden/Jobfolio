@@ -54,4 +54,19 @@ By opting for this solution, we aimed to reduce the number of forms and forwardi
 
 However, it's important to highlight that the decision to simplify the portfolio edit mode opens up opportunities for future development. While the immediate implementation might not encompass all the desired features, it creates a foundation upon which additional functionalities can be built. This forward-looking approach acknowledges that the project is an evolving entity, and the deliberate simplification was made with the future in mind.
 
+
+## Database
+
+### Problem Statement
+When developing a software project that involves a website with both front-end and back-end components, along with a database for data storage, one of the key design decisions involves the choice between using "classic" SQL queries and an Object-Relational Mapping (ORM) library like SQLAlchemy. Opting for classic SQL queries can present a number of challenges and drawbacks.
+
+Using classic SQL queries directly in the code can lead to several problems. Firstly, it often requires embedding SQL statements within the codebase, which can result in code that is difficult to read, maintain, and debug. The mixture of application logic and database logic within the same code can make it challenging to understand and modify as the project evolves. Moreover, manually constructing and formatting SQL queries increases the likelihood of errors, such as syntax mistakes, typos, and security vulnerabilities, which could potentially expose the application to SQL injection attacks. As the project scales and the database schema changes, making updates to numerous SQL queries scattered throughout the codebase becomes a time-consuming and error-prone task.
+
+
+### Main decision and regarded options
+[by Florian]
+To address the challenges posed by using classic SQL queries, a more elegant and maintainable solution is SQLAlchemy. It provides a higher-level abstraction over database interactions, offering several benefits for our software project. For example Abstraction of Database Operations. SQLAlchemy abstracts away the need to write raw SQL queries, enabling us to work with Python objects and classes that directly represent database tables. This abstraction simplifies the codebase, separating application logic from database details.
+
+By utilizing SQLAlchemy, we where able to write more readable and maintainable code. Complex database operations are expressed using high-level Python constructs, making it easier to understand and modify the codebase over time.
+
 ---
